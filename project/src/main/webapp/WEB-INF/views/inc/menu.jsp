@@ -35,10 +35,10 @@
 								<li><a href="<c:url value='../match/matching.do'/>">매칭하기</a></li>
 							</ul>
 						</li>
-						<li><a href="services.html">CAMPUSGROUP</a>
+						<li><a href="#none">CAMPUSGROUP</a>
 							<ul class ="submenu">
-								<li><a href="<c:url value='../group/circles.do'/>">동아리</a></li>
-								<li><a href="<c:url value='../group/study.do'/>">스터디</a></li>
+								<li><a href="<c:url value='../group/circle_list.do'/>">동아리</a></li>
+								<li><a href="<c:url value='../group/study_list.do'/>">스터디</a></li>
 							</ul>
 						</li>
 					</ul>

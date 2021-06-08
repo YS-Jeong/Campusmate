@@ -6,14 +6,34 @@
 
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
 	<body>
-<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
+<c:set var="session" value="${sessionScope.login}" scope="application"/>
+<header>
+		<div class = "top-btn">
+			<ul class = "member">
+	        	<c:if test="${not empty session}">
+	        		<li><a><c:out value="${session.name}님 환영합니다."/></a></li>
+	        	    <li><a href="<c:url value='/member/mypage.do'/>">회원정보수정</a></li>
+	         		<li><a href="<c:url value='/member/actionLogout.do'/>">로그아웃</a></li>
+	            </c:if>     
+	           	<c:if test="${empty session}">
+	           		<li><a href="<c:url value='/member/login.do'/>">LOGIN</a></li>
+	            	<li><a href="<c:url value='/member/join.do'/>">JOIN</a></li>    
+	            </c:if>   
+         	</ul>
+		</div>
+		<div class="container text-center">
+			<div class="fh5co-navbar-brand">
+				<a class="fh5co-logo" href="<c:url value='../index.do'/>">CAMPUSMATE</a>
+			</div>
+		</div>
+</header>
 
 <!-- contents 시작 -->
 <div class="join-wrap">
 
 	<div class= "join-box">
 
-		<h1>회원가입</h1>
+		<h1>회원정보수정</h1>
 
 		<c:set var="session" value="${sessionScope.login}" scope="application"/>
 		<form method="post" name="frm" action="<c:url value='/member/updateInsert.do'/>">
@@ -25,7 +45,7 @@
 				</li>
 				<li>
 					<label for="">비밀번호</label>
-					<input type="password" name="password" placeholder="비밀번호" value="${session.password}">
+					<input type="password" name="password" placeholder="비밀번호" value="">
 				</li>
 				<li>
 					<label for="">비밀번호 확인</label>

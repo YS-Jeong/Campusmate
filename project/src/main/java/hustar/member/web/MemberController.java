@@ -192,17 +192,6 @@ public class MemberController {
 			@ModelAttribute("memberVO") MemberVO memberVO, 
 			RedirectAttributes redirectAttributes) throws Exception {
 
-		System.out.println("id = " + memberVO.getSt_id());
-		System.out.println("password = " + memberVO.getPassword());
-		System.out.println("name = " + memberVO.getName());
-		System.out.println("phone = " + memberVO.getPhone());
-		System.out.println("birth = " + memberVO.getBirth());
-		System.out.println("school = " + memberVO.getSchool());
-		System.out.println("gender = " + memberVO.getGender());
-		System.out.println("depart = " + memberVO.getDepart());
-		
-		
-
 		// password를 hash 함수를 이용하여 암호화 시켜주는 기능. 
 		String encpass = BCrypt.hashpw(memberVO.getPassword(), BCrypt.gensalt()); 
 		memberVO.setPassword(encpass);
