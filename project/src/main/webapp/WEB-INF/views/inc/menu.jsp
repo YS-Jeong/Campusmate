@@ -29,10 +29,10 @@
 						<li><a href="<c:url value='../index.do'/>" class="active">Home</a></li>
 						<li><a href="#none">CAMPUSDATE</a>
 							<ul class ="submenu">
-								<li><a href="<c:url value='./match/match_intro.do'/>">소개</a></li>
-								<li><a href="<c:url value='./match/match_join.do'/>">매칭등록</a></li>
-								<li><a href="<c:url value='./match/match_modify.do'/>">매칭수정</a></li>
-								<li><a href="<c:url value='./match/matching.do'/>">매칭하기</a></li>
+								<li><a href="<c:url value='../match/match_intro.do'/>">소개</a></li>
+								<li><a href="<c:url value='../match/match_join.do'/>">매칭등록</a></li>
+								<li><a href="<c:url value='../match/match_modify.do'/>">매칭수정</a></li>
+								<li><a href="<c:url value='../match/matching.do'/>">매칭하기</a></li>
 							</ul>
 						</li>
 						<li><a href="services.html">CAMPUSGROUP</a>

@@ -100,8 +100,8 @@
 		</div>
 	</header>	
 	<div class="owl-carousel owl-carousel1 owl-carousel-fullwidth fh5co-light-arrow animate-box" data-animate-effect="fadeIn">
-		<div class="item"><a href="img/featured-1.jpg" class="image-popup"><img src="img/featured-1.jpg" alt="image"></a></div>
-		<div class="item"><a href="img/featured-2.jpg" class="image-popup"><img src="img/featured-2.jpg" alt="image"></a></div>
+		<div class="item"><a href="#none" class="image-popup"><img src="img/featured-1.jpg" alt="image"></a></div>
+		<div class="item"><a href="#none" class="image-popup"><img src="img/featured-2.jpg" alt="image"></a></div>
 	</div>
 
 	<div id="fh5co-intro-section">
