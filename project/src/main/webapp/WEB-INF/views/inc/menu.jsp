@@ -37,8 +37,8 @@
 						</li>
 						<li><a href="services.html">CAMPUSGROUP</a>
 							<ul class ="submenu">
-								<li><a href="<c:url value='/match/date_intro.do'/>">동아리</a></li>
-								<li><a href="./campusmate_date/member.jsp">스터디</a></li>
+								<li><a href="<c:url value='../group/circles.do'/>">동아리</a></li>
+								<li><a href="<c:url value='../group/study.do'/>">스터디</a></li>
 							</ul>
 						</li>
 					</ul>
