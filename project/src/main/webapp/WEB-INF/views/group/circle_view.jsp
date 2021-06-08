@@ -5,48 +5,56 @@
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
-<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 <body>
 
-<div class="snb-wrap">
-  <div>
-    <ul>
-			<li class="on"><a href="<c:url value='/group/circle_list.do'/>"><span>동아리게시판</span></a></li>
-			<li class=""><a href="<c:url value='/group/study_list.do'/>"><span>스터디게시판</span></a></li>
-    </ul>
-  </div>
-</div>
+<!--콘텐츠 시작-->
+<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
+<%@ include file="/WEB-INF/views/inc/submenu.jsp" %>
 
 <div class="notice-wrap">
 	<div class="notice-box">
 		<div class="bbs-view">
 
 			<div class="view-hd">
-				<span>등록일 : 2021-04-27</span>
-				<h2>동아리게시판내용 입니다. 열심히 하겠습니다!</h2>
-				<p>작성자 : <b>관리자</b></p>
+				<span><c:out value='${circleVO.date}' /></span>
+				<h2><c:out value='${circleVO.subject}' /></h2>
+				<p>작성자 : <b><c:out value='${circleVO.writer}' /></b></p>
 			</div>
 
 			<div class="view-cont">
-				<p>동아리게시판 작성 후 출력 되는 페이지 입니다.</p>
-				<p>동아리게시판 작성은 textarea로 작성이 되었습니다.</p>
+				<pre><c:out value='${circleVO.contents}' /></pre>
 			</div>
 
 			<div class="view-file">
-				<a href="#none"><i class="fa fa-download" aria-hidden="true"></i>  첨부파일 다운로드.jpg</a>
-				<a href="#none"><i class="fa fa-download" aria-hidden="true"></i>  첨부파일 다운로드.jpg</a>
+				<a href="<c:url value='/group/circle_downloadFile.do' />?seq=${circleVO.seq}"><i class="fa fa-download" aria-hidden="true"></i>${circleVO.oriFilename}</a>
+				<!--<a href="#none"><i class="fa fa-download" aria-hidden="true"></i>  첨부파일 다운로드.jpg</a>-->
 			</div>
 		</div>
 
 		<div class="table-btn">
 			<div>
-				<a href="<c:url value='/bbs/free_list.do'/>" class="lis">목록</a>
-				<a href="#none" class="del">삭제</a>
-				<a href="#none" class="mod">수정</a>
+				<a href="<c:url value='/group/circle_list.do'/>" class="lis">목록</a>
+				<a href="#none" onclick="javascript:confirmDelete();">삭제</a>
+				<a href="<c:url value='/group/circle_modify.do'/>?seq=${circleVO.seq}">수정</a>
 			</div>
 		</div>
 
 	</div>
 
 </div>
+
 <%@ include file="/WEB-INF/views/inc/footer.jsp" %>
+
+<!--콘텐츠 끝-->
+<script>
+function confirmDelete(){
+	
+	if(confirm('삭제하시겠습니까?') == true){
+		location.href = '<c:url value="/group/circle_delete.do"/>?seq=${circleVO.seq}';
+	}
+	
+}
+</script>
+
+</body>
+</html>

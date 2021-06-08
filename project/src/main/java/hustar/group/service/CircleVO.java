@@ -2,7 +2,7 @@ package hustar.group.service;
 
 import egovframework.com.cmm.ComDefaultVO;
 
-public class GroupVO extends ComDefaultVO{
+public class CircleVO extends ComDefaultVO{
 	public int seq;
 	public String subject;
 	public String writer;

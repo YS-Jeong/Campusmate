@@ -33,15 +33,15 @@
 				</li>
 			</ul>
 			
-			<c:forEach var="noticeVO" items="${noticeVOList}" varStatus="status">
+			<c:forEach var="circleVO" items="${circleVOList}" varStatus="status">
 				<ul class="tb-bd">
 					<li>
 						<div class="no">
 							<c:out value="${paginationInfo.totalRecordCount - ((paginationInfo.currentPageNo-1) * paginationInfo.recordCountPerPage + status.index)}"/>
 						</div>
-						<div class="subject"><a href="<c:url value='/bbs/notice_view.do'/>?seq=${noticeVO.seq}"><c:out value="${noticeVO.subject}"/></a></div>
-						<div class="name"><c:out value="${noticeVO.writer}"/></div>
-						<div class="date"><c:out value="${noticeVO.date}"/></div>
+						<div class="subject"><a href="<c:url value='/group/circle_view.do'/>?seq=${circleVO.seq}"><c:out value="${circleVO.subject}"/></a></div>
+						<div class="name"><c:out value="${circleVO.writer}"/></div>
+						<div class="date"><c:out value="${circleVO.date}"/></div>
 					</li>
 				</ul>
 			</c:forEach>
@@ -62,7 +62,7 @@
 		
 		<div class="table-btn">
 			<div>
-				<a href="<c:url value='/bbs/notice_write.do'/>">글쓰기</a>
+				<a href="<c:url value='/group/circle_write.do'/>">글쓰기</a>
 			</div>
 		</div>
 
