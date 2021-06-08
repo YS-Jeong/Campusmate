@@ -61,11 +61,11 @@
 			<div class="row about">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="col-md-6 col-sm-6">
-						<div class="team-section-grid" style="background-image: url(images/author-6.jpg);">
+						<div class="team-section-grid" style="background-image: url('../img/Kimdoyeon.jpg');">
 							<div class="overlay-section">
 								<div class="desc">
 									<h3>Kim Doyeon</h3>
-									<span>Chief Executive Officer</span>
+									<span>Group leader</span>
 									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 									<p class="fh5co-social-icons">
 										<a href="#"><i class="icon-twitter-with-circle"></i></a>
@@ -77,11 +77,11 @@
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">
-						<div class="team-section-grid" style="background-image: url(images/author-4.jpg);">
+						<div class="team-section-grid" style="background-image: url('../img/Jeongyeseong.jpg');">
 							<div class="overlay-section">
 								<div class="desc">
 									<h3>Jeong Yeseong</h3>
-									<span>Chief Executive Officer</span>
+									<span>Group member</span>
 									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 									<p class="fh5co-social-icons">
 										<a href="#"><i class="icon-twitter-with-circle"></i></a>

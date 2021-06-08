@@ -128,7 +128,7 @@ header .fh5co-navbar-brand {
 }
 header .fh5co-navbar-brand .fh5co-logo {
   position: relative;
-  font-size: 50px;
+  font-size: 70px;
   color: #000;
   text-transform: uppercase;
   font-weight: 700;
@@ -899,8 +899,8 @@ input[type="text"] {
 .menu > div{max-width:1200px; }
 .menu > div > ul{text-align:center; margin:0; padding:0; }
 .menu > div > ul > li{display:inline-block; position:relative;}
-.menu > div > ul > li a{display:block; padding:10px; font-size:17px; margin:10px 40px; color:#000; font-family:'Nanum Gothic', 'Malgun Gothic', dotum, sans-serif;}
+.menu > div > ul > li a{display:block; padding:10px; font-size:30px; margin:10px 40px; color:#000; font-family:'Nanum Gothic', 'Malgun Gothic', dotum, sans-serif;}
 .menu > div > ul > li a:hover{color:#057bf5}
 .menu > div > ul > li > ul.submenu{position:absolute; z-index:9; background: white; display:none; width: 100%; border-top: 0; list-style:none; margin:0; padding:0;}
 .menu > div > ul > li:hover ul.submenu{display: block; }
-.menu > div > ul > li ul.submenu a{margin:5px; font-size:14px;}
+.menu > div > ul > li ul.submenu a{margin:5px; font-size:20px;}
