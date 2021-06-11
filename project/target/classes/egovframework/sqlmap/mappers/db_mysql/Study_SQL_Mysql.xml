@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="studyDAO">
@@ -69,3 +70,76 @@
 	<!--//공지사항 삭제  -->
 	
 </mapper>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="studyDAO">
+   
+   <!-- 공지사항 목록  -->
+   <select id="studyDAO.selectStudyList" parameterType="studyVO" resultType="studyVO">
+   <![CDATA[
+      SELECT * FROM STUDY
+      WHERE SUBJECT LIKE CONCAT('%', #{searchKeyword}, '%')
+      OR WRITER LIKE CONCAT('%', #{searchKeyword}, '%')
+      ORDER BY DATE DESC, SUBJECT DESC
+      LIMIT ${recordCountPerPage} OFFSET ${firstIndex}
+      ]]>
+   
+   </select>
+   <!-- //공지사항 목록 -->
+   
+   <!-- 공지사항 목록 개수  -->
+   <select id="studyDAO.selectStudyListCnt" parameterType="studyVO" resultType="int">
+   <![CDATA[
+      SELECT COUNT(*) FROM STUDY
+      WHERE SUBJECT LIKE CONCAT('%', #{searchKeyword},'%')
+      OR WRITER LIKE CONCAT('%', #{searchKeyword}, '%')
+      ]]>
+   
+   </select>
+   <!-- //공지사항 목록 개수 -->
+   
+   
+   <select id="studyDAO.selectStudyView" parameterType="studyVO" resultType="studyVO">
+      <![CDATA[
+   
+      SELECT * FROM STUDY WHERE SEQ = #{seq}
+   
+      ]]>
+      
+
+   </select>
+   
+   <!-- 공지사항 등록 -->
+   <insert id="studyDAO.insertStudy" parameterType ="studyVO">
+      <![CDATA[
+      INSERT INTO STUDY 
+      (SUBJECT, WRITER, DATE, CONTENTS, FILENAME, ORIFILENAME)
+      VALUES
+      (#{subject},#{writer},NOW(), #{contents}, #{filename}, #{oriFilename})
+      ]]>
+   </insert>
+   
+   <!-- //공지사항 등록 -->
+   
+   <!-- 공지사항 수정 -->
+   <update id="studyDAO.updateStudy" parameterType="studyVO">
+      UPDATE STUDY
+      <trim prefix ="SET" suffixOverrides=",">
+         <if test = "subject != null"><![CDATA[ SUBJECT = #{subject}, ]]></if>
+         <if test = "contents != null"><![CDATA[ CONTENTS = #{contents}, ]]></if>
+         <if test = "filename != null"><![CDATA[ FILENAME = #{filename}, ]]></if>
+         <if test = "oriFilename != null"><![CDATA[ ORIFILENAME = #{oriFilename}, ]]></if>
+      </trim>
+      WHERE SEQ = #{seq}
+   </update>
+   <!-- //공지사항 수정 -->
+    
+    <!--공지사항 삭제  -->
+   <delete id="studyDAO.deleteStudy" parameterType ="studyVO">
+      DELETE FROM STUDY WHERE SEQ = #{seq}
+   </delete>
+   <!--//공지사항 삭제  -->
+   
+</mapper> 
+>>>>>>> branch 'master' of https://github.com/YS-Jeong/Campusmate.git

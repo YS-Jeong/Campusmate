@@ -11,7 +11,7 @@
 <%@ include file="/WEB-INF/views/inc/submenu.jsp" %>
 
 <form method="post" name="frm" action="<c:url value='/group/circle_write_action.do'/>" enctype="multipart/form-data">
-<c:if test = "${mode == 'modify' }">
+<c:if test = "${mode =='modify'}">
 	<input type="hidden" name="seq" value="${circleVO.seq}">
 </c:if>
 <input type="hidden" name="mode" value="${mode}">
@@ -57,7 +57,7 @@
 	
 			<div class="table-btn">
 				<div>
-					<a href="<c:url value='/group/circle_view.do'/>">이전</a>
+					<a href="<c:url value='/group/circle_list.do'/>">이전</a>
 					<a href="#" onclick="javascript:document.frm.submit();">완료</a>
 				</div>
 			</div>
@@ -78,7 +78,7 @@ function confirmDeleteFile(){
 			type:'POST',
 			url: '<c:url value="/group/circle_deleteFile.do"/>',
 			dataType: 'JSON',
-			data: {"seq" : ${circleVO.seq}},
+			data: ("seq" : ${circleVO.seq}),
 			success: function(data){
 				if(data.success == true){
 					location.reload();

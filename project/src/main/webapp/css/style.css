@@ -984,7 +984,7 @@ transform:translateX(-50%);
 bottom:-7px;
 }
 
-/* circle_view.jsp 부분 =============================================================================================================================================================================*/
+/* circle_list.jsp 부분 =============================================================================================================================================================================*/
 .notice-box{max-width:1200px; margin: 0 auto;}
 
 .table-hd{text-align: right; padding: 10px 0;}
@@ -1023,7 +1023,7 @@ border-right: 0;
 .table-btn > div{text-align: right;}
 .table-btn > div a{background: #fe8e60; padding: 10px 20px; color: #fff; display: inline-block;}
 
-/* circle_view.html 부분 =============================================================================================================================================================================*/
+/* circle_view.jsp 부분 =============================================================================================================================================================================*/
 .bbs-view{max-width: 100%; margin: 0 auto; border:1px solid #e1e1e1; border-radius:50px; padding:20px; background:#fff;}
 .bbs-view .view-hd{text-align:center; margin-bottom:20px;}
 .bbs-view .view-hd h2{padding: 10px 0; font-size: 20px;}
@@ -1035,6 +1035,7 @@ border-right: 0;
 .bbs-view .view-file a{display:block; padding: 5px; border-bottom: 1px dashed #ccc;}
 .bbs-view .view-file a:last-child{border-bottom:0;}
 
+<<<<<<< HEAD
 
 /* 초기 setting (이런 선언 안 해놓으면 각자의 원래 값으로 속성을 가지고 있다.)======================================================================================================*/
 /* 초기화 */
@@ -1556,3 +1557,14 @@ border-right: 0;
 
 .cir:after{content:''; position: absolute; width: 45px; height: 1px; background: #fff; top:50%; right:-45px;}
 .cir:last-child:after{display: none;}
+=======
+/* circle_write.jsp 부분 =============================================================================================================================================================================*/
+.bbs-write{}
+.bbs-write > div{max-width:1200px; margin: 0 auto;}
+.bbs-write li{margin-bottom: 15px;}
+.bbs-write li label{color: #666; margin-bottom: 5px; display: block;}
+.bbs-write li input[type="text"]{border: 1px solid #ccc; height: 30px; width: 100%; padding: 5px;}
+.bbs-write li textarea{border: 1px solid #ccc; height: 300px; width: 100%; padding: 5px;}
+.bbs-write li.checkbox-wrap{background: #fff; padding: 10px;}
+.bbs-write li.checkbox-wrap label{display: inline-block;}
+>>>>>>> branch 'master' of https://github.com/YS-Jeong/Campusmate.git

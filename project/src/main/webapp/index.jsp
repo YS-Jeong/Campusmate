@@ -8,7 +8,5 @@
 </head>
 <body>tttt
 
-<jsp:forward page="index.do"></jsp:forward>
-
 </body>
 </html>

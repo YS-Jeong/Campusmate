@@ -3,6 +3,7 @@
 <mapper namespace="circleDAO">
 
 	<!-- 동아리 목록 -->
+<<<<<<< HEAD
 	<select id="circleDAO.selecCircleList" parameterType="circleVO" resultType="circleVO">
 		<![CDATA[
 			SELECT *
@@ -63,6 +64,69 @@
 	<delete id="circleDAO.deleteCircle" parameterType="circleVO">
 		DELETE FROM CIRCLE
 		WHERE SEQ = #{seq}
+=======
+	<select id="circleDAO.selectCircleList" parameterType="circleVO" resultType="circleVO">
+		<![CDATA[
+			SELECT *
+			FROM CIRCLE
+			WHERE (SUBJECT LIKE CONCAT('%', #{searchKeyword},'%')) OR (WRITER LIKE CONCAT('%', #{searchKeyword},'%'))	
+			ORDER BY DATE DESC, SUBJECT DESC
+			LIMIT #{recordCountPerPage} OFFSET ${firstIndex}
+		]]>
+	</select>
+	<!-- //동아리 목록 -->
+
+	<!-- 동아리 목록 개수 -->
+	<select id="circleDAO.selectCircleListCnt" parameterType="circleVO" resultType="int">
+		<![CDATA[
+			SELECT COUNT(*)
+			FROM CIRCLE	
+			WHERE SUBJECT LIKE CONCAT('%', #{searchKeyword},'%') OR (WRITER LIKE CONCAT('%', #{searchKeyword},'%'))
+		]]>
+	</select>
+	<!-- //동아리 목록 개수-->
+
+	<!-- 동아리  상세-->
+	<select id="circleDAO.selectCircleView" parameterType="circleVO" resultType="circleVO">
+		<![CDATA[
+			SELECT *
+			FROM CIRCLE
+			WHERE SEQ = #{seq}
+		]]>
+	</select>
+	<!-- //동아리 상세-->
+
+	<!-- 동아리  등록 insert니까 result가 없다.-->
+	<insert id="circleDAO.insertCircle" parameterType="circleVO">
+		<![CDATA[
+			INSERT INTO CIRCLE
+			(SUBJECT, WRITER, DATE, CONTENTS, FILENAME, ORIFILENAME)
+			VALUES
+			(#{subject}, #{writer}, NOW(), #{contents}, #{filename}, #{oriFilename})
+		]]>
+	</insert>
+	<!-- //동아리 등록-->
+		
+	<!-- 동아리  수정 -->
+	<update id="circleDAO.updateCircle" parameterType="circleVO">
+			UPDATE CIRCLE
+			<trim prefix="SET" suffixOverrides=",">
+				<if test="subject != null"> <![CDATA[ SUBJECT = #{subject}, ]]> </if>
+			    <if test="contents != null"> <![CDATA[ CONTENTS = #{contents}, ]]> </if>
+			    <if test="filename != null"> <![CDATA[ FILENAME = #{filename}, ]]> </if>
+			    <if test="oriFilename != null"> <![CDATA[ ORIFILENAME = #{oriFilename}, ]]> </if>
+			</trim>
+			WHERE SEQ = #{seq}
+	</update>
+	<!-- //동아리 수정-->
+	
+	<!-- 동아리  삭제 -->
+	<delete id="circleDAO.deleteCircle" parameterType="circleVO">
+		<![CDATA[
+		DELETE FROM CIRCLE
+		WHERE SEQ = #{seq}
+		]]>
+>>>>>>> branch 'master' of https://github.com/YS-Jeong/Campusmate.git
 	</delete>
 	<!-- //동아리 삭제-->
 </mapper>
