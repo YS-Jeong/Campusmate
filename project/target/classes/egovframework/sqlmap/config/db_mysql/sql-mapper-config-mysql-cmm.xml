@@ -1,29 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding=UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
     
     <typeAliases>
+    	<typeAlias alias="testVO" type="egovframework.com.test.service.TestVO" />	
     	<typeAlias alias="memberVO" type="hustar.member.service.MemberVO" />
     	<typeAlias alias="circleVO" type="hustar.group.service.CircleVO" />
     	<typeAlias alias="studyVO" type="hustar.group.service.StudyVO" />
-<<<<<<< HEAD
-
-=======
     	<typeAlias alias="matchVO" type="hustar.match.service.MatchVO" />
->>>>>>> branch 'master' of https://github.com/YS-Jeong/Campusmate.git
     </typeAliases>
 
 	<mappers> 
        <mapper resource="egovframework/sqlmap/mappers/db_mysql/Member_SQL_Mysql.xml" />
        <mapper resource="egovframework/sqlmap/mappers/db_mysql/Circle_SQL_Mysql.xml" />
-<<<<<<< HEAD
-       <mapper resource="egovframework/sqlmap/mappers/db_mysql/Study_SQL_Mysql.xml" />
-       
-=======
        <mapper resource="egovframework/sqlmap/mappers/db_mysql/Study_SQL_Mysql.xml" /> 
        <mapper resource="egovframework/sqlmap/mappers/db_mysql/Match_SQL_Mysql.xml" />  
->>>>>>> branch 'master' of https://github.com/YS-Jeong/Campusmate.git
     </mappers> 
 
 </configuration>
