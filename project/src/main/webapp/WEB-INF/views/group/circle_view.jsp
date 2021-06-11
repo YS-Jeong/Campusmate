@@ -24,11 +24,13 @@
 			<div class="view-cont">
 				<pre><c:out value='${circleVO.contents}' /></pre>
 			</div>
-
-			<div class="view-file">
-				<a href="<c:url value='/group/circle_downloadFile.do' />?seq=${circleVO.seq}"><i class="fa fa-download" aria-hidden="true"></i>${circleVO.oriFilename}</a>
-				<!--<a href="#none"><i class="fa fa-download" aria-hidden="true"></i>  첨부파일 다운로드.jpg</a>-->
-			</div>
+			
+			<c:if test="${not empty circleVO.oriFilename}">
+				<div class="view-file">
+					<a href="<c:url value='/group/circle_downloadFile.do' />?seq=${circleVO.seq}"><i class="fa fa-download" aria-hidden="true"></i>${circleVO.oriFilename}</a>
+					<!--<a href="#none"><i class="fa fa-download" aria-hidden="true"></i>  첨부파일 다운로드.jpg</a>-->
+				</div>
+			</c:if>
 		</div>
 
 		<div class="table-btn">

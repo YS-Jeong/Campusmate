@@ -34,7 +34,7 @@ public class CircleController {
 	@Resource(name = "jsonView")
 	MappingJackson2JsonView jsonView;
 
-	@RequestMapping(value={"/circle_list.do"})
+	@RequestMapping(value={"/group/circle_list.do"})
 	public String circle_list(Model model, CircleVO searchVO) throws Exception {
 		
 		System.out.println("searchKeyword = " + searchVO.getSearchKeyword());
@@ -49,45 +49,41 @@ public class CircleController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setPageSize(paginationInfo.getPageSize());
 				
-		int recordCount = commonService.selectListTotCnt(searchVO, null, null, "noticeDAO.selecCircleListCnt");
+		int recordCount = commonService.selectListTotCnt(searchVO, null, null, "circleDAO.selectCircleListCnt");
 		paginationInfo.setTotalRecordCount(recordCount);//전체 행 값이 몇개인지 알려주는 그래서 위에서 DB로부터 값 불러와야함.
 				
 				
 		List<CircleVO> circleVOList = (List<CircleVO>)commonService.selectList(searchVO, null, null, "circleDAO.selectCircleList");
 				
-		model.addAttribute("noticeVOList", circleVOList);
+		model.addAttribute("circleVOList", circleVOList);
 		model.addAttribute("paginationInfo", paginationInfo);
 		model.addAttribute("searchVO", searchVO);
-		
-		return "group/circle_list";
+			
+		return "/group/circle_list";
 	}
 	
-	@RequestMapping(value={"/circle_view.do"})
+	@RequestMapping(value={"/group/circle_view.do"})
 	public String circle_view(CircleVO searchVO, Model model) throws Exception {
 		
 		CircleVO circleVO = (CircleVO)commonService.selectView(searchVO, null, null, "circleDAO.selectCircleView");
 		
 		model.addAttribute("circleVO", circleVO);
 		
-		return "group/circle_view";
+		return "/group/circle_view";
 	}
 	
-	@RequestMapping(value={"/circle_write.do"})
-	public String circle_write(Model model) {
+	@RequestMapping(value={"/group/circle_write.do"})
+	public String circle_write(Model model) throws Exception{
 		
 		model.addAttribute("mode", "write");
 		
-		return "group/circle_write";
+		return "/group/circle_write";
 	}
 	
 	@RequestMapping("/group/circle_write_action.do")
 	public String circle_write_action(MultipartFile uploadFile, CircleVO circleVO, Model model, HttpSession session, String mode, RedirectAttributes redirectAttributes)  throws Exception{
 		
-		System.out.println("subject = " + circleVO.getSubject());
-		System.out.println("contents = " + circleVO.getContents());
-		
 		MemberVO loginVO =  (MemberVO)session.getAttribute("login");
-		
 		
 		//로그인이 안됐다면~
 		if(loginVO == null) {
@@ -111,27 +107,21 @@ public class CircleController {
 			circleVO.setOriFilename(oriFilename);	//저장한 파일이름과 원래 파일이름이 VO에 담긴다.
 		}
 		
-		
-		//mode: write, modify
+				//mode: write, modify
 		if("write".equals(mode)) {
 			commonService.insert(circleVO, null, null, "circleDAO.insertCircle");
-		}else {
+		}else{
 			commonService.update(circleVO, null, null, "circleDAO.updateCircle");
 		}                                               
 		
-		return "redirect:/group/cirlce_list.do";
+		return "redirect:/group/circle_list.do";
 	}
 	
 	
 	@RequestMapping("/group/circle_modify.do")
-	public String notice_modify(CircleVO searchVO, Model model)  throws Exception{
-		
-		
+	public String circle_modify(CircleVO searchVO, Model model)  throws Exception{
 		
 		CircleVO circleVO = (CircleVO)commonService.selectView(searchVO, null, null, "circleDAO.selectCircleView");
-		
-		System.out.println("subject = " + circleVO.getSubject());
-		System.out.println("contents = " + circleVO.getContents());
 		
 		model.addAttribute("circleVO", circleVO);
 		
@@ -142,8 +132,8 @@ public class CircleController {
 	
 	
 	
-	@RequestMapping("/group/cirlce_delete.do")
-	public String notice_delete(CircleVO circleVO) throws Exception{
+	@RequestMapping("/group/circle_delete.do")
+	public String circle_delete(CircleVO circleVO) throws Exception{
 		
 		System.out.println("seq = " + circleVO.getSeq());
 		
@@ -154,7 +144,7 @@ public class CircleController {
 	
 	
 	@RequestMapping("/group/circle_downloadFile.do")
-	public void notice_downloadFile(CircleVO searchVO, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public void circle_downloadFile(CircleVO searchVO, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		CircleVO circleVO = (CircleVO)commonService.selectView(searchVO, null, null, "circleDAO.selectCircleView");
 		
 		String filename = circleVO.getFilename();
@@ -169,7 +159,7 @@ public class CircleController {
 	
 	
 	@RequestMapping("/group/circle_deleteFile.do")
-	public ModelAndView notice_deleteFile(CircleVO searchVO, Model model) throws Exception{
+	public ModelAndView circle_deleteFile(CircleVO searchVO, Model model) throws Exception{
 		
 		CircleVO fileVO = (CircleVO)commonService.selectView(searchVO, null, null, "circleDAO.selectCircleView");
 		

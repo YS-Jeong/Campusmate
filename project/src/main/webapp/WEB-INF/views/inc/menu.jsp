@@ -21,24 +21,24 @@
 		</div>
 		<div class="container text-center">
 			<div class="fh5co-navbar-brand">
-				<a class="fh5co-logo" href="<c:url value='../index.do'/>">CAMPUSMATE</a>
+				<a class="fh5co-logo" href="<c:url value='/index.do'/>">CAMPUSMATE</a>
 			</div>
 			<nav id="fh5co-main-nav" role="navigation" class="menu">
 				<div>
 					<ul>
-						<li><a href="<c:url value='../index.do'/>" class="active">Home</a></li>
+						<li><a href="<c:url value='/index.do'/>" class="active">Home</a></li>
 						<li><a href="#none">CAMPUSDATE</a>
 							<ul class ="submenu">
-								<li><a href="<c:url value='../match/match_intro.do'/>">소개</a></li>
-								<li><a href="<c:url value='../match/match_join.do'/>">매칭등록</a></li>
-								<li><a href="<c:url value='../match/match_modify.do'/>">매칭수정</a></li>
-								<li><a href="<c:url value='../match/matching.do'/>">매칭하기</a></li>
+								<li><a href="<c:url value='/match/match_intro.do'/>">소개</a></li>
+								<li><a href="<c:url value='/match/match_join.do'/>">매칭등록</a></li>
+								<li><a href="<c:url value='/match/match_modify.do'/>">매칭수정</a></li>
+								<li><a href="<c:url value='/match/matching.do'/>">매칭하기</a></li>
 							</ul>
 						</li>
 						<li><a href="#none">CAMPUSGROUP</a>
 							<ul class ="submenu">
-								<li><a href="<c:url value='../group/circle_list.do'/>">동아리</a></li>
-								<li><a href="<c:url value='../group/study_list.do'/>">스터디</a></li>
+								<li><a href="<c:url value='/group/circle_list.do'/>">동아리</a></li>
+								<li><a href="<c:url value='/group/study_list.do'/>">스터디</a></li>
 							</ul>
 						</li>
 					</ul>
