@@ -32,7 +32,6 @@
 				</div>
 			</c:if>
 		</div>
-
 		<div class="table-btn">
 			<div>
 				<a href="<c:url value='/group/circle_list.do'/>" class="lis">목록</a>
@@ -40,7 +39,28 @@
 				<a href="<c:url value='/group/circle_modify.do'/>?seq=${circleVO.seq}">수정</a>
 			</div>
 		</div>
-
+		
+		
+		<div class="comment-box">
+			<c:forEach var="replyVO" items="${replyVOList}" varStatus="status">
+				<ul class="tb-bd">
+					<li>
+						<div class="subject"><c:out value="${replyVO.cno}"/></div>
+						<div class="name"><c:out value="${replyVO.writer}"/></div>
+						<div class="content"><c:out value="${replyVO.content}"/></div>
+						<div class="date"><c:out value="${replyVO.date}"/></div>
+					</li>
+				</ul>
+			</c:forEach>
+			<p>
+				<c:out value ='${session.name}'/></label>
+			</p>
+			<p>
+				<textarea rows="5" colos="50" placeholder="불건전한 내용, 광고성, 타인 비하 등 운영 원칙에 위배되는 댓글은 삭제될 수 있습니다."></textarea>
+			</p>
+			<p>
+				<button type="button">댓글작성</button>
+		</div>
 	</div>
 
 </div>
@@ -55,6 +75,27 @@ function confirmDelete(){
 		location.href = '<c:url value="/group/circle_delete.do"/>?seq=${circleVO.seq}';
 	}
 	
+}
+
+function commentWrite(){
+	if(confirm('삭제하시겠습니까?') == true){
+		$.ajax({
+			type:'POST',
+			url: '<c:url value="/group/circle_deleteFile.do"/>',
+			dataType: 'JSON',
+			data: ("seq" : ${circleVO.seq}),
+			success: function(data){
+				if(data.success == true){
+					location.reload();
+				}else{
+					alert('파일 삭제가 실패하였습니다.');
+				}
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.log(textStatus);
+			}
+		});
+	}
 }
 </script>
 

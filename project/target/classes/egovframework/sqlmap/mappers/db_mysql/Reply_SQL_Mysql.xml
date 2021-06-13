@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="replyDAO">
+
+<!-- 댓글 조회 -->
+	<select id="replyDAO.readReply" resultType="replyVO">
+		SELECT 
+			BNO, CONTENT, WRITER, DATE 
+		FROM REPLY
+		WHERE BNO = #{bno}
+	</select>
+<!-- /댓글 조회 -->
+
+<!-- 댓글 작성 -->
+	<insert id="replyDAO.replyWrite" parameterType="replyVO">
+		INSERT INTO REPLY(BNO, CONTENT, WRITER, DATE)
+			VALUE(#{bno}, #{content}, #{writer}, #{date})
+	</insert>
+<!-- /댓글 작성 -->	
+
+<!-- 댓글 수정 -->
+	<update id="replyDAO.replyModify" parameterType="replyVO">
+		UPDATE REPLY
+			WRITER = #{writer},
+			CONTENT = #{content}
+		WHERE CNO = #{cno}
+			AND BNO = #{bno}	
+	</update>
+<!-- /댓글 수정 -->
+
+<!-- 댓글 삭제 -->
+	<delete id="replyDAO.replyDelete" parameterType="replyVO">
+		DELETE FROM REPLY
+		WHERE CNO = #{cno}
+			AND BNO = ${bno}	
+	</delete>
+<!-- /댓글 삭제 -->
+
+</mapper>
