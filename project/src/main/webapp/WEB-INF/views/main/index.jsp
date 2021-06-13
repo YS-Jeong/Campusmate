@@ -7,6 +7,7 @@
 <html lang="en">
 
 
+
  <%@ include file="/WEB-INF/views/inc/login.jsp" %>
 <head>
 
@@ -17,13 +18,6 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
     <title>CAMPUS MATE</title>
-<!--
-
-Lava Landing Page
-
-https://templatemo.com/tm-540-lava-landing-page
-
--->
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -33,6 +27,14 @@ https://templatemo.com/tm-540-lava-landing-page
     <link rel="stylesheet" href="assets/css/templatemo-lava.css">
 
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
+    
+    <style>
+	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+	p{
+		font-size:15px;
+		font-family:'Noto Sans KR',sans-serif;
+	}
+	</style>
 
 </head>
 <body>
@@ -116,10 +118,10 @@ https://templatemo.com/tm-540-lava-landing-page
                 <div class="row">
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                        <h1>Simple App that we <em>CREATE</em></h1>
-                        <p>Lava <a href="#">HTML landing page</a> template is provided by <a href="#">TemplateMo</a>.
-                           You can modify and use it for your commercial websites for free of charge. This template is last updated on 29 Oct 2019.</p> 
-                        <a href="#about" class="main-button-slider">KNOW US BETTER</a>
+                        <h1><em>CAMPUS MATE</em></h1>
+                        <p><a href="#">경북대학교 · 영남대학교 · 계명대학교 </a> 커뮤니티 사이트 <a href="#">캠퍼스 메이트</a></br>
+                        	전국 대학교를 연결하는 커뮤니티의 첫 출발점으로 도약 하겠습니다.</p> 
+                        <a href="#about" class="main-button-slider">자세히 알아보기</a>
                     </div>
                 </div>
             </div>
@@ -137,11 +139,11 @@ https://templatemo.com/tm-540-lava-landing-page
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>01</h2>
-                            <img src="assets/images/features-icon-1.png" alt="">
-                            <h4>Trend Analysis</h4>
-                            <p>Curabitur pulvinar vel odio sed sagittis. Nam maximus ex diam, nec consectetur diam.</p>
-                            <a href="#testimonials" class="main-button">
-                                Read More
+                            <img src="assets/images/date.png" alt="">
+                            <h4>CAMPUS DATE</h4>
+                            <p>당신의 소중한 메이트를 매칭 해드릴게요 <br>운명의 상대를 만나보세요!</p>
+                            <a href="<c:url value='/match/match_intro.do'/>" class="main-button">
+                                	소개화면으로 ->
                             </a>
                         </div>
                     </div>
@@ -151,11 +153,11 @@ https://templatemo.com/tm-540-lava-landing-page
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>02</h2>
-                            <img src="assets/images/features-icon-2.png" alt="">
-                            <h4>Site Optimization</h4>
-                            <p>Curabitur pulvinar vel odio sed sagittis. Nam maximus ex diam, nec consectetur diam.</p>
-                            <a href="#testimonials" class="main-button">
-                                Discover More
+                            <img src="assets/images/circle.png" alt="">
+                            <h4>CAMPUS CLUB</h4>
+                            <p>이곳에서 환상의 짝궁을 찾아<br> 최고의 동아리를 만들어보세요. </p>
+                           <a href="<c:url value='/group/circle_list.do'/>" class="main-button">
+                                	동아리 게시판 ->
                             </a>
                         </div>
                     </div>
@@ -165,11 +167,11 @@ https://templatemo.com/tm-540-lava-landing-page
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>03</h2>
-                            <img src="assets/images/features-icon-3.png" alt="">
-                            <h4>Email Design</h4>
-                            <p>Curabitur pulvinar vel odio sed sagittis. Nam maximus ex diam, nec consectetur diam.</p>
-                            <a href="#testimonials" class="main-button">
-                                More Detail
+                            <img src="assets/images/study.png" alt="">
+                            <h4>CAMPUS STUDY</h4>
+                            <p>혼자는 어려워도 함께라면 해낼수 있어요<br>스터디를 만들어 함께 열공모드로!</p>
+                            <a href="<c:url value='/group/study_list.do'/>" class="main-button">
+                               	 스터디 게시판 ->
                             </a>
                         </div>
                     </div>
@@ -322,64 +324,12 @@ https://templatemo.com/tm-540-lava-landing-page
     <footer id="contact-us">
         <div class="container">
             <div class="footer-content">
-                <div class="row">
-                    <!-- ***** Contact Form Start ***** -->
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <div class="contact-form">
-                            <form id="contact" action="" method="post">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-12">
-                                        <fieldset>
-                                            <input name="name" type="text" id="name" placeholder="Full Name" required=""
-                                                style="background-color: rgba(250,250,250,0.3);">
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <fieldset>
-                                            <input name="email" type="text" id="email" placeholder="E-Mail Address"
-                                                required="" style="background-color: rgba(250,250,250,0.3);">
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <textarea name="message" rows="6" id="message" placeholder="Your Message"
-                                                required="" style="background-color: rgba(250,250,250,0.3);"></textarea>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <button type="submit" id="form-submit" class="main-button">Send Message
-                                                Now</button>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- ***** Contact Form End ***** -->
-                    <div class="right-content col-lg-6 col-md-12 col-sm-12">
-                        <h2>More About <em>Lava</em></h2>
-                        <p>Phasellus dapibus urna vel lacus accumsan, iaculis eleifend leo auctor. Duis at finibus odio.
-                            Vivamus ut pharetra arcu, in porta metus. Suspendisse blandit pulvinar ligula ut elementum.
-                            <br><br>If you need this contact form to send email to your inbox, you may follow our <a
-                                rel="nofollow" href="https://templatemo.com/contact" target="_parent">contact</a> page
-                            for more detail.</p>
-                        <ul class="social">
-                            <li><a href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="sub-footer">
-                        <p>Copyright &copy; 2020 Lava Landing Page
-
-                        | Designed by <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
+                      	<p>Copyright(c) Light. All Rights Reserved. <br>Made with <i class="icon-heart3 love"></i> by 3rd generation of HUSTAR
+						<br>Kim-Doyeon, Jeong-Yeseong. 
                     </div>
                 </div>
             </div>

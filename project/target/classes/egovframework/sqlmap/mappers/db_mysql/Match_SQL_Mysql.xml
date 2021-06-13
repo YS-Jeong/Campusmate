@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="matchDAO">
+<!-- match TABLE에 insert -->
+	<insert id = "matchDAO.insertMatch" parameterType="matchVO">
+		<![CDATA[
+		INSERT INTO MATCHING
+			(ST_ID, KAKAO_ID, HEIGHT, BODY_SHAPE, DIVISION)
+			VALUES
+			(#{st_id}, #{kakao_id}, #{height}, #{body_shape}, #{division})
+		]]>
+	</insert>
+<!-- //match TABLE에 insert -->
+	<!-- 학번 중복 체크 -->
+	<select id = "matchDAO.selectMatchCnt" parameterType="matchVO" resultType="int">
+		<![CDATA[
+			SELECT COUNT(*) FROM 
+				MATCHING
+			WHERE
+				ST_ID = #{st_id}
+		]]>
+	</select>
+	<!-- //학번 중복 체크 -->
+	
+
 </mapper>
