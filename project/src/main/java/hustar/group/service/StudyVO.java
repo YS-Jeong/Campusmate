@@ -4,13 +4,20 @@ import egovframework.com.cmm.ComDefaultVO;
 
 public class StudyVO extends ComDefaultVO{
 	public int seq;
+	public String university;
 	public String subject;
 	public String writer;
 	public String date;
 	public String contents;
 	public String filename;
 	public String oriFilename;
-	
+
+	public String getUniversity() {
+		return university;
+	}
+	public void setUniversity(String university) {
+		this.university = university;
+	}
 	public String getFilename() {
 		return filename;
 	}

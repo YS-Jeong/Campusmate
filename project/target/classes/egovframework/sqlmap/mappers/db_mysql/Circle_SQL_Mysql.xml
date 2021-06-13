@@ -13,6 +13,43 @@
 		]]>
 	</select>
 	<!-- //동아리 목록 -->
+	
+	<!-- 경북대 동아리 리스트  -->
+	<select id="circleDAO.selectKNUCircleList" parameterType="circleVO" resultType="circleVO">
+	<![CDATA[
+		SELECT * FROM CIRCLE 
+		WHERE UNIVERSITY='경북대'
+		ORDER BY SEQ DESC
+		]]>
+	
+	</select>
+	
+	<!-- 영남대 동아리 목록 -->
+	<select id="circleDAO.selectYUCircleList" parameterType="circleVO" resultType="circleVO">
+	<![CDATA[
+		SELECT * FROM CIRCLE 
+		WHERE UNIVERSITY='영남대'
+		ORDER BY SEQ DESC
+		]]>
+	
+	</select>
+	<!-- 계명대 동아리 목록 -->
+	<select id="circleDAO.selectKMUCircleList" parameterType="circleVO" resultType="circleVO">
+	<![CDATA[
+		SELECT * FROM CIRCLE 
+		WHERE UNIVERSITY='계명대'
+		ORDER BY SEQ DESC
+		]]>
+	
+	</select>
+	<select id="circleDAO.selectUNIONCircleList" parameterType="circleVO" resultType="circleVO">
+	<![CDATA[
+		SELECT * FROM CIRCLE 
+		WHERE UNIVERSITY='연합'
+		ORDER BY SEQ DESC
+		]]>
+	
+	</select>
 
 	<!-- 동아리 목록 개수 -->
 	<select id="circleDAO.selectCircleListCnt" parameterType="circleVO" resultType="int">
@@ -38,9 +75,9 @@
 	<insert id="circleDAO.insertCircle" parameterType="circleVO">
 		<![CDATA[
 			INSERT INTO CIRCLE
-			(SUBJECT, WRITER, DATE, CONTENTS, FILENAME, ORIFILENAME)
+			(UNIVERSITY, SUBJECT, WRITER, DATE, CONTENTS, FILENAME, ORIFILENAME)
 			VALUES
-			(#{subject}, #{writer}, NOW(), #{contents}, #{filename}, #{oriFilename})
+			(#{university}, #{subject}, #{writer}, NOW(), #{contents}, #{filename}, #{oriFilename})
 		]]>
 	</insert>
 	<!-- //동아리 등록-->

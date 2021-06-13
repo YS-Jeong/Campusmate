@@ -1276,12 +1276,11 @@ border-right: 0;
 }
 
 .table-list ul li > div.no{width: 10%;}
-
-.table-list ul li > div.subject{width: 60%;}
+.table-list ul li > div.uni{width:10%;}
+.table-list ul li > div.subject{width: 55%;}
 .table-list ul li > div.subject a{font-size:14px; font-weight:bold;}
 .table-list ul li > div.subject a:hover{text-decoration:underline; color: #000;}
-
-.table-list ul li > div.name{width: 15%;}
+.table-list ul li > div.name{width: 10%;}
 .table-list ul li > div.date{width: 15%;}
 .table-list ul.tb-bd li > div.subject{text-align: left;}
 .table-list ul.tb-hd{border-top: 2px solid #000;}

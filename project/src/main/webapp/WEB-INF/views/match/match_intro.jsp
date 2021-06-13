@@ -4,8 +4,7 @@
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 
-<%@ include file="/WEB-INF/views/inc/header.jsp" %>
-<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
+<%@ include file="/WEB-INF/views/inc/header_test.jsp" %>
 	<body>
 	<div class="fh5co-parallax" style="background-image: url(images/hero-1.jpg);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>

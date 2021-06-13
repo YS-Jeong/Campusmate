@@ -4,10 +4,13 @@
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 
-<%@ include file="/WEB-INF/views/inc/header.jsp" %>
-<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
+<%@ include file="/WEB-INF/views/inc/header_test.jsp" %>
+<%@ include file="/WEB-INF/views/inc/login.jsp" %>
+
 
 <body>
+
+
 <c:set var="session" value="${sessionScope.login}" scope="application"/>
 
 <!-- contents 시작 -->
@@ -21,6 +24,13 @@
 		<form method="post" name="frm" action="<c:url value='/member/joinInsert.do'/>">
 		<div class ="join-form">
 			<ul>
+				<li>
+				<div class="match-img">
+           			<label for="">프로필</label>
+           			<img src="../img/Jeongyeseong.jpg" alt="" width="150" height="200">
+            		<input type="file" name ="uploadFile"> <!-- 첨부파일 이름을 줌 //commit test-->
+       			</div>
+          			</li>
 				<li>
 					<label for="">학번</label>
 					<input type="text" name="st_id" placeholder="학번">
@@ -233,4 +243,5 @@ function submitForm() {
 </script>
 
 </body>
+<%@ include file="/WEB-INF/views/inc/footer.jsp" %>
 </html>

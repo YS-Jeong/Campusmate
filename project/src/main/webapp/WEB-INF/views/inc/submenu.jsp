@@ -7,8 +7,8 @@
  <div class="snb-wrap">
 	<div>
 		<ul>
-			<li class="on"><a href="<c:url value='/group/circle_list.do'/>"><span>동아리게시판</span></a></li>
-			<li><a href="<c:url value='/group/study_list.do'/>"><span>스터디게시판</span></a></li>
+			<li class="on"><a href="<c:url value='/group/circle_list.do'/>"><span>동아리 모아보기</span></a></li>
+			<li><a href="<c:url value='/group/study_list.do'/>"><span>스터디 모아보기</span></a></li>
 		</ul>		
 	</div>
 </div>

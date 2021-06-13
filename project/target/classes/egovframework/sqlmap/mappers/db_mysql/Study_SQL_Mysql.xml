@@ -15,6 +15,46 @@
 	</select>
 	<!-- //공지사항 목록 -->
 	
+	<!-- 경북대 스터디 리스트  -->
+	<select id="studyDAO.selectKNUStudyList" parameterType="studyVO" resultType="studyVO">
+	<![CDATA[
+		SELECT * FROM STUDY 
+		WHERE UNIVERSITY='경북대'
+		ORDER BY SEQ DESC
+		]]>
+	
+	</select>
+	
+	<!-- 영남대 스터디 목록 -->
+	<select id="studyDAO.selectYUStudyList" parameterType="studyVO" resultType="studyVO">
+	<![CDATA[
+		SELECT * FROM STUDY 
+		WHERE UNIVERSITY='영남대'
+		ORDER BY SEQ DESC
+		]]>
+	
+	</select>
+	<!-- 계명대 스터디 목록 -->
+	<select id="studyDAO.selectKMUStudyList" parameterType="studyVO" resultType="studyVO">
+	<![CDATA[
+		SELECT * FROM STUDY 
+		WHERE UNIVERSITY='계명대'
+		ORDER BY SEQ DESC
+		]]>
+	
+	</select>
+	<!-- //계명대 스터디 목록 -->
+	<!-- 계명대 스터디 목록 -->
+	<select id="studyDAO.selectUNIONStudyList" parameterType="studyVO" resultType="studyVO">
+	<![CDATA[
+		SELECT * FROM STUDY 
+		WHERE UNIVERSITY='연합'
+		ORDER BY SEQ DESC
+		]]>
+	
+	</select>
+	<!-- //계명대 스터디 목록 -->
+	
 	<!-- 공지사항 목록 개수  -->
 	<select id="studyDAO.selectStudyListCnt" parameterType="studyVO" resultType="int">
 	<![CDATA[
@@ -41,9 +81,9 @@
 	<insert id="studyDAO.insertStudy" parameterType ="studyVO">
 		<![CDATA[
 		INSERT INTO STUDY 
-		(SUBJECT, WRITER, DATE, CONTENTS, FILENAME, ORIFILENAME)
+		(UNIVERSITY, SUBJECT, WRITER, DATE, CONTENTS, FILENAME, ORIFILENAME)
 		VALUES
-		(#{subject},#{writer},NOW(), #{contents}, #{filename}, #{oriFilename})
+		(#{university}, #{subject},#{writer},NOW(), #{contents}, #{filename}, #{oriFilename})
 		]]>
 	</insert>
 	

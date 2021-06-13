@@ -3,18 +3,18 @@
 <%@ taglib prefix="form"      uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
-
+<%@ include file="/WEB-INF/views/inc/header_test.jsp" %>
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
 <body>
 
-<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
+<%@ include file="/WEB-INF/views/inc/login.jsp" %>
 
  
  <div class="snb-wrap">
 	<div>
 		<ul>
-			<li><a href="<c:url value='/group/circle_list.do'/>"><span>동아리게시판</span></a></li>
-			<li class="on"><a href="<c:url value='/group/study_list.do'/>"><span>스터디게시판</span></a></li>
+			<li><a href="<c:url value='/group/circle_list.do'/>"><span>동아리 모아보기 </span></a></li>
+			<li class="on"><a href="<c:url value='/group/study_list.do'/>"><span>스터디 모아보기</span></a></li>
 		</ul>		
 	</div>
 </div>
@@ -37,6 +37,7 @@
 			<ul class="tb-hd">
 				<li>
 					<div class="no">번호</div>
+					<div class="uni">대학교</div>
 					<div class="subject">제목</div>
 					<div class="name">글쓴이</div>
 					<div class="date">등록일</div>
@@ -49,6 +50,7 @@
 						<div class="no">
 							<c:out value="${paginationInfo.totalRecordCount - ((paginationInfo.currentPageNo-1) * paginationInfo.recordCountPerPage + status.index)}"/>
 						</div>
+						<div class="uni"><c:out value="${studyVO.university}"/></div>
 						<div class="subject"><a href="<c:url value='/group/study_view.do'/>?seq=${studyVO.seq}"><c:out value="${studyVO.subject}"/></a></div>
 						<div class="name"><c:out value="${studyVO.writer}"/></div>
 						<div class="date"><c:out value="${studyVO.date}"/></div>
