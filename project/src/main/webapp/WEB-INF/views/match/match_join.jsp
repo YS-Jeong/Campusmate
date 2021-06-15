@@ -4,10 +4,7 @@
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 
-<%@ include file="/WEB-INF/views/inc/header_test.jsp" %>
-<%@ include file="/WEB-INF/views/inc/login.jsp" %>
-
-
+<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 <style>
 .study_pic{
 	content:url(study_pic);
@@ -21,14 +18,12 @@
 	width:0;
 	height:0;
 }
-
 </style>
+
 <body>
 
 
-<c:set var="session" value="${sessionScope.login}" scope="application"/>
-
-
+<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 <!-- contents 시작 -->
 <div class="join-wrap">
 

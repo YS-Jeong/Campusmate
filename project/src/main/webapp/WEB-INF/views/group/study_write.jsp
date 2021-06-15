@@ -4,21 +4,14 @@
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ include file="/WEB-INF/views/inc/header_test.jsp" %>
+
+
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
 
 <body>
-<%@ include file="/WEB-INF/views/inc/login.jsp" %>
+<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 
-<!-- sub menu class on -->
- <div class="snb-wrap">
-	<div>
-		<ul>
-			<li><a href="<c:url value='/group/circle_list.do'/>"><span>동아리게시판</span></a></li>
-			<li class="on"><a href="<c:url value='/group/study_list.do'/>"><span>스터디게시판</span></a></li>
-		</ul>		
-	</div>
-</div>
+
 
 <form method="post" name="frm" action="<c:url value='/group/study_write_action.do'/>" enctype="multipart/form-data">
 <c:if test = "${mode == 'modify'}">

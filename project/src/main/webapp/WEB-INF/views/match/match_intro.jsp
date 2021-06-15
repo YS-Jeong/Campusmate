@@ -4,7 +4,8 @@
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 
-<%@ include file="/WEB-INF/views/inc/header_test.jsp" %>
+<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 <body>
-</body>
+<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 <%@ include file="/WEB-INF/views/inc/footer.jsp" %>
+</body>

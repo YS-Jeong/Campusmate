@@ -3,27 +3,26 @@
 <%@ taglib prefix="form"      uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
-<%@ include file="/WEB-INF/views/inc/header_test.jsp" %>
+
+
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
 <body>
 
-<%@ include file="/WEB-INF/views/inc/login.jsp" %>
-<div><a>계명대 스터디 리스트</a></div>
- 
- <div class="snb-wrap">
-	<div>
-		<ul>
-			<li><a href="<c:url value='/group/circle_list.do'/>"><span>동아리게시판</span></a></li>
-			<li class="on"><a href="<c:url value='/group/study_list.do'/>"><span>스터디게시판</span></a></li>
-		</ul>		
-	</div>
-</div>
-
+<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 
 <form method="get" name="frm" action="<c:url value='/group/study_list.do'/>">
 
 <div class="notice-wrap">
 	<div class="notice-box">
+		 
+		 <div class="snb-wrap">
+			<div>
+				<ul>
+					<li><a href="<c:url value='/group/circle_list.do'/>"><span>동아리게시판</span></a></li>
+					<li class="on"><a href="<c:url value='/group/study_list.do'/>"><span>스터디게시판</span></a></li>
+				</ul>		
+			</div>
+		</div>
 
 		<div class="table-hd">
 			<div>

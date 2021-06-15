@@ -227,7 +227,17 @@ public class CircleController {
 			commonService.update(circleVO, null, null, "circleDAO.updateCircle");
 		}                                               
 		
-		return "redirect:/group/circle_list.do";
+		System.out.println(circleVO.getUniversity());
+        
+        if(circleVO.getUniversity().equals("경북대")) {
+       	 return "redirect:/group/knu_circle_list.do"; //redirect 갱신해야하니까
+        } else if(circleVO.getUniversity().equals("영남대")) {
+       	 return "redirect:/group/yu_circle_list.do";//redirect 갱신해야하니까
+        } else if(circleVO.getUniversity().equals("계명대")) {
+       	 return "redirect:/group/kmu_circle_list.do";//redirect 갱신해야하니까 
+        } else {
+       	 return "redirect:/group/union_circle_list.do";
+        }//redirect 갱신해야하니까            
 	}
 	
 	

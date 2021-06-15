@@ -3,16 +3,19 @@
 <%@ taglib prefix="form"      uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
-<footer>
-	<div id="footer" class="fh5co-border-line">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<p>Copyright(c) Light. All Rights Reserved. <br>Made with <i class="icon-heart3 love"></i> by 3rd generation of HUSTAR
-					<br>Kim-Doyeon, Jeong-Yeseong. 
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</footer>
+
+    <!-- ***** Footer Start ***** -->
+    <footer id="contact-us">
+        <div class="container">
+            <div class="footer-content">
+             </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sub-footer">
+                      	<p>Copyright(c) Light. All Rights Reserved. <br>Made with <i class="icon-heart3 love"></i> by 3rd generation of HUSTAR
+						<br>Kim-Doyeon, Jeong-Yeseong. 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>

@@ -4,16 +4,15 @@
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 
-<%@ include file="/WEB-INF/views/inc/header_test.jsp" %>
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
 <body>
 
-<%@ include file="/WEB-INF/views/inc/login.jsp" %>
-<%@ include file="/WEB-INF/views/inc/submenu.jsp" %>
+<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 
 <form method="get" name="frm" action="<c:url value='/group/circle_list.do'/>" entype="multipart/form-data">
 	<div class="notice-wrap">
 		<div class="notice-box">
+			<%@ include file="/WEB-INF/views/inc/submenu.jsp" %>
 	
 			<div class="table-hd">
 				<div>

@@ -3,23 +3,26 @@
 <%@ taglib prefix="form"      uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
-<%@ include file="/WEB-INF/views/inc/header_test.jsp" %>
+
+
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
-<%@ include file="/WEB-INF/views/inc/login.jsp" %>
+
 
 <body>
- <div class="snb-wrap">
-	<div>
-		<ul>
-			<li><a href="<c:url value='/group/circle_list.do'/>"><span>동아리게시판</span></a></li>
-			<li class="on"><a href="<c:url value='/group/study_list.do'/>"><span>스터디게시판</span></a></li>
-		</ul>		
-	</div>
-</div>
+<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
+
 
 <div class="notice-wrap">
 	<div class="notice-box">
 		<div class="bbs-view">
+		 <div class="snb-wrap">
+			<div>
+				<ul>
+					<li><a href="<c:url value='/group/circle_list.do'/>"><span>동아리게시판</span></a></li>
+					<li class="on"><a href="<c:url value='/group/study_list.do'/>"><span>스터디게시판</span></a></li>
+				</ul>		
+			</div>
+		</div>
 
 			<div class="view-hd">
 			<p><c:out value='${studyVO.subject}' /></p>
@@ -56,8 +59,10 @@
 	</div>
 
 </div>
+</div>
+</div>
 
-<%@ include file="/WEB-INF/views/inc/footer.jsp" %>
+
 
 
 
@@ -72,6 +77,7 @@ function confirmDelete(){
 }
 </script>
 
-</body>
 
+</body>
+<%@ include file="/WEB-INF/views/inc/footer.jsp" %>
 </html>
