@@ -3,37 +3,8 @@
 <%@ taglib prefix="form"      uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="TemplateMo">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>CAMPUS MATE</title>
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
-
-    <link rel="stylesheet" href="assets/css/templatemo-lava.css">
-
-    <link rel="stylesheet" href="assets/css/owl-carousel.css">
-    
-    <style>
-	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-	p{
-		font-size:15px;
-		font-family:'Noto Sans KR',sans-serif;
-	}
-	</style>
-
-</head>
-
- <%@ include file="/WEB-INF/views/inc/login.jsp" %>
+<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 <body>
 
     <!-- ***** Preloader Start ***** -->
@@ -45,69 +16,11 @@
         </div>
     </div>
     <!-- ***** Preloader End ***** -->
-
-
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="<c:url value='/index.do'/>" class="logo">
-                          CAMPUS MATE
-                        </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li class="scroll-to-section"><a href="<c:url value='/index.do'/>">HOME</a></li>
-                        	<li class="submenu">
-                                <a href="javascript:;">캠퍼스 데이트</a>
-                                <ul>
-                                    <li><a href="<c:url value='/match/match_intro.do'/>">소개</a></li>
-                                    <li><a href="<c:url value='/match/match_join.do'/>">매칭 등록</a></li>
-                                    <li><a href="<c:url value='/match/match_modify.do'/>">매칭 수정</a></li>
-                                    <li><a href="<c:url value='/match/matching.do'/>">결과 확인</a></li>
-                                </ul>
-                            </li>
-                            </li>
-                            <li class="submenu">
-                                <a href="javascript:;">동아리</a>
-                                <ul>
-                                    <li><a href="<c:url value='/group/knu_circle_list.do'/>">경북대</a></li>
-                                    <li><a href="<c:url value='/group/yu_circle_list.do'/>">영남대</a></li>
-                                    <li><a href="<c:url value='/group/kmu_circle_list.do'/>">계명대</a></li>
-                                    <li><a href="<c:url value='/group/union_circle_list.do'/>">연합</a></li>
-                                </ul>
-                            </li>
-                             <li class="submenu">
-                                <a href="javascript:;">스터디</a>
-                                <ul>
-                                    <li><a href="<c:url value='/group/knu_study_list.do'/>">경북대</a></li>
-                                    <li><a href="<c:url value='/group/yu_study_list.do'/>">영남대</a></li>
-                                    <li><a href="<c:url value='/group/kmu_study_list.do'/>">계명대</a></li>
-                                    <li><a href="<c:url value='/group/union_study_list.do'/>"> 연합</a></li>
-                                </ul>
-                            </li>
-                 	         <li class="scroll-to-section"><a href="<c:url value='/member/mypage.do'/>">마이페이지</a></li>
-                        </ul>
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
-
-            </div>
-        </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
+    
+<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
      
-
-
     <!-- ***** Welcome Area Start ***** -->
     <div class="welcome-area" id="welcome">
-
 
         <!-- ***** Header Text Start ***** -->
         <div class="header-text">
@@ -115,7 +28,7 @@
                 <div class="row">
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                        <h1><em>CAMPUS MATE</em></h1>
+                        <h1><em>CAMPUSMATE</em></h1>
                         <p><a href="#">경북대학교 · 영남대학교 · 계명대학교 </a> 커뮤니티 사이트 <a href="#">캠퍼스 메이트</a></br>
                         	전국 대학교를 연결하는 커뮤니티의 첫 출발점으로 도약 하겠습니다.</p> 
                         <a href="#about" class="main-button-slider">자세히 알아보기</a>
@@ -242,7 +155,7 @@
                     <div class="owl-carousel owl-theme">
                         <div class="item service-item">
                             <div class="author">
-                                <i><img src="assets/images/testimonial-author-1.png" alt="Author One"></i>
+                                <i><img src="assets/images/Jeongyeseong-crop.jpg" alt="Author One"></i>
                             </div>
                             <div class="testimonial-content">
                                 <ul class="stars">
@@ -260,7 +173,7 @@
                         </div>
                         <div class="item service-item">
                             <div class="author">
-                                <i><img src="assets/images/testimonial-author-1.png" alt="Second Author"></i>
+                                <i><img src="assets/images/Kimdoyeon-crop.jpg" alt="Second Author"></i>
                             </div>
                             <div class="testimonial-content">
                                 <ul class="stars">
@@ -316,24 +229,7 @@
     </section>
     <!-- ***** Testimonials Ends ***** -->
 
-
-    <!-- ***** Footer Start ***** -->
-    <footer id="contact-us">
-        <div class="container">
-            <div class="footer-content">
-             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="sub-footer">
-                      	<p>Copyright(c) Light. All Rights Reserved. <br>Made with <i class="icon-heart3 love"></i> by 3rd generation of HUSTAR
-						<br>Kim-Doyeon, Jeong-Yeseong. 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- jQuery -->
+	<!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 
     <!-- Bootstrap -->
@@ -349,6 +245,6 @@
 
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
-
 </body>
+<%@ include file="/WEB-INF/views/inc/footer.jsp" %> 
 </html>

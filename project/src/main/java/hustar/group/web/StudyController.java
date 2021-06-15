@@ -274,8 +274,17 @@ public class StudyController {
             commonService.update(StudyVO,null,null,"studyDAO.updateStudy");
          }
          
+         System.out.println(StudyVO.getUniversity());
          
-         return "redirect:/group/study_list.do"; //redirect 갱신해야하니까
+         if(StudyVO.getUniversity().equals("경북대")) {
+        	 return "redirect:/group/knu_study_list.do"; //redirect 갱신해야하니까
+         } else if(StudyVO.getUniversity().equals("영남대")) {
+        	 return "redirect:/group/yu_study_list.do";//redirect 갱신해야하니까
+         } else if(StudyVO.getUniversity().equals("계명대")) {
+        	 return "redirect:/group/kmu_study_list.do";//redirect 갱신해야하니까 
+         } else {
+        	 return "redirect:/group/union_study_list.do";
+         }//redirect 갱신해야하니까            
       }
 
       
