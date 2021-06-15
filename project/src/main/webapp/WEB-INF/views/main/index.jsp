@@ -29,7 +29,7 @@
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                         <h1><em>CAMPUSMATE</em></h1>
-                        <p><a href="#">경북대학교 · 영남대학교 · 계명대학교 </a> 커뮤니티 사이트 <a href="#">캠퍼스 메이트</a></br>
+                        <p><a class="title_color">경북대학교 · 영남대학교 · 계명대학교 </a> 커뮤니티 사이트 <a class="title_color">캠퍼스 메이트</a></br>
                         	전국 대학교를 연결하는 커뮤니티의 첫 출발점으로 도약 하겠습니다.</p> 
                         <a href="#about" class="main-button-slider">자세히 알아보기</a>
                     </div>

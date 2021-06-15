@@ -5,7 +5,7 @@
 	<!-- 공지사항 목록  -->
 	<select id="studyDAO.selectStudyList" parameterType="studyVO" resultType="studyVO">
 	<![CDATA[
-		SELECT * FROM STUDY
+		SELECT * FROM CM_STUDY
 		WHERE SUBJECT LIKE CONCAT('%', #{searchKeyword}, '%')
 		OR WRITER LIKE CONCAT('%', #{searchKeyword}, '%')
 		ORDER BY DATE DESC, SUBJECT DESC
@@ -18,7 +18,7 @@
 	<!-- 경북대 스터디 리스트  -->
 	<select id="studyDAO.selectKNUStudyList" parameterType="studyVO" resultType="studyVO">
 	<![CDATA[
-		SELECT * FROM STUDY 
+		SELECT * FROM CM_STUDY 
 		WHERE UNIVERSITY='경북대'
 		ORDER BY SEQ DESC
 		]]>
@@ -28,7 +28,7 @@
 	<!-- 영남대 스터디 목록 -->
 	<select id="studyDAO.selectYUStudyList" parameterType="studyVO" resultType="studyVO">
 	<![CDATA[
-		SELECT * FROM STUDY 
+		SELECT * FROM CM_STUDY 
 		WHERE UNIVERSITY='영남대'
 		ORDER BY SEQ DESC
 		]]>
@@ -37,7 +37,7 @@
 	<!-- 계명대 스터디 목록 -->
 	<select id="studyDAO.selectKMUStudyList" parameterType="studyVO" resultType="studyVO">
 	<![CDATA[
-		SELECT * FROM STUDY 
+		SELECT * FROM CM_STUDY 
 		WHERE UNIVERSITY='계명대'
 		ORDER BY SEQ DESC
 		]]>
@@ -47,7 +47,7 @@
 	<!-- 계명대 스터디 목록 -->
 	<select id="studyDAO.selectUNIONStudyList" parameterType="studyVO" resultType="studyVO">
 	<![CDATA[
-		SELECT * FROM STUDY 
+		SELECT * FROM CM_STUDY 
 		WHERE UNIVERSITY='연합'
 		ORDER BY SEQ DESC
 		]]>
@@ -58,7 +58,7 @@
 	<!-- 공지사항 목록 개수  -->
 	<select id="studyDAO.selectStudyListCnt" parameterType="studyVO" resultType="int">
 	<![CDATA[
-		SELECT COUNT(*) FROM STUDY
+		SELECT COUNT(*) FROM CM_STUDY
 		WHERE SUBJECT LIKE CONCAT('%', #{searchKeyword},'%')
 		OR WRITER LIKE CONCAT('%', #{searchKeyword}, '%')
 		]]>
@@ -70,7 +70,7 @@
 	<select id="studyDAO.selectStudyView" parameterType="studyVO" resultType="studyVO">
 		<![CDATA[
 	
-		SELECT * FROM STUDY WHERE SEQ = #{seq}
+		SELECT * FROM CM_STUDY WHERE SEQ = #{seq}
 	
 		]]>
 		
@@ -80,7 +80,7 @@
 	<!-- 공지사항 등록 -->
 	<insert id="studyDAO.insertStudy" parameterType ="studyVO">
 		<![CDATA[
-		INSERT INTO STUDY 
+		INSERT INTO CM_STUDY 
 		(UNIVERSITY, SUBJECT, WRITER, DATE, CONTENTS, FILENAME, ORIFILENAME)
 		VALUES
 		(#{university}, #{subject},#{writer},NOW(), #{contents}, #{filename}, #{oriFilename})
@@ -91,7 +91,7 @@
 	
 	<!-- 공지사항 수정 -->
 	<update id="studyDAO.updateStudy" parameterType="studyVO">
-		UPDATE STUDY
+		UPDATE CM_STUDY
 		<trim prefix ="SET" suffixOverrides=",">
 			<if test = "subject != null"><![CDATA[ SUBJECT = #{subject}, ]]></if>
 			<if test = "contents != null"><![CDATA[ CONTENTS = #{contents}, ]]></if>
@@ -104,7 +104,7 @@
 	 
 	 <!--공지사항 삭제  -->
 	<delete id="studyDAO.deleteStudy" parameterType ="studyVO">
-		DELETE FROM STUDY WHERE SEQ = #{seq}
+		DELETE FROM CM_STUDY WHERE SEQ = #{seq}
 	</delete>
 	<!--//공지사항 삭제  -->
 	
