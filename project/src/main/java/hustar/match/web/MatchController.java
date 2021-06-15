@@ -31,26 +31,26 @@ public class MatchController {
 	
 	@RequestMapping(value= {"/match/matching.do"})
 	public String matching() {
-		return "match/matching";
+		return "/match/matching";
 	}
 	
 	@RequestMapping(value= {"/match/match_intro.do"})
 	public String match_intro() {
-		return "match/match_intro";
+		return "/match/match_intro";
 	}
 	
 	@RequestMapping(value= {"/match/match_join.do"})
 	public String match_join() {
-		return "match/match_join";
+		return "/match/match_join";
 	}
 	@RequestMapping(value= {"/match/match_join_next.do"})
 	public String match_join_next() {
-		return "match/match_join_next";
+		return "/match/match_join_next";
 	}
 	
 	@RequestMapping(value= {"/match/match_modify.do"})
 	public String match_modify() {
-		return "match/match_modify";
+		return "/match/match_modify";
 	}
 	
 	@RequestMapping("/match/match_Insert.do")
@@ -71,7 +71,7 @@ public class MatchController {
 			commonService.insert(matchVO, null, null, "matchDAO.insertMatch"); 
 		}
 		
-		return "redirect:/index.do"; 
+		return "redirect:/match/matching.do"; 
 	}
 	
 }

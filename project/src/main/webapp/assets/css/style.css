@@ -21,12 +21,14 @@ p {margin:0;padding:0;word-break:break-all}
 hr {display:none}
 pre {overflow-x:scroll;font-size:1.1em}
 
-.title_color{style="color:#007bff; font-weight:bold"}
-
 *, :after, :before {
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
 box-sizing: border-box;
+}
+.welcome-area .header-text p a.title_color{
+  font-weight: 500;
+  color: #fc6c42;
 }
 
 
@@ -44,6 +46,32 @@ width: auto/9;
   font-style: normal;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+
+/* HIDE RADIO */
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  width:200px;
+  height:150px;
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  outline: 1px solid #f00;
+}
+
+
+
+
 
 /* 고객센터 상단 부분 =============================================================================================================================================================================*/
 .snb-wrap{text-align: center; margin: 20px 0;}
@@ -578,14 +606,24 @@ border-right: 0;
 
 
 
-
-
 /* 회원가입 페이지 구성 =================================================================================================================================================================================*/
-.join-box{margin:150px;}
+.join-box{
+	text-align:left;
+	margin:0 auto;
+    max-width: 700px;
+    padding-top:150px;
+}
+.join-box h2 {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 15px;
+}
+.row_arr{float:left;}
+.row_arr div{float:left; padding:3px;}
 .join-box .join-form label{display:block;}
 .join-box h1{text-align:center; margin-bottom:20px; font-size:30px;}
 
-.join-box .join-form{max-width:400px; margin:0 auto; background: #fff; border: 1px solid #ccc; border-radius:25px; padding:20px;}
+.join-box .join-form{max-width:700px; margin:0 auto; background: #fff; border: 5px solid #ffc107; border-radius:25px; padding:30px;}
 
 .join-box .join-form input[type="text"]{width:100%; height:40px; border: 1px solid #ccc; padding:5px;} /*모든 인풋에게 해당하게 안하기위해[text=""]*/
 .join-box .join-form input[type="password"]{width:100%; height:40px; border: 1px solid #ccc; padding:5px;} /*모든 인풋에게 해당하게 안하기위해[text=""]*/
@@ -597,7 +635,7 @@ border-right: 0;
 .join-box .join-form ul li a:hover{background: #ecc6af; border-radius: 0px;}
 
 .join-box .join-form ul li{margin-bottom:10px;}
-.join-box .join-form ul li label{font-size:12px; color:#888; margin-bottom:3px;}
+.join-box .join-form ul li label{text-align:left;font-size:12px; color:#888; margin-bottom:3px;}
 .join-box .join-form ul li.gender span{display:inline-block;} /*li의 gender클래스 안에 있는 span 들에게*/
 .join-box .join-form ul li.gender span label{display:inline-block;} /*li의 gender클래스 안에 있는 span속의 label*/
 .join-box .join-form ul li.addr span.zipcode input{width:150px;}
@@ -670,3 +708,4 @@ border-right: 0;
 .bbs-write li.checkbox-wrap{background: #fff; padding: 10px;}
 .bbs-write li.checkbox-wrap label{display: inline-block;}
 >>>>>>> branch 'master' of https://github.com/YS-Jeong/Campusmate.git
+
