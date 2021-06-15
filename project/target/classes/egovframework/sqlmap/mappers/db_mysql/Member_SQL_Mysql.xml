@@ -5,7 +5,7 @@
 	<insert id = "memberDAO.insertMember" parameterType="memberVO">
 		<![CDATA[
 		INSERT INTO 
-			CAMPUS_MEMBER
+			CM_MEMBER
 		SET 
 			ST_ID = #{st_id},
 			PASSWORD = #{password},  
@@ -23,7 +23,7 @@
 	<select id = "memberDAO.selectMemberCnt" parameterType="memberVO" resultType="int">
 		<![CDATA[
 			SELECT COUNT(*) FROM 
-				CAMPUS_MEMBER 
+				CM_MEMBER
 			WHERE
 				ST_ID = #{st_id}
 		]]>
@@ -34,7 +34,7 @@
 	<select id = "memberDAO.selectMemberView" parameterType="memberVO" resultType="memberVO">
 		<![CDATA[
 			SELECT*FROM 
-				CAMPUS_MEMBER 
+				CM_MEMBER
 			WHERE
 				ST_ID = #{st_id}
 		]]>
@@ -45,7 +45,7 @@
 	<update id = "memberDAO.updateMember" parameterType="memberVO">
 		<![CDATA[
 		UPDATE 
-			CAMPUS_MEMBER 
+			CM_MEMBER 
 		SET
 			ST_ID = #{st_id},
 			PASSWORD = #{password},  

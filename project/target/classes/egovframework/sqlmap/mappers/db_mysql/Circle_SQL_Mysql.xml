@@ -6,7 +6,7 @@
 	<select id="circleDAO.selectCircleList" parameterType="circleVO" resultType="circleVO">
 		<![CDATA[
 			SELECT *
-			FROM CIRCLE
+			FROM CM_CIRCLE
 			WHERE (SUBJECT LIKE CONCAT('%', #{searchKeyword},'%')) OR (WRITER LIKE CONCAT('%', #{searchKeyword},'%'))	
 			ORDER BY DATE DESC, SUBJECT DESC
 			LIMIT #{recordCountPerPage} OFFSET ${firstIndex}
@@ -17,7 +17,7 @@
 	<!-- 경북대 동아리 리스트  -->
 	<select id="circleDAO.selectKNUCircleList" parameterType="circleVO" resultType="circleVO">
 	<![CDATA[
-		SELECT * FROM CIRCLE 
+		SELECT * FROM CM_CIRCLE
 		WHERE UNIVERSITY='경북대'
 		ORDER BY SEQ DESC
 		]]>
@@ -27,7 +27,7 @@
 	<!-- 영남대 동아리 목록 -->
 	<select id="circleDAO.selectYUCircleList" parameterType="circleVO" resultType="circleVO">
 	<![CDATA[
-		SELECT * FROM CIRCLE 
+		SELECT * FROM CM_CIRCLE 
 		WHERE UNIVERSITY='영남대'
 		ORDER BY SEQ DESC
 		]]>
@@ -36,15 +36,16 @@
 	<!-- 계명대 동아리 목록 -->
 	<select id="circleDAO.selectKMUCircleList" parameterType="circleVO" resultType="circleVO">
 	<![CDATA[
-		SELECT * FROM CIRCLE 
+		SELECT * FROM CM_CIRCLE
 		WHERE UNIVERSITY='계명대'
 		ORDER BY SEQ DESC
 		]]>
 	
 	</select>
+	
 	<select id="circleDAO.selectUNIONCircleList" parameterType="circleVO" resultType="circleVO">
 	<![CDATA[
-		SELECT * FROM CIRCLE 
+		SELECT * FROM CM_CIRCLE 
 		WHERE UNIVERSITY='연합'
 		ORDER BY SEQ DESC
 		]]>
@@ -55,7 +56,7 @@
 	<select id="circleDAO.selectCircleListCnt" parameterType="circleVO" resultType="int">
 		<![CDATA[
 			SELECT COUNT(*)
-			FROM CIRCLE	
+			FROM CM_CIRCLE
 			WHERE SUBJECT LIKE CONCAT('%', #{searchKeyword},'%') OR (WRITER LIKE CONCAT('%', #{searchKeyword},'%'))
 		]]>
 	</select>
@@ -65,7 +66,7 @@
 	<select id="circleDAO.selectCircleView" parameterType="circleVO" resultType="circleVO">
 		<![CDATA[
 			SELECT *
-			FROM CIRCLE
+			FROM CM_CIRCLE
 			WHERE SEQ = #{seq}
 		]]>
 	</select>
@@ -74,7 +75,7 @@
 	<!-- 동아리  등록 insert니까 result가 없다.-->
 	<insert id="circleDAO.insertCircle" parameterType="circleVO">
 		<![CDATA[
-			INSERT INTO CIRCLE
+			INSERT INTO CM_CIRCLE
 			(UNIVERSITY, SUBJECT, WRITER, DATE, CONTENTS, FILENAME, ORIFILENAME)
 			VALUES
 			(#{university}, #{subject}, #{writer}, NOW(), #{contents}, #{filename}, #{oriFilename})
@@ -84,7 +85,7 @@
 		
 	<!-- 동아리  수정 -->
 	<update id="circleDAO.updateCircle" parameterType="circleVO">
-			UPDATE CIRCLE
+			UPDATE CM_CIRCLE
 			<trim prefix="SET" suffixOverrides=",">
 				<if test="subject != null"> <![CDATA[ SUBJECT = #{subject}, ]]> </if>
 			    <if test="contents != null"> <![CDATA[ CONTENTS = #{contents}, ]]> </if>
@@ -98,9 +99,16 @@
 	<!-- 동아리  삭제 -->
 	<delete id="circleDAO.deleteCircle" parameterType="circleVO">
 		<![CDATA[
-		DELETE FROM CIRCLE
+		DELETE FROM CM_CIRCLE
 		WHERE SEQ = #{seq}
 		]]>
 	</delete>
+	
 	<!-- //동아리 삭제-->
+	<!-- 조회수 -->
+	<update id="circleDAO.updateCircleHit" parameterType="circleVO">
+		UPDATE CM_CIRCLE SET
+		HIT = #{hit}+1 
+		WHERE SEQ = #{seq}
+	</update>
 </mapper>

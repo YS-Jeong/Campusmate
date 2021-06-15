@@ -31,6 +31,7 @@
 						<div class="subject">제목</div>
 						<div class="name">글쓴이</div>
 						<div class="date">등록일</div>
+						<div class="hit">조회수</div>
 					</li>
 				</ul>
 				
@@ -44,6 +45,7 @@
 							<div class="subject"><a href="<c:url value='/group/circle_view.do'/>?seq=${circleVO.seq}"><c:out value="${circleVO.subject}"/></a></div>
 							<div class="name"><c:out value="${circleVO.writer}"/></div>
 							<div class="date"><c:out value="${circleVO.date}"/></div>
+							<div class="hit"><c:out value="${circleVO.hit}"/></div>
 						</li>
 					</ul>
 				</c:forEach>

@@ -42,26 +42,37 @@
 		</div>
 		
 		
-		<div class="comment-box">
-			<c:forEach var="replyVO" items="${replyVOList}" varStatus="status">
+		<div class="table-list">
+			<ul class="tb-hd">
+					<li>
+						<div class="id">ID</div>
+						<div class="name">작성자</div>
+						<div class="content">내용</div>
+						<div class="date">등록일</div>
+					</li>
+			</ul>
+			<c:forEach var="circle_replyVO" items="${circle_replyVOList}" varStatus="status">
 				<ul class="tb-bd">
 					<li>
-						<div class="subject"><c:out value="${replyVO.cno}"/></div>
-						<div class="name"><c:out value="${replyVO.writer}"/></div>
-						<div class="content"><c:out value="${replyVO.content}"/></div>
-						<div class="date"><c:out value="${replyVO.date}"/></div>
+						<div class="id"><c:out value="${circle_replyVO.id}"/></div>
+						<div class="name"><c:out value="${circle_replyVO.name}"/></div>
+						<div class="content"><c:out value="${circle_replyVO.content}"/></div>
+						<div class="date"><c:out value="${circle_replyVO.regdate}"/></div>
 					</li>
 				</ul>
 			</c:forEach>
-			<p>
-				<c:out value ='${session.name}'/></label>
-			</p>
-			<p>
-				<textarea rows="5" colos="50" placeholder="불건전한 내용, 광고성, 타인 비하 등 운영 원칙에 위배되는 댓글은 삭제될 수 있습니다."></textarea>
-			</p>
-			<p>
-				<button type="button">댓글작성</button>
 		</div>
+		<form method="post" action="<c:url value = "/group/circle_reply_insert.do"/>?seq=${circleVO.seq}">
+		<div class="comment-reg">
+			<p>댓글 작성</p>
+			<p>
+				<textarea name = "content" style="width: 1200px" rows="5" colos="50" placeholder="불건전한 내용, 광고성, 타인 비하 등 운영 원칙에 위배되는 댓글은 삭제될 수 있습니다."></textarea>
+			</p>
+			<p>
+				<button>댓글작성</button>
+			</p>
+		</div>
+		</form>
 	</div>
 
 </div>

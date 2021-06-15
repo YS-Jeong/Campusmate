@@ -1,5 +1,6 @@
 package hustar.member.web;
 
+
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -180,10 +181,10 @@ public class MemberController {
 	}
 	
 	//회원정보수정===========================================================================================
-	@RequestMapping("/member/mypage.do")
-	public String mypage() throws Exception{
+	@RequestMapping("/member/modify.do")
+	public String modify() throws Exception{
 		
-		return "/member/mypage";  
+		return "/member/modify";  
 	}
 	
 	//회원수정시 입력 정보를 DB로 전달================================================================ 
@@ -206,4 +207,11 @@ public class MemberController {
 		
 		return "redirect:/member/login.do";
 	}
+	
+	//내가 쓴 글 보기===========================================================================================
+		@RequestMapping("/member/my_contents.do")
+		public String my_contents() throws Exception{
+			
+			return "/member/my_contents";  
+		}
 }

@@ -19,6 +19,7 @@ import egovframework.com.cmm.service.CommonService;
 import egovframework.com.cmm.util.EgovProperties;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 import hustar.group.service.CircleVO;
+import hustar.group.service.Circle_ReplyVO;
 import hustar.member.service.MemberVO;
 import hustar.util.FileUtil;
 
@@ -33,7 +34,7 @@ public class CircleController {
 	
 	@Resource(name = "jsonView")
 	MappingJackson2JsonView jsonView;
-
+	
 	//전체 동아리 리스트
 	@RequestMapping(value={"/group/circle_list.do"})
 	public String circle_list(Model model, CircleVO searchVO) throws Exception {
@@ -55,7 +56,7 @@ public class CircleController {
 				
 				
 		List<CircleVO> circleVOList = (List<CircleVO>)commonService.selectList(searchVO, null, null, "circleDAO.selectCircleList");
-				
+		
 		model.addAttribute("circleVOList", circleVOList);
 		model.addAttribute("paginationInfo", paginationInfo);
 		model.addAttribute("searchVO", searchVO);
@@ -168,19 +169,26 @@ public class CircleController {
 				
 				
 		List<CircleVO> circleVOList = (List<CircleVO>)commonService.selectList(searchVO, null, null, "circleDAO.selectUNIONCircleList");
-				
+		
 		model.addAttribute("circleVOList", circleVOList);
 		model.addAttribute("paginationInfo", paginationInfo);
 		model.addAttribute("searchVO", searchVO);
 			
 		return "/group/union_circle_list";
 	}
+	
 	@RequestMapping(value={"/group/circle_view.do"})
 	public String circle_view(CircleVO searchVO, Model model) throws Exception {
 		
 		CircleVO circleVO = (CircleVO)commonService.selectView(searchVO, null, null, "circleDAO.selectCircleView");
 		
+		//commonService.update(circleVO, null, null, "circleDAO.updateCircleHit");
+	
 		model.addAttribute("circleVO", circleVO);
+		
+		List<Circle_ReplyVO> circle_replyVOList = (List<Circle_ReplyVO>)commonService.selectList(circleVO, null, null, "circle_replyDAO.selectReplyList");
+		//commonService.update(circleVO, null, null, "circleDAO.updateCircleHit");
+		model.addAttribute("circle_replyVOList", circle_replyVOList);
 		
 		return "/group/circle_view";
 	}
@@ -304,6 +312,18 @@ public class CircleController {
 		}
 		
 		return new ModelAndView(jsonView);
+	}	
+	
+	@RequestMapping(value={"/group/circle_reply_insert.do"})
+	public String Circle_Reply_insert(CircleVO circleVO, Circle_ReplyVO circle_replyVO, Model model,HttpSession session) throws Exception {
+		
+		MemberVO loginVO =  (MemberVO)session.getAttribute("login");
+		circle_replyVO.setCircle_id(circleVO.getSeq());
+		circle_replyVO.setName(loginVO.getName());
+		
+		commonService.insert(circle_replyVO, null, null, "circle_replyDAO.insertReply");
+		
+		return "redirect:/group/circle_view.do?seq="+circleVO.getSeq();
 	}
 	
 }

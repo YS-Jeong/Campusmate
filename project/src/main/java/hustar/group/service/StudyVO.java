@@ -4,6 +4,7 @@ import egovframework.com.cmm.ComDefaultVO;
 
 public class StudyVO extends ComDefaultVO{
 	public int seq;
+	public int hit;
 	public String university;
 	public String subject;
 	public String writer;
@@ -36,6 +37,13 @@ public class StudyVO extends ComDefaultVO{
 	
 	public void setSeq(int seq) {
 		this.seq = seq;
+	}
+	
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 	public String getSubject() {
 		return subject;

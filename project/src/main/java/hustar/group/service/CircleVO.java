@@ -4,6 +4,7 @@ import egovframework.com.cmm.ComDefaultVO;
 
 public class CircleVO extends ComDefaultVO{
 	public int seq;
+	public int hit;
 	public String university;
 	public String subject;
 	public String writer;
@@ -12,6 +13,13 @@ public class CircleVO extends ComDefaultVO{
 	public String filename;
 	public String oriFilename;
 	
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
 	//alt + shift + s -> getter setter 생성하기위함
 	
 	public int getSeq() {
