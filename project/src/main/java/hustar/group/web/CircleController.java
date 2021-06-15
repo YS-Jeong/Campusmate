@@ -19,7 +19,6 @@ import egovframework.com.cmm.service.CommonService;
 import egovframework.com.cmm.util.EgovProperties;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 import hustar.group.service.CircleVO;
-import hustar.group.service.ReplyVO;
 import hustar.member.service.MemberVO;
 import hustar.util.FileUtil;
 
@@ -35,6 +34,7 @@ public class CircleController {
 	@Resource(name = "jsonView")
 	MappingJackson2JsonView jsonView;
 
+	//전체 동아리 리스트
 	@RequestMapping(value={"/group/circle_list.do"})
 	public String circle_list(Model model, CircleVO searchVO) throws Exception {
 		
@@ -62,12 +62,124 @@ public class CircleController {
 			
 		return "/group/circle_list";
 	}
+	//경북대 동아리 리스트
+	@RequestMapping(value={"/group/knu_circle_list.do"})
+	public String knu_circle_list(Model model, CircleVO searchVO) throws Exception {
+		
+		System.out.println("searchKeyword = " + searchVO.getSearchKeyword());
+		
+		//페이지 나누기 위해 정해진 룰이다. 이렇게 보통 많이 씀.
+		PaginationInfo paginationInfo = new PaginationInfo();
+		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());	//현재 페이지
+		paginationInfo.setRecordCountPerPage(searchVO.getRecordCountPerPage());	//한페이당 몇개표시 할건가
+		paginationInfo.setPageSize(searchVO.getPageSize());
+				
+		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
+		searchVO.setPageSize(paginationInfo.getPageSize());
+				
+		int recordCount = commonService.selectListTotCnt(searchVO, null, null, "circleDAO.selectCircleListCnt");
+		paginationInfo.setTotalRecordCount(recordCount);//전체 행 값이 몇개인지 알려주는 그래서 위에서 DB로부터 값 불러와야함.
+				
+				
+		List<CircleVO> circleVOList = (List<CircleVO>)commonService.selectList(searchVO, null, null, "circleDAO.selectKNUCircleList");
+				
+		model.addAttribute("circleVOList", circleVOList);
+		model.addAttribute("paginationInfo", paginationInfo);
+		model.addAttribute("searchVO", searchVO);
+			
+		return "/group/knu_circle_list";
+	}
+	//영남대 동아리 리스트
+	@RequestMapping(value={"/group/yu_circle_list.do"})
+	public String yu_circle_list(Model model, CircleVO searchVO) throws Exception {
+		
+		System.out.println("searchKeyword = " + searchVO.getSearchKeyword());
+		
+		//페이지 나누기 위해 정해진 룰이다. 이렇게 보통 많이 씀.
+		PaginationInfo paginationInfo = new PaginationInfo();
+		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());	//현재 페이지
+		paginationInfo.setRecordCountPerPage(searchVO.getRecordCountPerPage());	//한페이당 몇개표시 할건가
+		paginationInfo.setPageSize(searchVO.getPageSize());
+				
+		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
+		searchVO.setPageSize(paginationInfo.getPageSize());
+				
+		int recordCount = commonService.selectListTotCnt(searchVO, null, null, "circleDAO.selectCircleListCnt");
+		paginationInfo.setTotalRecordCount(recordCount);//전체 행 값이 몇개인지 알려주는 그래서 위에서 DB로부터 값 불러와야함.
+				
+				
+		List<CircleVO> circleVOList = (List<CircleVO>)commonService.selectList(searchVO, null, null, "circleDAO.selectYUCircleList");
+				
+		model.addAttribute("circleVOList", circleVOList);
+		model.addAttribute("paginationInfo", paginationInfo);
+		model.addAttribute("searchVO", searchVO);
+			
+		return "/group/yu_circle_list";
+	}
+	//계명대 동아리 리스트 
+	@RequestMapping(value={"/group/kmu_circle_list.do"})
+	public String kmu_circle_list(Model model, CircleVO searchVO) throws Exception {
+		
+		System.out.println("searchKeyword = " + searchVO.getSearchKeyword());
+		
+		//페이지 나누기 위해 정해진 룰이다. 이렇게 보통 많이 씀.
+		PaginationInfo paginationInfo = new PaginationInfo();
+		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());	//현재 페이지
+		paginationInfo.setRecordCountPerPage(searchVO.getRecordCountPerPage());	//한페이당 몇개표시 할건가
+		paginationInfo.setPageSize(searchVO.getPageSize());
+				
+		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
+		searchVO.setPageSize(paginationInfo.getPageSize());
+				
+		int recordCount = commonService.selectListTotCnt(searchVO, null, null, "circleDAO.selectCircleListCnt");
+		paginationInfo.setTotalRecordCount(recordCount);//전체 행 값이 몇개인지 알려주는 그래서 위에서 DB로부터 값 불러와야함.
+				
+				
+		List<CircleVO> circleVOList = (List<CircleVO>)commonService.selectList(searchVO, null, null, "circleDAO.selectKMUCircleList");
+				
+		model.addAttribute("circleVOList", circleVOList);
+		model.addAttribute("paginationInfo", paginationInfo);
+		model.addAttribute("searchVO", searchVO);
+			
+		return "/group/kmu_circle_list";
+	}
 	
+	//연합 동아리 리스트 목록 
+	@RequestMapping(value={"/group/union_circle_list.do"})
+	public String union_circle_list(Model model, CircleVO searchVO) throws Exception {
+		
+		System.out.println("searchKeyword = " + searchVO.getSearchKeyword());
+		
+		//페이지 나누기 위해 정해진 룰이다. 이렇게 보통 많이 씀.
+		PaginationInfo paginationInfo = new PaginationInfo();
+		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());	//현재 페이지
+		paginationInfo.setRecordCountPerPage(searchVO.getRecordCountPerPage());	//한페이당 몇개표시 할건가
+		paginationInfo.setPageSize(searchVO.getPageSize());
+				
+		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
+		searchVO.setPageSize(paginationInfo.getPageSize());
+				
+		int recordCount = commonService.selectListTotCnt(searchVO, null, null, "circleDAO.selectCircleListCnt");
+		paginationInfo.setTotalRecordCount(recordCount);//전체 행 값이 몇개인지 알려주는 그래서 위에서 DB로부터 값 불러와야함.
+				
+				
+		List<CircleVO> circleVOList = (List<CircleVO>)commonService.selectList(searchVO, null, null, "circleDAO.selectUNIONCircleList");
+				
+		model.addAttribute("circleVOList", circleVOList);
+		model.addAttribute("paginationInfo", paginationInfo);
+		model.addAttribute("searchVO", searchVO);
+			
+		return "/group/union_circle_list";
+	}
 	@RequestMapping(value={"/group/circle_view.do"})
 	public String circle_view(CircleVO searchVO, Model model) throws Exception {
 		
 		CircleVO circleVO = (CircleVO)commonService.selectView(searchVO, null, null, "circleDAO.selectCircleView");
-	
+		
 		model.addAttribute("circleVO", circleVO);
 		
 		return "/group/circle_view";
@@ -183,4 +295,5 @@ public class CircleController {
 		
 		return new ModelAndView(jsonView);
 	}
+	
 }

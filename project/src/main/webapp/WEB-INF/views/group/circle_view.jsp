@@ -4,11 +4,12 @@
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 
+<%@ include file="/WEB-INF/views/inc/header_test.jsp" %>
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
 <body>
 
 <!--콘텐츠 시작-->
-<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
+<%@ include file="/WEB-INF/views/inc/login.jsp" %>
 <%@ include file="/WEB-INF/views/inc/submenu.jsp" %>
 
 <div class="notice-wrap">

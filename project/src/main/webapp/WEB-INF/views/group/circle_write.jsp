@@ -3,11 +3,11 @@
 <%@ taglib prefix="form"      uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
-
+<%@ include file="/WEB-INF/views/inc/header_test.jsp" %>
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
 <body>
 <!--콘텐츠 시작-->
-<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
+<%@ include file="/WEB-INF/views/inc/login.jsp" %>
 <%@ include file="/WEB-INF/views/inc/submenu.jsp" %>
 
 <form method="post" name="frm" action="<c:url value='/group/circle_write_action.do'/>" enctype="multipart/form-data">
@@ -20,6 +20,16 @@
 			<div class="bbs-write">
 				<div>
 					<ul>
+						<li>
+							<label for="">대학교</label>
+							<select name="university">
+							<option value=''>----선택----</option>
+							<option value='경북대'>경북대</option>
+							<option value='영남대'>영남대</option>
+							<option value='계명대'>계명대</option>
+							<option value='연합'>연합</option>
+							</select>
+						<li>
 						<li>
 							<label for="">제목</label>
 							<input type="text" name="subject" value="<c:out value='${circleVO.subject}' />" placeholder="제목을 입력해 주세요.">

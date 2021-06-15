@@ -34,7 +34,7 @@ public class StudyController {
    @Resource(name="jsonView")
    MappingJackson2JsonView jsonView;
       
-    //study 게시판 목록 
+    //전체 study 게시판 목록 
    @RequestMapping(value={"/group/study_list.do"})
     public String study_list(Model model, StudyVO searchVO)  throws Exception{
          
@@ -62,6 +62,119 @@ public class StudyController {
          
          return "/group/study_list";
       }
+   	//경북대study 게시판 목록 
+   @RequestMapping(value={"/group/knu_study_list.do"})
+    public String knu_study_list(Model model, StudyVO searchVO)  throws Exception{
+         
+         System.out.println("searchKeyword = " + searchVO.getSearchKeyword());
+         
+         //페이지 나누기 위해 정해진 룰이다. 이렇게 보통 많이 씀.
+         PaginationInfo paginationInfo = new PaginationInfo();
+         paginationInfo.setCurrentPageNo(searchVO.getPageIndex());   //현재 페이지
+         paginationInfo.setRecordCountPerPage(searchVO.getRecordCountPerPage());   //한페이당 몇개표시 할건가
+         paginationInfo.setPageSize(searchVO.getPageSize());
+         
+         searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+         searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
+         searchVO.setPageSize(paginationInfo.getPageSize());
+         
+         int recordCount = commonService.selectListTotCnt(searchVO, null, null, "studyDAO.selectStudyListCnt");
+         paginationInfo.setTotalRecordCount(recordCount);//전체 행 값이 몇개인지 알려주는 그래서 위에서 DB로부터 값 불러와야함.
+         
+         
+         List<StudyVO> studyVOList = (List<StudyVO>)commonService.selectList(searchVO, null, null, "studyDAO.selectKNUStudyList");
+         
+         model.addAttribute("studyVOList", studyVOList);
+         model.addAttribute("paginationInfo", paginationInfo);
+         model.addAttribute("searchVO", searchVO);
+         
+         return "/group/knu_study_list";
+      }
+	//영남대 study 게시판 목록 
+   @RequestMapping(value={"/group/yu_study_list.do"})
+    public String yu_study_list(Model model, StudyVO searchVO)  throws Exception{
+         
+         System.out.println("searchKeyword = " + searchVO.getSearchKeyword());
+         
+         //페이지 나누기 위해 정해진 룰이다. 이렇게 보통 많이 씀.
+         PaginationInfo paginationInfo = new PaginationInfo();
+         paginationInfo.setCurrentPageNo(searchVO.getPageIndex());   //현재 페이지
+         paginationInfo.setRecordCountPerPage(searchVO.getRecordCountPerPage());   //한페이당 몇개표시 할건가
+         paginationInfo.setPageSize(searchVO.getPageSize());
+         
+         searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+         searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
+         searchVO.setPageSize(paginationInfo.getPageSize());
+         
+         int recordCount = commonService.selectListTotCnt(searchVO, null, null, "studyDAO.selectStudyListCnt");
+         paginationInfo.setTotalRecordCount(recordCount);//전체 행 값이 몇개인지 알려주는 그래서 위에서 DB로부터 값 불러와야함.
+         
+         
+         List<StudyVO> studyVOList = (List<StudyVO>)commonService.selectList(searchVO, null, null, "studyDAO.selectYUStudyList");
+         
+         model.addAttribute("studyVOList", studyVOList);
+         model.addAttribute("paginationInfo", paginationInfo);
+         model.addAttribute("searchVO", searchVO);
+         
+         return "/group/yu_study_list";
+      }
+   //계명대 스터디 리스트
+   @RequestMapping(value={"/group/kmu_study_list.do"})
+   public String kmu_study_list(Model model, StudyVO searchVO)  throws Exception{
+        
+        System.out.println("searchKeyword = " + searchVO.getSearchKeyword());
+        
+        //페이지 나누기 위해 정해진 룰이다. 이렇게 보통 많이 씀.
+        PaginationInfo paginationInfo = new PaginationInfo();
+        paginationInfo.setCurrentPageNo(searchVO.getPageIndex());   //현재 페이지
+        paginationInfo.setRecordCountPerPage(searchVO.getRecordCountPerPage());   //한페이당 몇개표시 할건가
+        paginationInfo.setPageSize(searchVO.getPageSize());
+        
+        searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+        searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
+        searchVO.setPageSize(paginationInfo.getPageSize());
+        
+        int recordCount = commonService.selectListTotCnt(searchVO, null, null, "studyDAO.selectStudyListCnt");
+        paginationInfo.setTotalRecordCount(recordCount);//전체 행 값이 몇개인지 알려주는 그래서 위에서 DB로부터 값 불러와야함.
+        
+        
+        List<StudyVO> studyVOList = (List<StudyVO>)commonService.selectList(searchVO, null, null, "studyDAO.selectKMUStudyList");
+        
+        model.addAttribute("studyVOList", studyVOList);
+        model.addAttribute("paginationInfo", paginationInfo);
+        model.addAttribute("searchVO", searchVO);
+        
+        return "/group/kmu_study_list";
+     }
+   
+   //연합 스터디 목록
+   @RequestMapping(value={"/group/union_study_list.do"})
+   public String union_study_list(Model model, StudyVO searchVO)  throws Exception{
+        
+        System.out.println("searchKeyword = " + searchVO.getSearchKeyword());
+        
+        //페이지 나누기 위해 정해진 룰이다. 이렇게 보통 많이 씀.
+        PaginationInfo paginationInfo = new PaginationInfo();
+        paginationInfo.setCurrentPageNo(searchVO.getPageIndex());   //현재 페이지
+        paginationInfo.setRecordCountPerPage(searchVO.getRecordCountPerPage());   //한페이당 몇개표시 할건가
+        paginationInfo.setPageSize(searchVO.getPageSize());
+        
+        searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+        searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
+        searchVO.setPageSize(paginationInfo.getPageSize());
+        
+        int recordCount = commonService.selectListTotCnt(searchVO, null, null, "studyDAO.selectStudyListCnt");
+        paginationInfo.setTotalRecordCount(recordCount);//전체 행 값이 몇개인지 알려주는 그래서 위에서 DB로부터 값 불러와야함.
+        
+        
+        List<StudyVO> studyVOList = (List<StudyVO>)commonService.selectList(searchVO, null, null, "studyDAO.selectUNIONStudyList");
+        
+        model.addAttribute("studyVOList", studyVOList);
+        model.addAttribute("paginationInfo", paginationInfo);
+        model.addAttribute("searchVO", searchVO);
+        
+        return "/group/union_study_list";
+     }
    
    @RequestMapping(value={"/group/study_view.do"})
     public String study_view(Model model, StudyVO searchVO) throws Exception {
@@ -73,6 +186,42 @@ public class StudyController {
          return "/group/study_view";
          
       }
+   
+   //경북대 리스트만 보이게 함
+   @RequestMapping(value={"/group/knu_study_view.do"})
+   public String knu_study_view(Model model, StudyVO searchVO) throws Exception {
+     
+     StudyVO studyVO = (StudyVO) commonService.selectView(searchVO, null, null,"studyDAO.selectKNUStudyView");
+        
+        model.addAttribute("studyVO",studyVO);
+        
+        return "/group/study_view";
+        
+     }
+   //경북대 리스트만 보이게 함
+   @RequestMapping(value={"/group/yu_study_view.do"})
+   public String yu_study_view(Model model, StudyVO searchVO) throws Exception {
+     
+     StudyVO studyVO = (StudyVO) commonService.selectView(searchVO, null, null,"studyDAO.selectYUStudyView");
+        
+        model.addAttribute("studyVO",studyVO);
+        
+        return "/group/study_view";
+        
+     }
+   //경북대 리스트만 보이게 함
+   @RequestMapping(value={"/group/kmu_study_view.do"})
+   public String kmu_study_view(Model model, StudyVO searchVO) throws Exception {
+     
+     StudyVO studyVO = (StudyVO) commonService.selectView(searchVO, null, null,"studyDAO.selectKMUStudyView");
+        
+        model.addAttribute("studyVO",studyVO);
+        
+        return "/group/study_view";
+        
+     }
+   
+   
    @RequestMapping(value={"/group/study_write.do"})
    public String group_write(Model model) {
       
@@ -224,10 +373,4 @@ public class StudyController {
          
       }
       
-     
-      
-   
-
-   
-   
 }
