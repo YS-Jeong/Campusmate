@@ -42,6 +42,7 @@
 		]]>
 	
 	</select>
+	
 	<select id="circleDAO.selectUNIONCircleList" parameterType="circleVO" resultType="circleVO">
 	<![CDATA[
 		SELECT * FROM CM_CIRCLE 
@@ -102,5 +103,14 @@
 		WHERE SEQ = #{seq}
 		]]>
 	</delete>
+	
 	<!-- //동아리 삭제-->
+	
+	<!-- 조회수 -->
+	<update id="circleDAO.updateCircleHit" parameterType="circleVO">
+		UPDATE CM_CIRCLE SET
+		HIT = #{hit}+1 
+		WHERE SEQ = #{seq}
+	</update>
+	<!-- /조회수 -->
 </mapper>

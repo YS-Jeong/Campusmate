@@ -41,6 +41,7 @@
 					<div class="subject">제목</div>
 					<div class="name">글쓴이</div>
 					<div class="date">등록일</div>
+					<div class="hit">조회수</div>
 				</li>
 			</ul>
 			
@@ -54,6 +55,7 @@
 						<div class="subject"><a href="<c:url value='/group/study_view.do'/>?seq=${studyVO.seq}"><c:out value="${studyVO.subject}"/></a></div>
 						<div class="name"><c:out value="${studyVO.writer}"/></div>
 						<div class="date"><c:out value="${studyVO.date}"/></div>
+						<div class="hit"><c:out value="${studyVO.hit}"/></div>
 					</li>
 				</ul>
 			</c:forEach>

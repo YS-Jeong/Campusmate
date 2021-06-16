@@ -20,6 +20,8 @@ select {margin:0}
 p {margin:0;padding:0;word-break:break-all}
 hr {display:none}
 pre {overflow-x:scroll;font-size:1.1em}
+a {color:##007bff;text-decoration:none,font-weight:500;}
+
 
 *, :after, :before {
 -webkit-box-sizing: border-box;
@@ -50,12 +52,7 @@ width: auto/9;
 
 
 /* HIDE RADIO */
-/*[type=radio] { 
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
+
 
 /* IMAGE STYLES */
 [type=radio] + img {
@@ -256,29 +253,23 @@ width: auto/9;
 
 
 <!--메인 비주얼-->
-	<div class="test-visual">
-		<div>
-			<div class="main-bg-box">
-				<img src="./img/bg_img.png" alt="">			
-			</div>
+   <div class="test-visual">
+      <div>
+         <div class="main-bg-box">
+            <img src="./img/bg_img.png" alt="">         
+         </div>
 
-			<div class="main-txt">
-				<h2 data-aos="fade-up" data-aos-delay="100">언제나 당신 곁에 있는 맥주</h2>
-				<p data-aos="fade-up">
-					<span data-aos="fade-up" data-aos-delay="300">국내 최고의 맥주회사 World Beer 입니다.</span>
-					<span data-aos="fade-up" data-aos-delay="300">최단 기간의 배송과 거짓없는 맛을 보장합니다. 지금 확인하세요.</span>
-				</p>
-			</div>
-		</div>
-	</div>
+         <div class="main-txt">
+            <h2 data-aos="fade-up" data-aos-delay="100">언제나 당신 곁에 있는 맥주</h2>
+            <p data-aos="fade-up">
+               <span data-aos="fade-up" data-aos-delay="300">국내 최고의 맥주회사 World Beer 입니다.</span>
+               <span data-aos="fade-up" data-aos-delay="300">최단 기간의 배송과 거짓없는 맛을 보장합니다. 지금 확인하세요.</span>
+            </p>
+         </div>
+      </div>
+   </div>
 
 */
-
-
-
-
-
-
 
 
 /* 현황, 배너 부분 =============================================================================================================================================================================*/
@@ -293,12 +284,6 @@ width: auto/9;
 .num-data ul li span{font-size: 1rem; font-style: normal;font-weight: 400;text-transform: none;line-height: 1.7; color: #777777; margin-bottom:20px;}
 
 .slide-banner{text-align:center; margin:50px auto; background-color:#e1e1e1;}
-
-
-
-
-
-
 
 /* 갤러리 부분 =============================================================================================================================================================================*/
 .main-gallery-wrap{padding: 10px 0; margin-top:200px; background-color:#fac079; border: 1px solid #fff;}
@@ -322,14 +307,8 @@ width: auto/9;
 .main-gallery li:hover > div .info span{width: 120px; border-radius:15px; border-radius:15px; background: #258ebf; color: #fff; border:0;}
 .main-gallery li:hover > div .info span u{display: inline-block;}
 
-
-
-
-
-
-
 /* 하단_footer 부분 =============================================================================================================================================================================*/
-.footer{ margin-top:200px;}	
+.footer{ margin-top:200px;}   
 .footer > div{margin:0 auto;  padding:10px; max-width:100%; overflow:hidden; background: #ecc6af;}
 .footer > div > div{float:left;}
 
@@ -338,13 +317,6 @@ width: auto/9;
 .footer > div > div.f-logo h1 a img{max-width:160px; max-height:50px; padding-right:15px;}
 
 .footer > div > div.f-copy{ padding:15px; margin:20px; color:#fff;}
-
-
-
-
-
-
-
 
 /* 고객센터 상단 부분 =============================================================================================================================================================================*/
 .snb-wrap{text-align: center; margin: 20px 0;}
@@ -388,9 +360,6 @@ transform:translateX(-50%);
 bottom:-7px;
 }
 
-
-
-
 /* notice_list.html 부분 =============================================================================================================================================================================*/
 .notice-box{max-width:1200px;margin: 200px, auto;padding-top: 150px;}
 
@@ -406,14 +375,21 @@ border-bottom: 0;
 border-right: 0;
 }
 
-.table-list ul li > div.no{width: 10%;}
-.table-list ul li > div.uni{width:10%;}
-.table-list ul li > div.subject{width: 55%;}
+.table-list ul li > div.no{width: 5%;}
+.table-list ul li > div.uni{width: 8%;}
+.table-list ul li > div.subject{width: 53%;}
 .table-list ul li > div.subject a{font-size:14px; font-weight:bold;}
 .table-list ul li > div.subject a:hover{text-decoration:underline; color: #000;}
-.table-list ul li > div.name{width: 10%;}
-.table-list ul li > div.date{width: 15%;}
+.table-list ul li > div.name{width:  3%;}
+.table-list ul li > div.date{width: 22%;}
+.table-list ul li > div.hit{width: 5%;}
 .table-list ul.tb-bd li > div.subject{text-align: left;}
+.table-list ul li > div.id{width: 5%;}
+.table-list ul li > div.name{width:10%;}
+.table-list ul li > div.content{width: 50%;}
+.table-list ul li > div.date{width: 10%;}
+.table-list ul li > div.button{width: 8%;}
+
 .table-list ul.tb-hd{border-top: 2px solid #000;}
 
 .paging{text-align: center; margin: 20px 0;}
@@ -429,13 +405,6 @@ border-right: 0;
 .table-btn > div{text-align: right;}
 .table-btn > div a{background: #fe8e60; padding: 10px 20px; color: #fff; display: inline-block;}
 
-
-
-
-
-
-
-
 /* notice_view.html 부분 =============================================================================================================================================================================*/
 .bbs-view{max-width: 100%; margin: 0 auto; border:1px solid #e1e1e1; border-radius:50px; padding:20px; background:#fff;}
 .bbs-view .view-hd{text-align:center; margin-bottom:20px;}
@@ -449,11 +418,6 @@ border-right: 0;
 .bbs-view .view-file a:last-child{border-bottom:0;}
 
 
-
-
-
-
-
 /* notice_write.html 부분 =============================================================================================================================================================================*/
 .bbs-write{}
 .bbs-write > div{max-width:1200px; margin: 0 auto;}
@@ -463,11 +427,6 @@ border-right: 0;
 .bbs-write li textarea{border: 1px solid #ccc; height: 300px; width: 100%; padding: 5px;}
 .bbs-write li.checkbox-wrap{background: #fff; padding: 10px;}
 .bbs-write li.checkbox-wrap label{display: inline-block;}
-
-
-
-
-
 
 
 /* gallery_list.html 부분 =============================================================================================================================================================================*/
@@ -488,21 +447,13 @@ border-right: 0;
 /* gallery_view.html 부분 =============================================================================================================================================================================*/
 .view-cont img{width:100%; height:100%;}
 
-
-
-
-
-
-
-
-
 /* booking - list.html 부분 =============================================================================================================================================================================*/
 .booking-wrap .table-hd > div{margin:20px 10px;}
 .booking-wrap .table-btn{margin:20px 10px;}
 
 .booking-wrap ul li{padding:10px;}
 .booking-wrap ul li .booking-box{overflow:hidden; border: 1px solid #ccc; background: #fff;}
-.booking-wrap ul li .booking-box > div{float:left; padding:20px;}	
+.booking-wrap ul li .booking-box > div{float:left; padding:20px;}   
 .booking-wrap ul li .booking-box > div.thum{width: 30%;}
 .booking-wrap ul li .booking-box > div.info{width: 70%;}
 
@@ -514,13 +465,6 @@ border-right: 0;
 .booking-wrap ul li .bookging-box{display:table; width:100%;}
 .booking-box{max-width:1200px; margin:0 auto;}
 .booking-box ul h2{text-align:center; padding: 30px 0; font-size:40px;}
-
-
-
-
-
-
-
 
 
 /* booking - view.html 부분 =============================================================================================================================================================================*/
@@ -538,11 +482,11 @@ border-right: 0;
 .cal-bd ul li{float:left; width:14.28%;text-align:center;}
 .cal-bd ul li a{display:block; padding:10px;}
 
-.cal-bd ul li:nth-child(1) a{color:red;}	/*일요일은 빨간색으로 표시*/
-.cal-bd ul li:nth-child(7) a{color:blue;}	/*토요일은 빨간색으로 표시*/
+.cal-bd ul li:nth-child(1) a{color:red;}   /*일요일은 빨간색으로 표시*/
+.cal-bd ul li:nth-child(7) a{color:blue;}   /*토요일은 빨간색으로 표시*/
 
 .cal-bd ul li a span{width:30px; height:30px; display:block; line-height:30px; margin: 0 auto;}
-.cal-bd ul li.today a span{background: #000; color:#fff; border-radius:20px;}	/*오늘 날짜를 체크하기위해*/
+.cal-bd ul li.today a span{background: #000; color:#fff; border-radius:20px;}   /*오늘 날짜를 체크하기위해*/
 .cal-bd ul li.off a span{color:#ccc;}
 .cal-bd ul li.selected a span{background: #ecc6af; border-radius:20px;}
 .cal-bd ul li:hover a span{background: #fa9971; border-radius:20px;}
@@ -562,13 +506,6 @@ border-right: 0;
 .booking-box .num li.addr span{padding-right:10px;}
 
 
-
-
-
-
-
-
-
 /* booking - mypage.html 부분 =============================================================================================================================================================================*/
 .mypage > h2{text-align:center; font-size:25px; margin-top:40px;}
 
@@ -583,27 +520,15 @@ border-right: 0;
 .color03{color: #000;}
 .color04{color: #000;}
 
-
-
-
-
-
-
-
 /* 로그인페이지 구성 =================================================================================================================================================================================*/
 .login-box{padding: 40px;margin: 150px auto;}
 .login-box h1{text-align:center; margin-bottom:20px;}
 .login-box .login{max-width: 400px; margin: 0 auto; border:1px solid #e1e1e1; border-radius:25px; padding:20px; background:#fff; box-shadow:0px 2px 4px 0px #000;}
 .login-box .login li{margin: 5px;}
 .login-box .login li input{width: 100%; height:40px; padding: 5px; border:1px solid #ccc; border-radius: 25px;}
-.login-box .login li button{width:100%; height:40px; background: #fe8e60; color:#fff; border: 0; border-radius: 25px; transition:all 0.3s;}	/*transition애니메이션효과*/
+.login-box .login li button{width:100%; height:40px; background: #fe8e60; color:#fff; border: 0; border-radius: 25px; transition:all 0.3s;}   /*transition애니메이션효과*/
 .login-box .login li button:hover{background: #ecc6af; border-radius: 0px;}
 .login-box .login-btn{text-align:center; margin-top:20px;}
-
-
-
-
-
 
 
 /* 회원가입 페이지 구성 =================================================================================================================================================================================*/
@@ -648,12 +573,6 @@ border-right: 0;
 .join-box .join-btn a{display:inline-block; background: #fe8e60; color: #fff; margin:5px; padding:10px 0px;border-radius: 5px; width:100px; transition:all 0.3s;}
 .join-box .join-btn a:hover{background: #ecc6af; border-radius: 0px;}
 
-
-
-
-
-
-
 /* 회사소개 페이지 구성 ===========================================================================================================================================================*/
 .section{}
 #fullpage{}
@@ -697,7 +616,7 @@ border-right: 0;
 
 .cir:after{content:''; position: absolute; width: 45px; height: 1px; background: #fff; top:50%; right:-45px;}
 .cir:last-child:after{display: none;}
-=======
+
 /* circle_write.jsp 부분 =============================================================================================================================================================================*/
 .bbs-write{}
 .bbs-write > div{max-width:1200px; margin: 0 auto;}
@@ -707,5 +626,4 @@ border-right: 0;
 .bbs-write li textarea{border: 1px solid #ccc; height: 300px; width: 100%; padding: 5px;}
 .bbs-write li.checkbox-wrap{background: #fff; padding: 10px;}
 .bbs-write li.checkbox-wrap label{display: inline-block;}
->>>>>>> branch 'master' of https://github.com/YS-Jeong/Campusmate.git
 

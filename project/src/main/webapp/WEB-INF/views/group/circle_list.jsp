@@ -4,12 +4,9 @@
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 
-
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
 <body>
-
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
-
 
 <form method="get" name="frm" action="<c:url value='/group/circle_list.do'/>" entype="multipart/form-data">
 	<div class="notice-wrap">
@@ -32,6 +29,7 @@
 						<div class="subject">제목</div>
 						<div class="name">글쓴이</div>
 						<div class="date">등록일</div>
+						<div class="hit">조회수</div>
 					</li>
 				</ul>
 				
@@ -45,6 +43,7 @@
 							<div class="subject"><a href="<c:url value='/group/circle_view.do'/>?seq=${circleVO.seq}"><c:out value="${circleVO.subject}"/></a></div>
 							<div class="name"><c:out value="${circleVO.writer}"/></div>
 							<div class="date"><c:out value="${circleVO.date}"/></div>
+							<div class="hit"><c:out value="${circleVO.hit}"/></div>
 						</li>
 					</ul>
 				</c:forEach>

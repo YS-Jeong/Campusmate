@@ -18,7 +18,9 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 import egovframework.com.cmm.service.CommonService;
 import egovframework.com.cmm.util.EgovProperties;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
+import hustar.group.service.CircleVO;
 import hustar.group.service.StudyVO;
+import hustar.group.service.Study_ReplyVO;
 import hustar.member.service.MemberVO;
 import hustar.util.FileUtil;
 
@@ -82,7 +84,7 @@ public class StudyController {
          paginationInfo.setTotalRecordCount(recordCount);//전체 행 값이 몇개인지 알려주는 그래서 위에서 DB로부터 값 불러와야함.
          
          
-         List<StudyVO> studyVOList = (List<StudyVO>)commonService.selectList(searchVO, null, null, "studyDAO.selectKNUStudyList");
+         List<StudyVO> studyVOList = (List<StudyVO>)commonService.selectList(searchVO, null, null, "studyDAO.selectUNIONStudyList");
          
          model.addAttribute("studyVOList", studyVOList);
          model.addAttribute("paginationInfo", paginationInfo);
@@ -181,7 +183,11 @@ public class StudyController {
       
       StudyVO studyVO = (StudyVO) commonService.selectView(searchVO, null, null,"studyDAO.selectStudyView");
          
-         model.addAttribute("studyVO",studyVO);
+        model.addAttribute("studyVO",studyVO);
+         
+        List<Study_ReplyVO> study_replyVOList = (List<Study_ReplyVO>)commonService.selectList(studyVO, null, null, "study_replyDAO.selectReplyList_study");
+ 		commonService.update(studyVO, null, null, "studyDAO.updateStudyHit");
+ 		model.addAttribute("study_replyVOList", study_replyVOList);
          
          return "/group/study_view";
          
@@ -381,5 +387,23 @@ public class StudyController {
         FileUtil.displayImage(response,STUDY_UPLOAD_PATH,galleryVO.getFilename());
          
       }
+      
+  	@RequestMapping(value={"/group/study_reply_insert.do"})
+  	public String Study_Reply_insert(StudyVO studyVO,Study_ReplyVO study_replyVO, Model model,HttpSession session, RedirectAttributes redirectAttributes) throws Exception {
+  		
+  		MemberVO loginVO = (MemberVO)session.getAttribute("login");
+  		
+  		if(loginVO==null) {
+            //로그인이 안되었을때 어떻게 처리할것인가? 
+            redirectAttributes.addFlashAttribute("msg", "로그인이 필요합니다."); //로그인이 필요하다는 msg 출력 후 
+            return "redirect:/member/login.do"; //로그인 화면으로 return 
+  		}
+  		study_replyVO.setStudy_id(studyVO.getSeq());
+  		study_replyVO.setName(loginVO.getName());
+  		
+  		commonService.insert(study_replyVO, null, null, "study_replyDAO.insertReply");
+  		
+  		return "redirect:/group/study_view.do?seq="+studyVO.getSeq();
+  	}
       
 }

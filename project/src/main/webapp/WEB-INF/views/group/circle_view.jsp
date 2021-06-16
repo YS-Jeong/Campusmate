@@ -33,7 +33,6 @@
 				</div>
 			</c:if>
 		</div>
-
 		<div class="table-btn">
 			<div>
 				<a href="<c:url value='/group/circle_list.do'/>" class="lis">목록</a>
@@ -41,7 +40,44 @@
 				<a href="<c:url value='/group/circle_modify.do'/>?seq=${circleVO.seq}">수정</a>
 			</div>
 		</div>
-
+		
+		
+		<div class="table-list">
+			<ul class="tb-hd">
+					<li>
+						<div class="id">ID</div>
+						<div class="name">작성자</div>
+						<div class="content">내용</div>
+						<div class="date">등록일</div>
+						<div class="button">관리</div>
+					</li>
+			</ul>
+			<c:forEach var="circle_replyVO" items="${circle_replyVOList}" varStatus="status">
+				<ul class="tb-bd">
+					<li>
+						<div class="id"><c:out value="${circle_replyVO.id}"/></div>
+						<div class="name"><c:out value="${circle_replyVO.name}"/></div>
+						<div class="content"><c:out value="${circle_replyVO.content}"/></div>
+						<div class="date"><c:out value="${circle_replyVO.regdate}"/></div>
+						<div class="button">
+							<button>수정</button>
+							<button>삭제</button>
+						</div>
+					</li>
+				</ul>
+			</c:forEach>
+		</div>
+		<form method="post" action="<c:url value = "/group/circle_reply_insert.do"/>?seq=${circleVO.seq}">
+		<div class="comment-reg">
+			<p>댓글 작성</p>
+			<p>
+				<textarea name = "content" style="width: 1200px" rows="5" colos="50" placeholder="불건전한 내용, 광고성, 타인 비하 등 운영 원칙에 위배되는 댓글은 삭제될 수 있습니다."></textarea>
+			</p>
+			<p>
+				<button>댓글작성</button>
+			</p>
+		</div>
+		</form>
 	</div>
 
 </div>
@@ -57,6 +93,7 @@ function confirmDelete(){
 	}
 	
 }
+
 </script>
 
 </body>

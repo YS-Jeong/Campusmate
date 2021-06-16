@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
 <mapper namespace="studyDAO">
-	
+
 	<!-- 공지사항 목록  -->
 	<select id="studyDAO.selectStudyList" parameterType="studyVO" resultType="studyVO">
 	<![CDATA[
@@ -10,8 +12,7 @@
 		OR WRITER LIKE CONCAT('%', #{searchKeyword}, '%')
 		ORDER BY DATE DESC, SUBJECT DESC
 		LIMIT ${recordCountPerPage} OFFSET ${firstIndex}
-		]]>
-	
+	]]>
 	</select>
 	<!-- //공지사항 목록 -->
 	
@@ -21,37 +22,36 @@
 		SELECT * FROM CM_STUDY 
 		WHERE UNIVERSITY='경북대'
 		ORDER BY SEQ DESC
-		]]>
-	
+	]]>
 	</select>
-	
+
 	<!-- 영남대 스터디 목록 -->
 	<select id="studyDAO.selectYUStudyList" parameterType="studyVO" resultType="studyVO">
 	<![CDATA[
 		SELECT * FROM CM_STUDY 
 		WHERE UNIVERSITY='영남대'
 		ORDER BY SEQ DESC
-		]]>
-	
+	]]>
 	</select>
+	
 	<!-- 계명대 스터디 목록 -->
 	<select id="studyDAO.selectKMUStudyList" parameterType="studyVO" resultType="studyVO">
 	<![CDATA[
 		SELECT * FROM CM_STUDY 
 		WHERE UNIVERSITY='계명대'
 		ORDER BY SEQ DESC
-		]]>
-	
+	]]>
+
 	</select>
 	<!-- //계명대 스터디 목록 -->
+
 	<!-- 계명대 스터디 목록 -->
 	<select id="studyDAO.selectUNIONStudyList" parameterType="studyVO" resultType="studyVO">
 	<![CDATA[
 		SELECT * FROM CM_STUDY 
 		WHERE UNIVERSITY='연합'
 		ORDER BY SEQ DESC
-		]]>
-	
+	]]>
 	</select>
 	<!-- //계명대 스터디 목록 -->
 	
@@ -61,13 +61,12 @@
 		SELECT COUNT(*) FROM CM_STUDY
 		WHERE SUBJECT LIKE CONCAT('%', #{searchKeyword},'%')
 		OR WRITER LIKE CONCAT('%', #{searchKeyword}, '%')
-		]]>
-	
+	]]>	
 	</select>
 	<!-- //공지사항 목록 개수 -->
 	
-	
 	<select id="studyDAO.selectStudyView" parameterType="studyVO" resultType="studyVO">
+
 		<![CDATA[
 	
 		SELECT * FROM CM_STUDY WHERE SEQ = #{seq}
@@ -76,7 +75,7 @@
 		
 
 	</select>
-	
+
 	<!-- 공지사항 등록 -->
 	<insert id="studyDAO.insertStudy" parameterType ="studyVO">
 		<![CDATA[
@@ -86,9 +85,8 @@
 		(#{university}, #{subject},#{writer},NOW(), #{contents}, #{filename}, #{oriFilename})
 		]]>
 	</insert>
-	
 	<!-- //공지사항 등록 -->
-	
+
 	<!-- 공지사항 수정 -->
 	<update id="studyDAO.updateStudy" parameterType="studyVO">
 		UPDATE CM_STUDY
@@ -101,11 +99,18 @@
 		WHERE SEQ = #{seq}
 	</update>
 	<!-- //공지사항 수정 -->
-	 
-	 <!--공지사항 삭제  -->
+ 
+	<!--공지사항 삭제  -->
 	<delete id="studyDAO.deleteStudy" parameterType ="studyVO">
 		DELETE FROM CM_STUDY WHERE SEQ = #{seq}
 	</delete>
 	<!--//공지사항 삭제  -->
 	
+		<!-- 조회수 -->
+	<update id="studyDAO.updateStudyHit" parameterType="studyVO">
+		UPDATE CM_STUDY SET
+		HIT = #{hit}+1 
+		WHERE SEQ = #{seq}
+	</update>
+	<!-- /조회수 -->
 </mapper>

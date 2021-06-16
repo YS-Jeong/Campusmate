@@ -47,10 +47,14 @@ public class MatchController {
 	@RequestMapping(value= {"/match/match_join.do"})
 	public String match_join() {
 		return "/match/match_join";
+
 	}
+
 	
 	@RequestMapping(value= {"/match/match_modify.do"})
+
 	public String match_modify() throws Exception {
+
 
 		return "/match/match_modify";
 	}
@@ -73,6 +77,7 @@ public class MatchController {
 		
 		return "redirect:/match/matching.do"; 
 	}
+
 	
 	@RequestMapping("/match/match_update.do")
 	public String match_update(
@@ -87,6 +92,7 @@ public class MatchController {
 		
 		
 		return "redirect:/match/match_modify.do";
+
 	}
 	
 }
