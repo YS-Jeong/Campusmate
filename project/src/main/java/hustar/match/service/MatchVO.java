@@ -61,9 +61,5 @@ public class MatchVO extends ComDefaultVO{
 		this.purpose = purpose;
 	}
 	
-	
-	
-	
-	
 
 }

@@ -58,7 +58,7 @@
 				</li>
 				<li>
 					<label for="">학교</label>
-					<select name="school"/>
+					<select name="school">
 						<option value="">학교를 선택해주세요.</option>
 						<option value="경북대">경북대학교</option>
 						<option value="영남대">영남대학교</option>
@@ -66,7 +66,7 @@
 					</select>
 					
 					<label for="">학과</label>
-					<select name="depart"/>
+					<select name="depart">
 						<option value="">학과를 선택해주세요.</option>
 						<option value="기계공학과">기계공학과</option>
 						<option value="정보통신공학과">정보통신공학과</option>

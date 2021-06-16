@@ -66,9 +66,14 @@
 	<!-- //공지사항 목록 개수 -->
 	
 	<select id="studyDAO.selectStudyView" parameterType="studyVO" resultType="studyVO">
-	<![CDATA[
+
+		<![CDATA[
+	
 		SELECT * FROM CM_STUDY WHERE SEQ = #{seq}
-	]]>
+	
+		]]>
+		
+
 	</select>
 
 	<!-- 공지사항 등록 -->

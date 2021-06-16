@@ -98,7 +98,7 @@ public class MemberController {
 			redirectAttributes.addFlashAttribute("msg", "CAMPUSMATE에 오신 것을 환영합니다.");
 		}
 		
-		return "redirect:/member/join.do";
+		return "redirect:/member/login.do";
 	}
 	
 	//학번 중복 체크================================================================ 
