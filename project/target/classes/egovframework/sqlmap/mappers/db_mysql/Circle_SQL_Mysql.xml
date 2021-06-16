@@ -17,7 +17,7 @@
 	<!-- 경북대 동아리 리스트  -->
 	<select id="circleDAO.selectKNUCircleList" parameterType="circleVO" resultType="circleVO">
 	<![CDATA[
-		SELECT * FROM CM_CIRCLE
+		SELECT * FROM CM_CIRCLE 
 		WHERE UNIVERSITY='경북대'
 		ORDER BY SEQ DESC
 		]]>
@@ -36,7 +36,7 @@
 	<!-- 계명대 동아리 목록 -->
 	<select id="circleDAO.selectKMUCircleList" parameterType="circleVO" resultType="circleVO">
 	<![CDATA[
-		SELECT * FROM CM_CIRCLE
+		SELECT * FROM CM_CIRCLE 
 		WHERE UNIVERSITY='계명대'
 		ORDER BY SEQ DESC
 		]]>
@@ -56,7 +56,7 @@
 	<select id="circleDAO.selectCircleListCnt" parameterType="circleVO" resultType="int">
 		<![CDATA[
 			SELECT COUNT(*)
-			FROM CM_CIRCLE
+			FROM CM_CIRCLE	
 			WHERE SUBJECT LIKE CONCAT('%', #{searchKeyword},'%') OR (WRITER LIKE CONCAT('%', #{searchKeyword},'%'))
 		]]>
 	</select>
@@ -105,10 +105,12 @@
 	</delete>
 	
 	<!-- //동아리 삭제-->
+	
 	<!-- 조회수 -->
 	<update id="circleDAO.updateCircleHit" parameterType="circleVO">
 		UPDATE CM_CIRCLE SET
 		HIT = #{hit}+1 
 		WHERE SEQ = #{seq}
 	</update>
+	<!-- /조회수 -->
 </mapper>

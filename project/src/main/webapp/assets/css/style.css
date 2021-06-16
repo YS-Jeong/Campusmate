@@ -20,12 +20,19 @@ select {margin:0}
 p {margin:0;padding:0;word-break:break-all}
 hr {display:none}
 pre {overflow-x:scroll;font-size:1.1em}
+<<<<<<< HEAD
 a {color:##007bff;text-decoration:none,font-weight:500;}
+=======
+>>>>>>> refs/remotes/origin/master
 
 *, :after, :before {
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
 box-sizing: border-box;
+}
+.welcome-area .header-text p a.title_color{
+  font-weight: 500;
+  color: #fc6c42;
 }
 
 
@@ -43,6 +50,32 @@ width: auto/9;
   font-style: normal;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+
+/* HIDE RADIO */
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  width:200px;
+  height:150px;
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  outline: 1px solid #f00;
+}
+
+
+
+
 
 /* 고객센터 상단 부분 =============================================================================================================================================================================*/
 .snb-wrap{text-align: center; margin: 20px 0;}
@@ -246,12 +279,6 @@ width: auto/9;
 */
 
 
-
-
-
-
-
-
 /* 현황, 배너 부분 =============================================================================================================================================================================*/
 .numbers-wrap{text-align:center; width: 100%; margin-top:120px;}
 .numbers-wrap h2{font-size: 40px; padding-top:50px; padding-bottom:10px; color:#868d9d;}
@@ -264,12 +291,6 @@ width: auto/9;
 .num-data ul li span{font-size: 1rem; font-style: normal;font-weight: 400;text-transform: none;line-height: 1.7; color: #777777; margin-bottom:20px;}
 
 .slide-banner{text-align:center; margin:50px auto; background-color:#e1e1e1;}
-
-
-
-
-
-
 
 /* 갤러리 부분 =============================================================================================================================================================================*/
 .main-gallery-wrap{padding: 10px 0; margin-top:200px; background-color:#fac079; border: 1px solid #fff;}
@@ -293,12 +314,6 @@ width: auto/9;
 .main-gallery li:hover > div .info span{width: 120px; border-radius:15px; border-radius:15px; background: #258ebf; color: #fff; border:0;}
 .main-gallery li:hover > div .info span u{display: inline-block;}
 
-
-
-
-
-
-
 /* 하단_footer 부분 =============================================================================================================================================================================*/
 .footer{ margin-top:200px;}   
 .footer > div{margin:0 auto;  padding:10px; max-width:100%; overflow:hidden; background: #ecc6af;}
@@ -309,13 +324,6 @@ width: auto/9;
 .footer > div > div.f-logo h1 a img{max-width:160px; max-height:50px; padding-right:15px;}
 
 .footer > div > div.f-copy{ padding:15px; margin:20px; color:#fff;}
-
-
-
-
-
-
-
 
 /* 고객센터 상단 부분 =============================================================================================================================================================================*/
 .snb-wrap{text-align: center; margin: 20px 0;}
@@ -358,9 +366,6 @@ left:50%;
 transform:translateX(-50%);
 bottom:-7px;
 }
-
-
-
 
 /* notice_list.html 부분 =============================================================================================================================================================================*/
 .notice-box{max-width:1200px;margin: 200px, auto;padding-top: 150px;}
@@ -406,13 +411,6 @@ border-right: 0;
 .table-btn > div{text-align: right;}
 .table-btn > div a{background: #fe8e60; padding: 10px 20px; color: #fff; display: inline-block;}
 
-
-
-
-
-
-
-
 /* notice_view.html 부분 =============================================================================================================================================================================*/
 .bbs-view{max-width: 100%; margin: 0 auto; border:1px solid #e1e1e1; border-radius:50px; padding:20px; background:#fff;}
 .bbs-view .view-hd{text-align:center; margin-bottom:20px;}
@@ -426,11 +424,6 @@ border-right: 0;
 .bbs-view .view-file a:last-child{border-bottom:0;}
 
 
-
-
-
-
-
 /* notice_write.html 부분 =============================================================================================================================================================================*/
 .bbs-write{}
 .bbs-write > div{max-width:1200px; margin: 0 auto;}
@@ -440,11 +433,6 @@ border-right: 0;
 .bbs-write li textarea{border: 1px solid #ccc; height: 300px; width: 100%; padding: 5px;}
 .bbs-write li.checkbox-wrap{background: #fff; padding: 10px;}
 .bbs-write li.checkbox-wrap label{display: inline-block;}
-
-
-
-
-
 
 
 /* gallery_list.html 부분 =============================================================================================================================================================================*/
@@ -465,14 +453,6 @@ border-right: 0;
 /* gallery_view.html 부분 =============================================================================================================================================================================*/
 .view-cont img{width:100%; height:100%;}
 
-
-
-
-
-
-
-
-
 /* booking - list.html 부분 =============================================================================================================================================================================*/
 .booking-wrap .table-hd > div{margin:20px 10px;}
 .booking-wrap .table-btn{margin:20px 10px;}
@@ -491,13 +471,6 @@ border-right: 0;
 .booking-wrap ul li .bookging-box{display:table; width:100%;}
 .booking-box{max-width:1200px; margin:0 auto;}
 .booking-box ul h2{text-align:center; padding: 30px 0; font-size:40px;}
-
-
-
-
-
-
-
 
 
 /* booking - view.html 부분 =============================================================================================================================================================================*/
@@ -539,13 +512,6 @@ border-right: 0;
 .booking-box .num li.addr span{padding-right:10px;}
 
 
-
-
-
-
-
-
-
 /* booking - mypage.html 부분 =============================================================================================================================================================================*/
 .mypage > h2{text-align:center; font-size:25px; margin-top:40px;}
 
@@ -560,13 +526,6 @@ border-right: 0;
 .color03{color: #000;}
 .color04{color: #000;}
 
-
-
-
-
-
-
-
 /* 로그인페이지 구성 =================================================================================================================================================================================*/
 .login-box{padding: 40px;margin: 150px auto;}
 .login-box h1{text-align:center; margin-bottom:20px;}
@@ -578,19 +537,24 @@ border-right: 0;
 .login-box .login-btn{text-align:center; margin-top:20px;}
 
 
-
-
-
-
-
-
-
 /* 회원가입 페이지 구성 =================================================================================================================================================================================*/
-.join-box{margin:150px;}
+.join-box{
+	text-align:left;
+	margin:0 auto;
+    max-width: 700px;
+    padding-top:150px;
+}
+.join-box h2 {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 15px;
+}
+.row_arr{float:left;}
+.row_arr div{float:left; padding:3px;}
 .join-box .join-form label{display:block;}
 .join-box h1{text-align:center; margin-bottom:20px; font-size:30px;}
 
-.join-box .join-form{max-width:400px; margin:0 auto; background: #fff; border: 1px solid #ccc; border-radius:25px; padding:20px;}
+.join-box .join-form{max-width:700px; margin:0 auto; background: #fff; border: 5px solid #ffc107; border-radius:25px; padding:30px;}
 
 .join-box .join-form input[type="text"]{width:100%; height:40px; border: 1px solid #ccc; padding:5px;} /*모든 인풋에게 해당하게 안하기위해[text=""]*/
 .join-box .join-form input[type="password"]{width:100%; height:40px; border: 1px solid #ccc; padding:5px;} /*모든 인풋에게 해당하게 안하기위해[text=""]*/
@@ -602,7 +566,7 @@ border-right: 0;
 .join-box .join-form ul li a:hover{background: #ecc6af; border-radius: 0px;}
 
 .join-box .join-form ul li{margin-bottom:10px;}
-.join-box .join-form ul li label{font-size:12px; color:#888; margin-bottom:3px;}
+.join-box .join-form ul li label{text-align:left;font-size:12px; color:#888; margin-bottom:3px;}
 .join-box .join-form ul li.gender span{display:inline-block;} /*li의 gender클래스 안에 있는 span 들에게*/
 .join-box .join-form ul li.gender span label{display:inline-block;} /*li의 gender클래스 안에 있는 span속의 label*/
 .join-box .join-form ul li.addr span.zipcode input{width:150px;}
@@ -614,12 +578,6 @@ border-right: 0;
 .join-box .join-btn{text-align:center;}
 .join-box .join-btn a{display:inline-block; background: #fe8e60; color: #fff; margin:5px; padding:10px 0px;border-radius: 5px; width:100px; transition:all 0.3s;}
 .join-box .join-btn a:hover{background: #ecc6af; border-radius: 0px;}
-
-
-
-
-
-
 
 /* 회사소개 페이지 구성 ===========================================================================================================================================================*/
 .section{}
@@ -674,4 +632,3 @@ border-right: 0;
 .bbs-write li textarea{border: 1px solid #ccc; height: 300px; width: 100%; padding: 5px;}
 .bbs-write li.checkbox-wrap{background: #fff; padding: 10px;}
 .bbs-write li.checkbox-wrap label{display: inline-block;}
->>>>>>> branch 'master' of https://github.com/YS-Jeong/Campusmate.git

@@ -64,7 +64,7 @@
 	]]>	
 	</select>
 	<!-- //공지사항 목록 개수 -->
-
+	
 	<select id="studyDAO.selectStudyView" parameterType="studyVO" resultType="studyVO">
 	<![CDATA[
 		SELECT * FROM CM_STUDY WHERE SEQ = #{seq}
@@ -73,12 +73,12 @@
 
 	<!-- 공지사항 등록 -->
 	<insert id="studyDAO.insertStudy" parameterType ="studyVO">
-	<![CDATA[
+		<![CDATA[
 		INSERT INTO CM_STUDY 
 		(UNIVERSITY, SUBJECT, WRITER, DATE, CONTENTS, FILENAME, ORIFILENAME)
 		VALUES
 		(#{university}, #{subject},#{writer},NOW(), #{contents}, #{filename}, #{oriFilename})
-	]]>
+		]]>
 	</insert>
 	<!-- //공지사항 등록 -->
 
@@ -100,5 +100,12 @@
 		DELETE FROM CM_STUDY WHERE SEQ = #{seq}
 	</delete>
 	<!--//공지사항 삭제  -->
-
+	
+		<!-- 조회수 -->
+	<update id="studyDAO.updateStudyHit" parameterType="studyVO">
+		UPDATE CM_STUDY SET
+		HIT = #{hit}+1 
+		WHERE SEQ = #{seq}
+	</update>
+	<!-- /조회수 -->
 </mapper>

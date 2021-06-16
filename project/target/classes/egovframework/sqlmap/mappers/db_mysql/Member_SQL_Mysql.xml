@@ -23,7 +23,7 @@
 	<select id = "memberDAO.selectMemberCnt" parameterType="memberVO" resultType="int">
 		<![CDATA[
 			SELECT COUNT(*) FROM 
-				CM_MEMBER
+				CM_MEMBER 
 			WHERE
 				ST_ID = #{st_id}
 		]]>

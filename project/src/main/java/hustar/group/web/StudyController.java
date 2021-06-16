@@ -183,10 +183,10 @@ public class StudyController {
       
       StudyVO studyVO = (StudyVO) commonService.selectView(searchVO, null, null,"studyDAO.selectStudyView");
          
-         model.addAttribute("studyVO",studyVO);
+        model.addAttribute("studyVO",studyVO);
          
-         List<Study_ReplyVO> study_replyVOList = (List<Study_ReplyVO>)commonService.selectList(studyVO, null, null, "study_replyDAO.selectReplyList_study");
- 		//commonService.update(circleVO, null, null, "circleDAO.updateCircleHit");
+        List<Study_ReplyVO> study_replyVOList = (List<Study_ReplyVO>)commonService.selectList(studyVO, null, null, "study_replyDAO.selectReplyList_study");
+ 		commonService.update(studyVO, null, null, "studyDAO.updateStudyHit");
  		model.addAttribute("study_replyVOList", study_replyVOList);
          
          return "/group/study_view";

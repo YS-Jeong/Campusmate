@@ -5,9 +5,9 @@
 	<insert id = "matchDAO.insertMatch" parameterType="matchVO">
 		<![CDATA[
 		INSERT INTO CM_MATCH
-			(ST_ID, KAKAO_ID, HEIGHT, BODY_SHAPE, DIVISION)
+			(ST_ID, KAKAO_ID, HEIGHT, BODY_SHAPE, DIVISION, PURPOSE, ORIFILENAME)
 			VALUES
-			(#{st_id}, #{kakao_id}, #{height}, #{body_shape}, #{division})
+			(#{st_id}, #{kakao_id}, #{height}, #{body_shape}, #{division}, #{purpose},#{oriFilename})
 		]]>
 	</insert>
 <!-- //match TABLE에 insert -->
