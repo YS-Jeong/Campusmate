@@ -70,7 +70,7 @@
 				</li>
 				<li>
 					<label for="">학교</label>
-					<select name="school"/>
+					<select name="school">
 						<c:if test="${session.school eq '경북대'}">
 							<option value="">학교를 선택해주세요.</option>
 							<option value="경북대" selected>경북대학교</option>
@@ -92,7 +92,7 @@
 					</select>
 					
 					<label for="">학과</label>
-					<select name="depart"/>
+					<select name="depart">
 						<c:if test="${session.depart eq '기계공학과'}">
 							<option value="">학과를 선택해주세요.</option>
 							<option value="기계공학과" selected>기계공학과</option>

@@ -23,4 +23,15 @@
 	<!-- //학번 중복 체크 -->
 	
 
+	<!-- 매칭 정보 보기 -->
+	<select id = "matchDAO.selectMatchView" parameterType="memberVO" resultType="matchVO">
+		<![CDATA[
+			SELECT*FROM 
+				CM_MATCH 
+			WHERE
+				ST_ID = #{st_id}
+		]]>
+	</select>
+	<!-- //매칭 정보 보기 -->
+
 </mapper>

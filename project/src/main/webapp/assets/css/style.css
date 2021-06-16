@@ -50,7 +50,7 @@ width: auto/9;
 
 
 /* HIDE RADIO */
-[type=radio] { 
+/*[type=radio] { 
   position: absolute;
   opacity: 0;
   width: 0;
@@ -625,10 +625,10 @@ border-right: 0;
 
 .join-box .join-form{max-width:700px; margin:0 auto; background: #fff; border: 5px solid #ffc107; border-radius:25px; padding:30px;}
 
-.join-box .join-form input[type="text"]{width:100%; height:40px; border: 1px solid #ccc; padding:5px;} /*모든 인풋에게 해당하게 안하기위해[text=""]*/
+.join-box .join-form input[type="text"]{width: 50%; height:40px; border: 1px solid #ccc; padding:5px;} /*모든 인풋에게 해당하게 안하기위해[text=""]*/
 .join-box .join-form input[type="password"]{width:100%; height:40px; border: 1px solid #ccc; padding:5px;} /*모든 인풋에게 해당하게 안하기위해[text=""]*/
 
-.join-box .join-form select{width:100%; height:40px; border: 1px solid #ccc; padding:5px;}
+.join-box .join-form select{width:50%; height:40px; border: 1px solid #ccc; padding:5px;}
 
 .join-box .join-form ul li a{text-align:center;}
 .join-box .join-form ul li a{display:inline-block; background: #fe8e60; color: #fff; margin:5px 0px; padding:10px 0px;border-radius: 5px; width:100px; transition:all 0.3s;}
@@ -642,7 +642,7 @@ border-right: 0;
 .join-box .join-form ul li.addr span.zipcode button{width:100px; height:40px; background: #fe8e60; color:#fff; border:0; border-radius: 5px; margin-left:10px; transition:all 0.3s;}
 .join-box .join-form ul li.addr span.zipcode button:hover{background: #ecc6af; border-radius: 0px;}
 .join-box .join-form ul li.addr span{margin-bottom:5px; display:block;}
-
+.join-form ul li radio{margin-left:10px;}
 
 .join-box .join-btn{text-align:center;}
 .join-box .join-btn a{display:inline-block; background: #fe8e60; color: #fff; margin:5px; padding:10px 0px;border-radius: 5px; width:100px; transition:all 0.3s;}

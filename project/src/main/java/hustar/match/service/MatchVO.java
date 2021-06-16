@@ -9,7 +9,7 @@ public class MatchVO extends ComDefaultVO{
 	public String body_shape; //체형
 	public String division; 
 	public String purpose;
-	public String filename;
+	public String filename; 
 	public String oriFilename;
 	
 	public int getSt_id() {
