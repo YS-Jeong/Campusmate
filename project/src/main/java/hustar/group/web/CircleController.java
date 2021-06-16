@@ -178,12 +178,11 @@ public class CircleController {
 	}
 	
 	@RequestMapping(value={"/group/circle_view.do"})
-	public String circle_view(CircleVO searchVO, Model model) throws Exception {
+	public String circle_view(CircleVO searchVO, Model model, HttpSession session, RedirectAttributes redirectAttributes) throws Exception {
 		
 		CircleVO circleVO = (CircleVO)commonService.selectView(searchVO, null, null, "circleDAO.selectCircleView");
 		
 		//commonService.update(circleVO, null, null, "circleDAO.updateCircleHit");
-	
 		model.addAttribute("circleVO", circleVO);
 		
 		List<Circle_ReplyVO> circle_replyVOList = (List<Circle_ReplyVO>)commonService.selectList(circleVO, null, null, "circle_replyDAO.selectReplyList");
@@ -264,10 +263,12 @@ public class CircleController {
 	
 	
 	@RequestMapping("/group/circle_delete.do")
-	public String circle_delete(CircleVO circleVO) throws Exception{
+	public String circle_delete(CircleVO circleVO, Circle_ReplyVO circle_replyVO) throws Exception{
 		
 		System.out.println("seq = " + circleVO.getSeq());
+		System.out.println("seq = " + circle_replyVO.getCircle_id());
 		
+		commonService.delete(circleVO, null, null, "circle_replyDAO.deleteReply");
 		commonService.delete(circleVO, null, null, "circleDAO.deleteCircle");
 		
 		return "redirect:/group/circle_list.do";
@@ -315,15 +316,19 @@ public class CircleController {
 	}	
 	
 	@RequestMapping(value={"/group/circle_reply_insert.do"})
-	public String Circle_Reply_insert(CircleVO circleVO, Circle_ReplyVO circle_replyVO, Model model,HttpSession session) throws Exception {
+	public String Circle_Reply_insert(CircleVO circleVO, Circle_ReplyVO circle_replyVO, Model model, String mode, HttpSession session, RedirectAttributes redirectAttributes) throws Exception {
 		
 		MemberVO loginVO =  (MemberVO)session.getAttribute("login");
+		
+		if(loginVO == null) {
+			redirectAttributes.addFlashAttribute("msg", "로그인이 필요합니다.");
+			return "redirect:/member/login.do";
+		}
+		
 		circle_replyVO.setCircle_id(circleVO.getSeq());
 		circle_replyVO.setName(loginVO.getName());
 		
 		commonService.insert(circle_replyVO, null, null, "circle_replyDAO.insertReply");
-		
-		return "redirect:/group/circle_view.do?seq="+circleVO.getSeq();
-	}
-	
+		return "redirect:/group/circle_view.do?seq="+circleVO.getSeq();		
+	}	
 }

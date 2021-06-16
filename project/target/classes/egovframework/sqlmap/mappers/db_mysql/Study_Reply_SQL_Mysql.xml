@@ -44,10 +44,10 @@
 	<!-- //댓글 수정-->
 	
 	<!-- 댓글  삭제 -->
-	<delete id="study_replyDAO.deleteReply" parameterType="study_replyVO">
+	<delete id="study_replyDAO.deleteReply" parameterType="StudyVO">
 		<![CDATA[
 		DELETE FROM CM_STUDY_REPLY
-		WHERE ID = #{id}
+		WHERE STUDY_ID = #{seq}
 		]]>
 	</delete>
 	<!-- //댓글 삭제-->

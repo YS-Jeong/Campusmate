@@ -389,9 +389,15 @@ public class StudyController {
       }
       
   	@RequestMapping(value={"/group/study_reply_insert.do"})
-  	public String Study_Reply_insert(StudyVO studyVO,Study_ReplyVO study_replyVO, Model model,HttpSession session) throws Exception {
+  	public String Study_Reply_insert(StudyVO studyVO,Study_ReplyVO study_replyVO, Model model,HttpSession session, RedirectAttributes redirectAttributes) throws Exception {
   		
   		MemberVO loginVO = (MemberVO)session.getAttribute("login");
+  		
+  		if(loginVO==null) {
+            //로그인이 안되었을때 어떻게 처리할것인가? 
+            redirectAttributes.addFlashAttribute("msg", "로그인이 필요합니다."); //로그인이 필요하다는 msg 출력 후 
+            return "redirect:/member/login.do"; //로그인 화면으로 return 
+  		}
   		study_replyVO.setStudy_id(studyVO.getSeq());
   		study_replyVO.setName(loginVO.getName());
   		

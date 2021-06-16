@@ -49,6 +49,7 @@
 						<div class="name">작성자</div>
 						<div class="content">내용</div>
 						<div class="date">등록일</div>
+						<div class="button">관리</div>
 					</li>
 			</ul>
 			<c:forEach var="circle_replyVO" items="${circle_replyVOList}" varStatus="status">
@@ -58,6 +59,10 @@
 						<div class="name"><c:out value="${circle_replyVO.name}"/></div>
 						<div class="content"><c:out value="${circle_replyVO.content}"/></div>
 						<div class="date"><c:out value="${circle_replyVO.regdate}"/></div>
+						<div class="button">
+							<button>수정</button>
+							<button>삭제</button>
+						</div>
 					</li>
 				</ul>
 			</c:forEach>
@@ -89,26 +94,6 @@ function confirmDelete(){
 	
 }
 
-function commentWrite(){
-	if(confirm('삭제하시겠습니까?') == true){
-		$.ajax({
-			type:'POST',
-			url: '<c:url value="/group/circle_deleteFile.do"/>',
-			dataType: 'JSON',
-			data: ("seq" : ${circleVO.seq}),
-			success: function(data){
-				if(data.success == true){
-					location.reload();
-				}else{
-					alert('파일 삭제가 실패하였습니다.');
-				}
-			},
-			error: function(jqXHR, textStatus, errorThrown){
-				console.log(textStatus);
-			}
-		});
-	}
-}
 </script>
 
 </body>
