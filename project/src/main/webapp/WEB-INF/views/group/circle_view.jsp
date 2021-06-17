@@ -35,9 +35,15 @@
 		</div>
 		<div class="table-btn">
 			<div>
-				<a href="<c:url value='/group/circle_list.do'/>" class="lis">목록</a>
-				<a href="#none" onclick="javascript:confirmDelete();">삭제</a>
-				<a href="<c:url value='/group/circle_modify.do'/>?seq=${circleVO.seq}">수정</a>
+				<c:set var="session" value="${sessionScope.login}" scope="application"/>
+					<c:if test = "${session.name == circleVO.writer}">
+						<a href="<c:url value='/group/circle_list.do'/>" class="lis">목록</a>
+						<a href="#none" onclick="javascript:confirmDelete();">삭제</a>
+						<a href="<c:url value='/group/circle_modify.do'/>?seq=${circleVO.seq}">수정</a>
+					</c:if>
+					<c:if test = "${session.name != circleVO.writer}">
+						<a href="<c:url value='/group/circle_list.do'/>" class="lis">목록</a>
+					</c:if>
 			</div>
 		</div>
 		
@@ -60,8 +66,12 @@
 						<div class="content"><c:out value="${circle_replyVO.content}"/></div>
 						<div class="date"><c:out value="${circle_replyVO.regdate}"/></div>
 						<div class="button">
-							<button>수정</button>
-							<button>삭제</button>
+							<c:if test = "${session.name == circle_replyVO.name}">
+								<button>수정</button>
+								<button onclick="javascript:replyDelete();">삭제</button>
+							</c:if>
+							<c:if test = "${session.name != circle_replyVO.name}">
+							</c:if>
 						</div>
 					</li>
 				</ul>
@@ -90,6 +100,17 @@ function confirmDelete(){
 	
 	if(confirm('삭제하시겠습니까?') == true){
 		location.href = '<c:url value="/group/circle_delete.do"/>?seq=${circleVO.seq}';
+	}
+	
+}
+
+</script>
+
+<script>
+function replyDelete(){
+	
+	if(confirm('댓글을 삭제하시겠습니까?') == true){
+		location.href = '<c:url value="/group/circle_reply_delete.do"/>?seq=${circleVO.seq}';
 	}
 	
 }

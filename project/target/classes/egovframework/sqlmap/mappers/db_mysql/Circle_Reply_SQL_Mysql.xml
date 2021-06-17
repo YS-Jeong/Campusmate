@@ -43,12 +43,19 @@
 	</update>
 	<!-- //댓글 수정-->
 	
-	<!-- 댓글  삭제 -->
+	<!-- 게시물 댓글 전체 삭제 -->
 	<delete id="circle_replyDAO.deleteReply" parameterType="CircleVO">
 		<![CDATA[
 		DELETE FROM CM_CIRCLE_REPLY
 		WHERE CIRCLE_ID = #{seq}
 		]]>
 	</delete>
-	<!-- //댓글 삭제-->
+	<!-- //게시물 댓글 전체 삭제-->
+	
+	<!-- 댓글 하나만 삭제 -->
+	<delete id="circle_replyDAO.deleteSingleReply" parameterType="circle_replyVO">
+		DELETE FROM CM_CIRCLE_REPLY
+		WHERE ID = #{id}
+	</delete>
+	<!-- //댓글 하나만 삭제 --> 
 </mapper>

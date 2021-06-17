@@ -34,9 +34,14 @@
 		</div>
 		<div class="table-btn">
 			<div>
-				<a href="<c:url value='/group/study_list.do'/>" class="lis">목록</a>
-				<a href="#none" onclick="javascript:confirmDelete();">삭제</a>
-				<a href="<c:url value='/group/study_modify.do'/>?seq=${studyVO.seq}">수정</a>
+				<c:if test = "${session.name == studyVO.writer}">
+					<a href="<c:url value='/group/circle_list.do'/>" class="lis">목록</a>
+					<a href="#none" onclick="javascript:confirmDelete();">삭제</a>
+					<a href="<c:url value='/group/circle_modify.do'/>?seq=${circleVO.seq}">수정</a>
+				</c:if>
+				<c:if test = "${session.name != studyVO.writer}">
+					<a href="<c:url value='/group/circle_list.do'/>" class="lis">목록</a>
+				</c:if>
 			</div>
 		</div>
 		
@@ -48,6 +53,7 @@
 						<div class="name">작성자</div>
 						<div class="content">내용</div>
 						<div class="date">등록일</div>
+						<div class="button">관리</div>
 					</li>
 			</ul>
 			<c:forEach var="study_replyVO" items="${study_replyVOList}" varStatus="status">
@@ -57,6 +63,14 @@
 						<div class="name"><c:out value="${study_replyVO.name}"/></div>
 						<div class="content"><c:out value="${study_replyVO.content}"/></div>
 						<div class="date"><c:out value="${study_replyVO.regdate}"/></div>
+						<div class="button">
+							<c:if test = "${session.name == circle_replyVO.name}">
+								<button>수정</button>
+								<button>삭제</button>
+							</c:if>
+							<c:if test = "${session.name != circle_replyVO.name}">
+							</c:if>
+						</div>
 					</li>
 				</ul>
 			</c:forEach>

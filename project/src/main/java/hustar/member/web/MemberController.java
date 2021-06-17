@@ -1,6 +1,7 @@
 package hustar.member.web;
 
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -23,6 +24,11 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import egovframework.com.cmm.service.CommonService;
+import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
+import hustar.group.service.CircleVO;
+import hustar.group.service.Circle_ReplyVO;
+import hustar.group.service.StudyVO;
+import hustar.group.service.Study_ReplyVO;
 import hustar.member.service.MemberVO;
 
 @Controller
@@ -209,9 +215,46 @@ public class MemberController {
 	}
 	
 	//내가 쓴 글 보기===========================================================================================
-		@RequestMapping("/member/my_contents.do")
-		public String my_contents() throws Exception{
+		@RequestMapping("/member/mycontents.do")
+		public String my_contents(Model model, CircleVO searchVO, StudyVO studyVO) throws Exception{
 			
-			return "/member/my_contents";  
+			//페이지 나누기 위해 정해진 룰이다. 이렇게 보통 많이 씀.
+			PaginationInfo paginationInfo_circle = new PaginationInfo();
+			PaginationInfo paginationInfo_study = new PaginationInfo();
+			
+			paginationInfo_circle.setCurrentPageNo(searchVO.getPageIndex());	//현재 페이지
+			paginationInfo_study.setCurrentPageNo(studyVO.getPageIndex());	//현재 페이지
+			
+			paginationInfo_circle.setRecordCountPerPage(searchVO.getRecordCountPerPage());	//한페이당 몇개표시 할건가
+			paginationInfo_study.setRecordCountPerPage(studyVO.getRecordCountPerPage());
+			
+			paginationInfo_circle.setPageSize(searchVO.getPageSize());
+			paginationInfo_study.setPageSize(studyVO.getPageSize());
+					
+			searchVO.setFirstIndex(paginationInfo_circle.getFirstRecordIndex());
+			studyVO.setFirstIndex(paginationInfo_study.getFirstRecordIndex());
+			
+			searchVO.setLastIndex(paginationInfo_circle.getLastRecordIndex());
+			studyVO.setLastIndex(paginationInfo_study.getLastRecordIndex());
+			
+			searchVO.setPageSize(paginationInfo_circle.getPageSize());
+			studyVO.setPageSize(paginationInfo_study.getPageSize());
+			
+			int recordCount_circle = commonService.selectListTotCnt(searchVO, null, null, "circleDAO.selectCircleListCnt");
+			int recordCount_study = commonService.selectListTotCnt(studyVO, null, null, "studyDAO.selectStudyListCnt");
+			
+			paginationInfo_circle.setTotalRecordCount(recordCount_circle);//전체 행 값이 몇개인지 알려주는 그래서 위에서 DB로부터 값 불러와야함.
+			paginationInfo_study.setTotalRecordCount(recordCount_study);//전체 행 값이 몇개인지 알려주는 그래서 위에서 DB로부터 값 불러와야함.
+									
+			List<CircleVO> circleVOList = (List<CircleVO>)commonService.selectList(searchVO, null, null, "circleDAO.selectCircleList");
+			List<StudyVO> studyVOList = (List<StudyVO>)commonService.selectList(studyVO, null, null, "studyDAO.selectStudyList");			
+			
+			model.addAttribute("circleVOList", circleVOList);
+			model.addAttribute("studyVOList", studyVOList);
+			model.addAttribute("paginationInfo", paginationInfo_circle);
+			model.addAttribute("paginationInfo", paginationInfo_study);
+			model.addAttribute("searchVO", searchVO);
+			
+			return "/member/mycontents";  
 		}
 }

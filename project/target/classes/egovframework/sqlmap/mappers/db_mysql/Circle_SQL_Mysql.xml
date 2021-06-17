@@ -113,4 +113,5 @@
 		WHERE SEQ = #{seq}
 	</update>
 	<!-- /조회수 -->
+	
 </mapper>

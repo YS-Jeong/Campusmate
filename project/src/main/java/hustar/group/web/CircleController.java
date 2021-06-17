@@ -182,7 +182,7 @@ public class CircleController {
 		
 		CircleVO circleVO = (CircleVO)commonService.selectView(searchVO, null, null, "circleDAO.selectCircleView");
 		
-		//commonService.update(circleVO, null, null, "circleDAO.updateCircleHit");
+		commonService.update(circleVO, null, null, "circleDAO.updateCircleHit");
 		model.addAttribute("circleVO", circleVO);
 		
 		List<Circle_ReplyVO> circle_replyVOList = (List<Circle_ReplyVO>)commonService.selectList(circleVO, null, null, "circle_replyDAO.selectReplyList");
@@ -331,4 +331,15 @@ public class CircleController {
 		commonService.insert(circle_replyVO, null, null, "circle_replyDAO.insertReply");
 		return "redirect:/group/circle_view.do?seq="+circleVO.getSeq();		
 	}	
+	
+	@RequestMapping("/group/circle_reply_delete.do")
+	public String circle_reply_delete(CircleVO circleVO, Circle_ReplyVO circle_replyVO,  HttpSession session) throws Exception{
+		
+		MemberVO loginVO =  (MemberVO)session.getAttribute("login");
+		
+		
+		commonService.delete(circle_replyVO, null, null, "circle_replyDAO.deleteSingleReply");
+
+		return "redirect:/group/circle_view.do?seq="+circleVO.getSeq();
+	}
 }

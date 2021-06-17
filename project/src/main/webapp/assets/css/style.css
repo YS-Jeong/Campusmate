@@ -376,12 +376,12 @@ border-right: 0;
 }
 
 .table-list ul li > div.no{width: 5%;}
-.table-list ul li > div.uni{width: 8%;}
-.table-list ul li > div.subject{width: 53%;}
+.table-list ul li > div.uni{width: 10%;}
+.table-list ul li > div.subject{width: 50%;}
 .table-list ul li > div.subject a{font-size:14px; font-weight:bold;}
 .table-list ul li > div.subject a:hover{text-decoration:underline; color: #000;}
-.table-list ul li > div.name{width:  3%;}
-.table-list ul li > div.date{width: 22%;}
+.table-list ul li > div.name{width:  10%;}
+.table-list ul li > div.date{width: 20%;}
 .table-list ul li > div.hit{width: 5%;}
 .table-list ul.tb-bd li > div.subject{text-align: left;}
 .table-list ul li > div.id{width: 5%;}
