@@ -32,14 +32,16 @@
 
 
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
+
+
+ 
 <!-- contents 시작 -->
 <div class="join-wrap">
 
    <div class= "join-box">
 
       <h1>매칭등록</h1>
-      <form method="post" name="frm" action="<c:url value='/match/match_update.do'/>"> 
-      	<c:forEach var="matchVO" items="${matchVOList}" varStatus="status">
+      <form method="post" name="frm" action="<c:url value='/match/match_update.do'/>">
 	      <div class ="join-form">
 	         <ul>
 	            <li>
@@ -50,50 +52,45 @@
 	            </li>
 	            <li>
 	               <label for="">학번</label>
-	               <input type="text" name="st_id" placeholder="학번" value="${matchVOList.st_id}">
+	               <input type="text" name="st_id" placeholder="학번" value="${session.st_id}">
 	            </li>
 	            <li>
 	               <label for="">카카오톡 ID</label>
-	               <input type="text" name="kakao_id" placeholder="카카오톡 ID" value="${matchVOList.kakao_id}">
+	               <input type="text" name="kakao_id" placeholder="카카오톡 ID" >
 	            </li>
 	            <li>
 	               <label for="">키</label>
-	               <input type="text" name="height" placeholder="키" value="${matchVOList.height}">
+	               <input type="text" name="height" placeholder="키">
 	            </li>
 	            <li>
 	               <label for="">채형</label>
-				   <input type="text" name="height" placeholder="키" value="${matchVOList.body_shape}">
+				   <input type="text" name="height" placeholder="키" >
 	            </li>
 	            <li>   
 	               <label for=""> 지역</label>
-	               <input type="text" name="division" value="${matchVOList.division }">
+	               <input type="text" name="division" value="">
 	              </li> 
 	               <li>
 	                  <label for="">어떤 메이트를 만나고 싶나요?</label>
 	                     <br></br>
 	                     <div class="row_arr">
 	                     <div class="row1">
-	                     <c:if test="${matchVOList.purpose eq '소개팅'}">
+	                   
 	                     	<label>
 	                        	<input type="radio" name="purpose" value="소개팅">
 	                        	<img src="https://cdn.pixabay.com/photo/2015/03/26/11/02/heart-692312_1280.jpg">
 	                            <h2>소개팅</h2>
 	                       </label>
-	                     </c:if>
-	                     <c:if test="${matchVOList.purpose eq '간단맥주'}">
 		                       <label>
 		                       		<input type="radio" name="purpose" value="간단맥주">
 		                            <img src="https://cdn.pixabay.com/photo/2015/07/10/17/53/beer-839865_1280.jpg">
 		                            <h2>간단맥주</h2>
 		                       </label>
-	                      </c:if>
-	                     <c:if test="${matchVOList.purpose eq '혼밥싫어'}">
 	                       <label>
 	                       <input type="radio" name="purpose" value="혼밥싫어">
 	                       <img src="https://cdn.pixabay.com/photo/2015/03/26/09/42/breakfast-690128_1280.jpg">
 	                        <h2>혼밥싫어</h2>
 	                     </label>
-	                    </c:if>
 	                     </div>
 	                     <div class="row2">
 	                        <label>
@@ -134,12 +131,11 @@
 	               </li>
 	            <li class="join-btn">
 	            <!-- 가입완료 버튼 눌렀을 때 submitForm()함수 실행  -->
-	             <a href="#none" onclick="submitForm();">입력 완료</a>
+	             <a href="#none" onclick="submitForm();">수정하기 완료로 고쳐야할것</a>
 	
 	             </li>
 	         </ul>
 	         </div>
-         </c:forEach>
       </form>   
    </div>
 </div>

@@ -47,8 +47,13 @@ public class MatchController {
 	@RequestMapping(value= {"/match/match_join.do"})
 	public String match_join() {
 		return "/match/match_join";
-
 	}
+	
+	@RequestMapping(value= {"/match/match_join_write.do"})
+	public String match_join_write() {
+		return "/match/match_join_write";
+	}
+	
 
 	
 	@RequestMapping(value= {"/match/match_modify.do"})

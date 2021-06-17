@@ -84,7 +84,7 @@ public class StudyController {
          paginationInfo.setTotalRecordCount(recordCount);//전체 행 값이 몇개인지 알려주는 그래서 위에서 DB로부터 값 불러와야함.
          
          
-         List<StudyVO> studyVOList = (List<StudyVO>)commonService.selectList(searchVO, null, null, "studyDAO.selectUNIONStudyList");
+         List<StudyVO> studyVOList = (List<StudyVO>)commonService.selectList(searchVO, null, null, "studyDAO.selectKNUStudyList");
          
          model.addAttribute("studyVOList", studyVOList);
          model.addAttribute("paginationInfo", paginationInfo);
