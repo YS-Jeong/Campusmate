@@ -84,7 +84,7 @@ public class MatchController {
 			@ModelAttribute("matchVO") MatchVO matchVO, 
 			RedirectAttributes redirectAttributes) throws Exception {
 
-	
+		
 		// 회원정보를 DB에 삽입해주는 기능. 
 		commonService.update(matchVO, null, null, "matchDAO.updateMatch"); 
 		redirectAttributes.addFlashAttribute("msg", "매칭정보가 수정되었어요.");
