@@ -5,9 +5,9 @@
 	<insert id = "matchDAO.insertMatch" parameterType="matchVO">
 		<![CDATA[
 		INSERT INTO CM_MATCH
-			(ST_ID, KAKAO_ID, HEIGHT, BODY_SHAPE, DIVISION, PURPOSE, ORIFILENAME)
+			(ST_ID, KAKAO_ID, HEIGHT, BODY_SHAPE, DIVISION, PURPOSE, ORIFILENAME,NAME)
 			VALUES
-			(#{st_id}, #{kakao_id}, #{height}, #{body_shape}, #{division}, #{purpose},#{oriFilename})
+			(#{st_id}, #{kakao_id}, #{height}, #{body_shape}, #{division}, #{purpose},#{oriFilename},#{name})
 		]]>
 	</insert>
 <!-- //match TABLE에 insert -->
@@ -24,14 +24,32 @@
 	
 
 	<!-- 매칭 정보 보기 -->
-	<select id = "matchDAO.selectMatchView" parameterType="memberVO" resultType="matchVO">
+	<select id = "matchDAO.selectMatchView" parameterType="matchVO" resultType="matchVO">
 		<![CDATA[
-			SELECT*FROM 
-				CM_MATCH 
-			WHERE
-				ST_ID = #{st_id}
+		SELECT t1.st_id, kakao_id,height,body_shape, division,purpose,t2.name
+		FROM CM_MEMBER T1
+		JOIN CM_MATCH T2
+		ON(T1.st_id = T2.st_id)
+		WHERE T1.name = T2.name
 		]]>
 	</select>
 	<!-- //매칭 정보 보기 -->
+	
+	
+	<!-- 회원정보수정 -->
+	<update id = "matchDAO.updateMatch" parameterType="matchVO">
+		<![CDATA[
+		UPDATE 
+			CM_MATCH 
+		SET
+			ST_ID = #{st_id},
+			KAKA = #{password},  
+			
+		WHERE
+			ST_ID = #{st_id}
+			
+		]]>
+	</update>
+	<!-- //회원정보수정 -->
 
 </mapper>

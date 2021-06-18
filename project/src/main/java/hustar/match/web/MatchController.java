@@ -20,6 +20,8 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import egovframework.com.cmm.service.CommonService;
+import hustar.group.service.CircleVO;
+import hustar.group.service.StudyVO;
 import hustar.match.service.MatchVO;
 import hustar.member.service.MemberVO;
 
@@ -57,17 +59,21 @@ public class MatchController {
 
 	
 	@RequestMapping(value= {"/match/match_modify.do"})
-
-	public String match_modify() throws Exception {
-
-
-		return "/match/match_modify";
+	public String match_modify(Model model, MatchVO searchVO) throws Exception {
+		MatchVO matchVO = (MatchVO) commonService.selectView(searchVO, null, null,"matchDAO.selectMatchView");
+		
+		model.addAttribute("matchVO",matchVO);
+		
+		
+		return "/match/match_modify"; //매칭 수정 click - > 매칭수정 화면 view 보여줌
 	}
 	
-	@RequestMapping("/match/match_Insert.do")
+	@RequestMapping("/match/match_insert.do")
 	public String match_Insert(
 			@ModelAttribute("matchVO") MatchVO matchVO, 
-			RedirectAttributes redirectAttributes) throws Exception {
+			RedirectAttributes redirectAttributes,int st_id) throws Exception {
+	
+		
 		
 		int cnt = commonService.selectListTotCnt(matchVO, null, null, "matchDAO.selectMatchCnt");
 		System.out.println("cnt = " + cnt);
@@ -79,6 +85,7 @@ public class MatchController {
 			// 회원정보를 DB에 삽입해주는 기능. 
 			commonService.insert(matchVO, null, null, "matchDAO.insertMatch"); 
 		}
+		redirectAttributes.addFlashAttribute("msg", "매칭등록이 완료되었습니다.");
 		
 		return "redirect:/match/matching.do"; 
 	}

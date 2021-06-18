@@ -47,7 +47,7 @@ location.href='<c:url value ="/member/login.do"/>'
       <h1>매칭등록</h1>
       <c:set var="sesseion" value="${sessionScope.login}" scope="application"/>
      
-      <form method="post" name="frm" action="<c:url value='/match/match_update.do'/>">
+      <form method="post" name="frm" action="<c:url value='/match/match_insert.do'/>">
 	      <div class ="join-form">
 	         <ul>
 	            <li>
@@ -58,7 +58,11 @@ location.href='<c:url value ="/member/login.do"/>'
 	            </li>
 	            <li>
 	               <label for="">학번</label>
-	               <input type="text" name="st_id" placeholder="학번" value="${session.st_id}">
+	               <input type="text" name="st_id" placeholder="학번" value="${session.st_id}" readonly>
+	            </li>
+	             <li>
+	               <label for="">이름</label>
+	               <input type="text" name="name" placeholder="이름">
 	            </li>
 	            <li>
 	               <label for="">카카오톡 ID</label>
@@ -70,11 +74,27 @@ location.href='<c:url value ="/member/login.do"/>'
 	            </li>
 	            <li>
 	               <label for="">채형</label>
-				   <input type="text" name="height" placeholder="키" >
+	               <select name="body_shape">
+	                  <option value="#none">체형을 선택해주세요.</option>
+	                  <option value="마른">마른</option>
+	                  <option value="보통">보통</option>
+	                  <option value="통통">통통</option>
+	               </select>
+				
 	            </li>
 	            <li>   
 	               <label for=""> 지역</label>
-	               <input type="text" name="division">
+	               <select name="division">
+	                  <option value="#none">구를 선택해주세요.</option>
+	                  <option value="동구">동구</option>
+	                  <option value="수성구">수성구</option>
+	                  <option value="북구">북구</option>
+	                  <option value="서구">서구</option>
+	                  <option value="중구">중구</option>
+	                  <option value="남구">남구</option>
+	                  <option value="달서구">달서구</option>
+	                  <option value="달성군">달성군</option>
+	               </select>
 	              </li> 
 	               <li>
 	                  <label for="">어떤 메이트를 만나고 싶나요?</label>

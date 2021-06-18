@@ -11,7 +11,14 @@ public class MatchVO extends ComDefaultVO{
 	public String purpose;
 	public String filename;
 	public String oriFilename;
+	public String name;
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getSt_id() {
 		return st_id;
 	}

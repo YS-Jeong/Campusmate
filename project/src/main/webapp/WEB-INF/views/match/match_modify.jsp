@@ -33,19 +33,20 @@
 
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 <c:set var="sesseion" value="${sessionScope.login}" scope="application"/> 
-<c:if test="${session==null}">
+<<c:if test="${session==null}">
 <script>
-alert("로그인이 필요한 서비스입니다.");
+alert("로그인이 필요합니다.");
 location.href='<c:url value ="/member/login.do"/>'
 </script>
 </c:if>
- 
+
+
 <!-- contents 시작 -->
 <div class="join-wrap">
 
    <div class= "join-box">
 
-      <h1>매칭등록</h1>
+      <h1>${matchVO.st_id}</h1>
       <form method="post" name="frm" action="<c:url value='/match/match_update.do'/>">
 	      <div class ="join-form">
 	         <ul>
@@ -61,19 +62,129 @@ location.href='<c:url value ="/member/login.do"/>'
 	            </li>
 	            <li>
 	               <label for="">카카오톡 ID</label>
-	               <input type="text" name="kakao_id" placeholder="카카오톡 ID" >
+	               <input type="text" name="kakao_id" placeholder="카카오톡 ID" value="${matchVO.kakao_id}">
+	               
 	            </li>
 	            <li>
 	               <label for="">키</label>
-	               <input type="text" name="height" placeholder="키">
+	               <input type="text" name="height" placeholder="키" value="${matchVO.height}">
 	            </li>
 	            <li>
 	               <label for="">채형</label>
-				   <input type="text" name="height" placeholder="키" >
+	               <select name="body_shape">
+	               	<c:if test="${matchVO.body_shape eq '마른'}">
+	                  <option value="#none">체형을 선택해주세요.</option>
+	                  <option value="마른" selected>마른</option>
+	                  <option value="보통">보통</option>
+	                  <option value="통통">통통</option>
+	                 </c:if>
+	                 <c:if test="${matchVO.body_shape eq '보통'}">
+	                  <option value="#none">체형을 선택해주세요.</option>
+	                  <option value="마른">마른</option>
+	                  <option value="보통" selected>보통</option>
+	                  <option value="통통">통통</option>
+	                 </c:if>
+	                 <c:if test="${matchVO.body_shape eq '통통'}">
+	                  <option value="#none">체형을 선택해주세요.</option>
+	                  <option value="마른">마른</option>
+	                  <option value="보통">보통</option>
+	                  <option value="통통" selected>통통</option>
+	                 </c:if>
+	               </select>
 	            </li>
 	            <li>   
 	               <label for=""> 지역</label>
-	               <input type="text" name="division" value="">
+	               <select name="division">
+	               <c:if test="${matchVO.division eq '동구'}">
+	                  <option value="#none">구를 선택해주세요.</option>
+	                  <option value="동구" selected>동구</option>
+	                  <option value="수성구">수성구</option>
+	                  <option value="북구">북구</option>
+	                  <option value="서구">서구</option>
+	                  <option value="중구">중구</option>
+	                  <option value="남구">남구</option>
+	                  <option value="달서구">달서구</option>
+	                  <option value="달성군">달성군</option>
+	                 </c:if>
+	                  <c:if test="${matchVO.division eq '수성구'}">
+	                  <option value="#none">구를 선택해주세요.</option>
+	                  <option value="동구">동구</option>
+	                  <option value="수성구" selected>수성구</option>
+	                  <option value="북구">북구</option>
+	                  <option value="서구">서구</option>
+	                  <option value="중구">중구</option>
+	                  <option value="남구">남구</option>
+	                  <option value="달서구">달서구</option>
+	                  <option value="달성군">달성군</option>
+	                  </c:if>
+	                   <c:if test="${matchVO.division eq '북구'}">
+	                  <option value="#none">구를 선택해주세요.</option>
+	                  <option value="동구">동구</option>
+	                  <option value="수성구">수성구</option>
+	                  <option value="북구" selected>북구</option>
+	                  <option value="서구">서구</option>
+	                  <option value="중구">중구</option>
+	                  <option value="남구">남구</option>
+	                  <option value="달서구">달서구</option>
+	                  <option value="달성군">달성군</option>
+	                  </c:if>
+	                  <c:if test="${matchVO.division eq '서구'}">
+	                  <option value="#none">구를 선택해주세요.</option>
+	                  <option value="동구">동구</option>
+	                  <option value="수성구">수성구</option>
+	                  <option value="북구" >북구</option>
+	                  <option value="서구" selected>서구</option>
+	                  <option value="중구">중구</option>
+	                  <option value="남구">남구</option>
+	                  <option value="달서구">달서구</option>
+	                  <option value="달성군">달성군</option>
+	                  </c:if>
+	                  <c:if test="${matchVO.division eq '중구'}">
+	                  <option value="#none">구를 선택해주세요.</option>
+	                  <option value="동구">동구</option>
+	                  <option value="수성구">수성구</option>
+	                  <option value="북구" >북구</option>
+	                  <option value="서구" >서구</option>
+	                  <option value="중구" selected>중구</option>
+	                  <option value="남구">남구</option>
+	                  <option value="달서구">달서구</option>
+	                  <option value="달성군">달성군</option>
+	                  </c:if>
+	                  <c:if test="${matchVO.division eq '남구'}">
+	                  <option value="#none">구를 선택해주세요.</option>
+	                  <option value="동구">동구</option>
+	                  <option value="수성구">수성구</option>
+	                  <option value="북구" >북구</option>
+	                  <option value="서구" >서구</option>
+	                  <option value="중구">중구</option>
+	                  <option value="남구" selected>남구</option>
+	                  <option value="달서구">달서구</option>
+	                  <option value="달성군">달성군</option>
+	                  </c:if>
+	                  <c:if test="${matchVO.division eq '달서구'}">
+	                  <option value="#none">구를 선택해주세요.</option>
+	                  <option value="동구">동구</option>
+	                  <option value="수성구">수성구</option>
+	                  <option value="북구" >북구</option>
+	                  <option value="서구" >서구</option>
+	                  <option value="중구">중구</option>
+	                  <option value="남구">남구</option>
+	                  <option value="달서구" selected>달서구</option>
+	                  <option value="달성군">달성군</option>
+	                  </c:if>
+	                   <c:if test="${matchVO.division eq '달성군'}">
+	                  <option value="#none">구를 선택해주세요.</option>
+	                  <option value="동구">동구</option>
+	                  <option value="수성구">수성구</option>
+	                  <option value="북구" >북구</option>
+	                  <option value="서구" >서구</option>
+	                  <option value="중구">중구</option>
+	                  <option value="남구">남구</option>
+	                  <option value="달서구">달서구</option>
+	                  <option value="달성군" selected>달성군</option>
+	                  </c:if>
+	                  
+	               </select>
 	              </li> 
 	               <li>
 	                  <label for="">어떤 메이트를 만나고 싶나요?</label>
@@ -144,6 +255,7 @@ location.href='<c:url value ="/member/login.do"/>'
       </form>   
    </div>
 </div>
+
 <!-- contents 끝 -->
 <script>
 var msg = '<c:out value="${msg}"/>';

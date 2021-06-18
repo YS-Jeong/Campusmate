@@ -11,3 +11,11 @@
 </body>
 
 <%@ include file="/WEB-INF/views/inc/footer.jsp" %>
+
+
+<script>
+var msg = '<c:out value="${msg}"/>';
+if(msg != ''){
+   alert(msg);
+} //매칭 등록이 완료되었습니다. alert 메세지 출력
+</script>
