@@ -80,9 +80,9 @@
 	<insert id="studyDAO.insertStudy" parameterType ="studyVO">
 		<![CDATA[
 		INSERT INTO CM_STUDY 
-		(UNIVERSITY, SUBJECT, WRITER, DATE, CONTENTS, FILENAME, ORIFILENAME)
+		(ST_ID, UNIVERSITY, SUBJECT, WRITER, DATE, CONTENTS, FILENAME, ORIFILENAME)
 		VALUES
-		(#{university}, #{subject},#{writer},NOW(), #{contents}, #{filename}, #{oriFilename})
+		(#{st_id}, #{university}, #{subject},#{writer},NOW(), #{contents}, #{filename}, #{oriFilename})
 		]]>
 	</insert>
 	<!-- //공지사항 등록 -->

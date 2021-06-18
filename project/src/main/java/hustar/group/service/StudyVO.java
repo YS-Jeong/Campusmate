@@ -6,6 +6,7 @@ public class StudyVO extends ComDefaultVO{
 	public int seq;
 	public int hit;
 	public String university;
+	public String st_id; 
 	public String subject;
 	public String writer;
 	public String date;
@@ -18,6 +19,13 @@ public class StudyVO extends ComDefaultVO{
 	}
 	public void setUniversity(String university) {
 		this.university = university;
+	}
+	
+	public String getSt_id() {
+		return st_id;
+	}
+	public void setSt_id(String st_id) {
+		this.st_id = st_id;
 	}
 	public String getFilename() {
 		return filename;

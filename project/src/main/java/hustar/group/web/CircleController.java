@@ -211,7 +211,7 @@ public class CircleController {
 			return "redirect:/member/login.do";
 		}
 		
-		
+		circleVO.setSt_id(loginVO.getSt_id());
 		circleVO.setWriter(loginVO.getName());	//작성자는 현재 로그인한 사람이기때문에 MemberVO로 부터 읽어온다. 그리고 나서 쿼리에서 #{writer}작성
 		
 		// ex) sfsadsadsa_dog.jpg
@@ -325,6 +325,7 @@ public class CircleController {
 			return "redirect:/member/login.do";
 		}
 		
+		circle_replyVO.setSt_id(loginVO.getSt_id());
 		circle_replyVO.setCircle_id(circleVO.getSeq());
 		circle_replyVO.setName(loginVO.getName());
 		

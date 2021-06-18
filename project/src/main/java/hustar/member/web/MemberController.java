@@ -165,7 +165,7 @@ public class MemberController {
 	@RequestMapping("/member/actionLoginAsync.do")
 	public ModelAndView actionLoginAsync(ModelMap model, String st_id, String password) throws Exception{
 		
-		MemberVO memberVO = new MemberVO();
+		MemberVO memberVO = new MemberVO(); 
 		memberVO.setSt_id(st_id);
 		memberVO.setPassword(password);
 		MemberVO loginVO = (MemberVO) commonService.selectView(memberVO, null, null, "memberDAO.selectMemberView");

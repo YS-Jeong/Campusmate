@@ -22,6 +22,7 @@
                                 <a href="javascript:;">캠퍼스 데이트</a>
                                 <ul>
                                     <li><a href="<c:url value='/match/match_intro.do'/>">소개</a></li>
+                                   
                                     <li><a href="<c:url value='/match/match_join.do'/>">매칭 등록</a></li>
                                     <li><a href="<c:url value='/match/match_modify.do'/>">매칭 수정</a></li>
                                     <li><a href="<c:url value='/match/matching.do'/>">결과 확인</a></li>

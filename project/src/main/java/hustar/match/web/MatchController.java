@@ -20,6 +20,8 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import egovframework.com.cmm.service.CommonService;
+import hustar.group.service.CircleVO;
+import hustar.group.service.StudyVO;
 import hustar.match.service.MatchVO;
 import hustar.member.service.MemberVO;
 
@@ -45,7 +47,8 @@ public class MatchController {
 	}
 	
 	@RequestMapping(value= {"/match/match_join.do"})
-	public String match_join() {
+	public String match_join(MatchVO searchVO) throws Exception {
+
 		return "/match/match_join";
 	}
 	
@@ -57,47 +60,53 @@ public class MatchController {
 
 	
 	@RequestMapping(value= {"/match/match_modify.do"})
-
-	public String match_modify() throws Exception {
-
-
-		return "/match/match_modify";
+	public String match_modify(Model model, MatchVO searchVO, HttpSession session) throws Exception {
+		
+		MemberVO loginVO =  (MemberVO)session.getAttribute("login");
+	      
+	    searchVO.setSt_id(loginVO.getSt_id());
+	      
+	    MatchVO matchVO = (MatchVO) commonService.selectView(searchVO, null, null,"matchDAO.selectMatchView");
+	    model.addAttribute("matchVO",matchVO);
+	      	      
+	      return "/match/match_modify"; //매칭 수정 click - > 매칭수정 화면 view 보여줌
 	}
 	
-	@RequestMapping("/match/match_Insert.do")
+	@RequestMapping("/match/match_insert.do")
 	public String match_Insert(
 			@ModelAttribute("matchVO") MatchVO matchVO, 
-			RedirectAttributes redirectAttributes) throws Exception {
-		
-		int cnt = commonService.selectListTotCnt(matchVO, null, null, "matchDAO.selectMatchCnt");
-		System.out.println("cnt = " + cnt);
-		
-		if (cnt > 0) {
-			redirectAttributes.addFlashAttribute("msg", "이미 가입된 학번이에요!");
-			
-		} else {
-			// 회원정보를 DB에 삽입해주는 기능. 
-			commonService.insert(matchVO, null, null, "matchDAO.insertMatch"); 
-		}
-		
-		return "redirect:/match/matching.do"; 
+			RedirectAttributes redirectAttributes, HttpSession session) throws Exception {
+		         
+	      int cnt = commonService.selectListTotCnt(matchVO, null, null, "matchDAO.selectMatchCnt");
+	      System.out.println("cnt = " + cnt);
+	      
+	      if (cnt > 0) {
+	         redirectAttributes.addFlashAttribute("msg", "이미 가입된 학번이에요!");
+	         
+	      } else {
+	         // 회원정보를 DB에 삽입해주는 기능. 
+	         commonService.insert(matchVO, null, null, "matchDAO.insertMatch"); 
+	      }
+	      redirectAttributes.addFlashAttribute("msg", "매칭등록이 완료되었습니다.");
+	      
+	      return "redirect:/match/matching.do"; 
 	}
 
 	
 	@RequestMapping("/match/match_update.do")
 	public String match_update(
 			@ModelAttribute("matchVO") MatchVO matchVO, 
-			RedirectAttributes redirectAttributes) throws Exception {
-
+			RedirectAttributes redirectAttributes, HttpSession session) throws Exception {
+		
+		MemberVO loginVO =  (MemberVO)session.getAttribute("login");
+		
+		matchVO.setSt_id(loginVO.getSt_id());
 		
 		// 회원정보를 DB에 삽입해주는 기능. 
 		commonService.update(matchVO, null, null, "matchDAO.updateMatch"); 
 		redirectAttributes.addFlashAttribute("msg", "매칭정보가 수정되었어요.");
-		
-		
-		
-		return "redirect:/match/match_modify.do";
-
+				
+		return "redirect:/index.do";
 	}
 	
 }
