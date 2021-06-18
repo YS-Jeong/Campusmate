@@ -46,7 +46,7 @@ location.href='<c:url value ="/member/login.do"/>'
 
    <div class= "join-box">
 
-      <h1>${matchVO.st_id}</h1>
+      <h1>매칭수정</h1>
       <form method="post" name="frm" action="<c:url value='/match/match_update.do'/>">
 	      <div class ="join-form">
 	         <ul>
@@ -55,10 +55,6 @@ location.href='<c:url value ="/member/login.do"/>'
 	              <input type="file" name ="oriFilename" onchange="readURL(this);">
 	              <br/><br/>
 	              <img id="preview"/> <!-- 파일 업로드시 미리보기 -->
-	            </li>
-	            <li>
-	               <label for="">학번</label>
-	               <input type="text" name="st_id" placeholder="학번" value="${session.st_id}">
 	            </li>
 	            <li>
 	               <label for="">카카오톡 ID</label>
@@ -247,7 +243,7 @@ location.href='<c:url value ="/member/login.do"/>'
 	               </li>
 	            <li class="join-btn">
 	            <!-- 가입완료 버튼 눌렀을 때 submitForm()함수 실행  -->
-	             <a href="#none" onclick="submitForm();">수정하기 완료로 고쳐야할것</a>
+	             <a href="#none" onclick="submitForm();">수정완료</a>
 	
 	             </li>
 	         </ul>

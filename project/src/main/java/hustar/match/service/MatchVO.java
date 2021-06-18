@@ -3,7 +3,7 @@ import egovframework.com.cmm.ComDefaultVO;
 
 public class MatchVO extends ComDefaultVO{
 	
-	public int st_id;  //학번
+	public String st_id;  //학번
 	public String kakao_id; //카카오ID
 	public String height; //키 
 	public String body_shape; //체형
@@ -19,10 +19,10 @@ public class MatchVO extends ComDefaultVO{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getSt_id() {
+	public String getSt_id() {
 		return st_id;
 	}
-	public void setSt_id(int st_id) {
+	public void setSt_id(String st_id) {
 		this.st_id = st_id;
 	}
 	public String getKakao_id() {

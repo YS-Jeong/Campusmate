@@ -62,7 +62,7 @@ location.href='<c:url value ="/member/login.do"/>'
 	            </li>
 	             <li>
 	               <label for="">이름</label>
-	               <input type="text" name="name" placeholder="이름">
+	               <input type="text" name="name" placeholder="이름" value="${session.name}" readonly>
 	            </li>
 	            <li>
 	               <label for="">카카오톡 ID</label>

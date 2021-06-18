@@ -26,11 +26,9 @@
 	<!-- 매칭 정보 보기 -->
 	<select id = "matchDAO.selectMatchView" parameterType="matchVO" resultType="matchVO">
 		<![CDATA[
-		SELECT t1.st_id, kakao_id,height,body_shape, division,purpose,t2.name
-		FROM CM_MEMBER T1
-		JOIN CM_MATCH T2
-		ON(T1.st_id = T2.st_id)
-		WHERE T1.name = T2.name
+			SELECT st_id, kakao_id,height, body_shape, division, purpose
+			FROM CM_MATCH
+			WHERE st_id = #{st_id}
 		]]>
 	</select>
 	<!-- //매칭 정보 보기 -->
@@ -43,7 +41,7 @@
 			CM_MATCH 
 		SET
 			ST_ID = #{st_id},
-			KAKA = #{password},  
+			KAKAO_id = #{kakao_id},  
 			
 		WHERE
 			ST_ID = #{st_id}

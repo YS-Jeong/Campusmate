@@ -59,9 +59,13 @@ public class MatchController {
 
 	
 	@RequestMapping(value= {"/match/match_modify.do"})
-	public String match_modify(Model model, MatchVO searchVO) throws Exception {
-		MatchVO matchVO = (MatchVO) commonService.selectView(searchVO, null, null,"matchDAO.selectMatchView");
+	public String match_modify(Model model, MatchVO searchVO, HttpSession session) throws Exception {
 		
+		MemberVO loginVO =  (MemberVO)session.getAttribute("login");
+		
+		searchVO.setSt_id(loginVO.getSt_id());
+		
+		MatchVO matchVO = (MatchVO) commonService.selectView(searchVO, null, null,"matchDAO.selectMatchView");
 		model.addAttribute("matchVO",matchVO);
 		
 		
