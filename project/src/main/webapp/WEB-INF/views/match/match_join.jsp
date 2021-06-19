@@ -32,13 +32,10 @@
 
 
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
-<c:set var="sesseion" value="${sessionScope.login}" scope="application"/> 
-<c:if test="${session==null}">
 <script>
 alert("로그인이 필요한 서비스입니다.");
 location.href='<c:url value ="/member/login.do"/>'
 </script>
-</c:if>
 
 <!-- contents 시작 -->
 <div class="join-wrap">
