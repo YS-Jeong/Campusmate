@@ -36,7 +36,7 @@
                </li>
                <li>
                   <label for="">채형</label>
-                  <select name="body_shape">
+                  <select name="body_shape1">
                      <c:if test="${matchVO.body_shape eq '마른'}">
                      <option disabled="disabled" value="#none">체형을 선택해주세요.</option>
                      <option disabled="disabled" value="마른" selected>마른</option>
@@ -173,7 +173,7 @@
                </li>
                <li>
                   <label for="">채형</label>
-                  <select name="body_shape" id="body_shape">
+                  <select name="body_shape2" id="body_shape">
                      <c:if test="${matchVOList.body_shape eq '마른'}">
                      <option disabled="disabled">체형을 선택해주세요.</option>
                      <option disabled="disabled" value="마른" selected>마른</option>
@@ -295,7 +295,8 @@
 </div>
                  
 <script>
-$("#body_shape").not(":selected").attr("disabled", "disabled");
+$("#body_shape1").not(":selected").attr("disabled", "disabled");
+$("#body_shape2").not(":selected").attr("disabled", "disabled");
 $("#division").not(":selected").attr("disalbed","disabled");
 
 </script>

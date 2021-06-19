@@ -7,12 +7,12 @@
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
 <style>
 /* HIDE RADIO */
-[type=radio][name=purpose] { 
+/*[type=radio][name=purpose] { 
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
-}
+}-->
 
 /* IMAGE STYLES */
 [type=radio] + img {
@@ -32,13 +32,10 @@
 
 
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
-<c:set var="sesseion" value="${sessionScope.login}" scope="application"/> 
-<c:if test="${session==null}">
 <script>
 alert("로그인이 필요한 서비스입니다.");
 location.href='<c:url value ="/member/login.do"/>'
 </script>
-</c:if>
 
 <!-- contents 시작 -->
 <div class="join-wrap">

@@ -48,12 +48,8 @@
 					<label for="">학과</label>
 					<h>${session.depart}</h>
 				</li>
-				
-				<li>
-					<a href="<c:url value='/member/mycontents.do'/>">작성글 관리</a>				
-				</li>
 				<li class="join-btn">
-	    		
+	    		<a href="<c:url value='/member/mycontents.do'/>">작성글 관리</a>			
 				<!-- 가입완료 버튼 눌렀을 때 submitForm()함수 실행  -->
 	    		<a href="<c:url value='/member/modify.do'/>">회원정보 수정하기</a>
 	    		</li>
