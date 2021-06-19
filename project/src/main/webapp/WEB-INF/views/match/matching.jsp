@@ -10,11 +10,6 @@
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 
 <body>
-<c:forEach var="matchVO" items="${matchVOList}" varStatus="status">
-<div><c:out value="${matchVO.kakao_id}"/></div>
-<div class="height"><c:out value="${matchVO.height}"/></div>
-</c:forEach>
-
 <div class="join-wrap">
 
    <div class= "join-box">

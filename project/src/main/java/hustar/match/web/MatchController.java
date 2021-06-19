@@ -106,7 +106,7 @@ public class MatchController {
 		  
 		  matchVO.setSt_id(loginVO.getSt_id());
 		  matchVO.setName(loginVO.getName());
-		  
+		  	  
 	      int cnt = commonService.selectListTotCnt(matchVO, null, null, "matchDAO.selectMatchCnt");
 	      System.out.println("cnt = " + cnt);
 	      
@@ -136,7 +136,7 @@ public class MatchController {
 		commonService.update(matchVO, null, null, "matchDAO.updateMatch"); 
 		redirectAttributes.addFlashAttribute("msg", "매칭정보수정이 완료되었습니다.");
 				
-		return "redirect:/match/matching.do";
+		return "/match/match_modify";
 	}
 	
 	

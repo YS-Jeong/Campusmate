@@ -19,8 +19,7 @@ public class MainController {
 	
 	@RequestMapping(value={"/index.do","/main/index.do"})
 	public String index() {
-		
-		System.out.println("index.do135");
+	
 		return "/main/index";
 	}
 	
