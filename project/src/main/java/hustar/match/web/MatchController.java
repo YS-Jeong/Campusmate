@@ -55,16 +55,14 @@ public class MatchController {
 	@RequestMapping(value= {"/match/match_join.do"})
 	public String match_join(MatchVO searchVO, RedirectAttributes redirectAttributes, HttpSession session) throws Exception {
 		
-		
 		MemberVO loginVO =  (MemberVO)session.getAttribute("login");
 		
 		searchVO.setSt_id(loginVO.getSt_id());
+		//System.out.println("searchVO" +searchVO.st_id);
 		
 		int cnt = commonService.selectListTotCnt(searchVO, null, null, "matchDAO.selectMatchCnt");
-		
-		
-		
-	    	if (cnt != 1) {
+	    	
+		if (cnt != 1) {
 		    	return "/match/match_join";
 		    } 
 		    else{
@@ -103,7 +101,7 @@ public class MatchController {
 			RedirectAttributes redirectAttributes, HttpSession session) throws Exception {
 		 
 		  MemberVO loginVO = (MemberVO)session.getAttribute("login");
-		  
+
 		  matchVO.setSt_id(loginVO.getSt_id());
 		  matchVO.setName(loginVO.getName());
 		  

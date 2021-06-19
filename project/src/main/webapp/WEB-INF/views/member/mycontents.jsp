@@ -5,10 +5,28 @@
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
+<style>
+.join-box {
+    max-width: 1500px;
+}
+.join-box .join-form {
+    max-width: 1500px;
+}
+.join-wrap .join-box p{
+	text-align:center;
+	color:#f88c60;
+   	font-weight: 600;
+	
+}
+
+</style>
+
 <body>
+<div class="join-wrap">
 
-<p>내가 작성한 게시글</p>
-
+	<div class= "join-box">
+			<p>내가 작성한 글</p>
+		<div class=join-form>
 		<div class="circle-list">
 			<p>동아리 게시판</p>
 		</div>
@@ -28,7 +46,7 @@
 					<li>
 						<c:set var="session" value="${sessionScope.login}" scope="application"/>
 							<c:if test = "${session.st_id == circleVO.st_id}">
-								<div class="no"></div>
+								<div class="no"><c:out value="${circleVO.seq}"/></div>
 								<div class="uni"><c:out value="${circleVO.university}"/></div>
 								<div class="subject"><a href="<c:url value='/group/circle_view.do'/>?seq=${circleVO.seq}"><c:out value="${circleVO.subject}"/></a></div>
 								<div class="name"><c:out value="${circleVO.writer}"/></div>
@@ -40,7 +58,7 @@
 				</ul>
 			</c:forEach>		
 		</div>
-		
+		<br></br><br></br>
 		<div class="study-list">
 			<p>스터디 게시판</p>
 		</div>
@@ -60,7 +78,7 @@
 					<li>
 						<c:set var="session" value="${sessionScope.login}" scope="application"/>
 							<c:if test = "${session.st_id == studyVO.st_id}">
-								<div class="no"></div>
+								<div class="no"><c:out value="${studyVO.seq}"/></div>
 								<div class="uni"><c:out value="${studyVO.university}"/></div>
 								<div class="subject"><a href="<c:url value='/group/study_view.do'/>?seq=${studyVO.seq}"><c:out value="${studyVO.subject}"/></a></div>
 								<div class="name"><c:out value="${studyVO.writer}"/></div>
@@ -71,6 +89,12 @@
 					</li>
 				</ul>
 			</c:forEach>		
+			<li class="join-btn">
+	    	<a href="<c:url value='/member/mypage.do'/>">뒤로가기</a>			
+			</li>
+			</div>
 		</div>
+	</div>
+</div>		
 <%@ include file="/WEB-INF/views/inc/footer.jsp" %>
 </body>
