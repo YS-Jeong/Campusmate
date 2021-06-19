@@ -65,13 +65,11 @@ public class MatchController {
 		
 		
 	    	if (cnt != 1) {
-	    		System.out.println("cnt1 = " + cnt);
 		    	return "/match/match_join";
 		    } 
 		    else{
-		    	System.out.println("cnt2 = " + cnt);
+		    	
 		    	redirectAttributes.addFlashAttribute("msg", "이미 매칭 정보가 입력되어있습니다. 매칭 수정을 선택해주세요!");	
-		    	//return "/main/index"; 
 		    	return "redirect:/index.do"; 
 		    }
 	}
@@ -107,6 +105,7 @@ public class MatchController {
 		  MemberVO loginVO = (MemberVO)session.getAttribute("login");
 		  
 		  matchVO.setSt_id(loginVO.getSt_id());
+		  matchVO.setName(loginVO.getName());
 		  
 	      int cnt = commonService.selectListTotCnt(matchVO, null, null, "matchDAO.selectMatchCnt");
 	      System.out.println("cnt = " + cnt);
