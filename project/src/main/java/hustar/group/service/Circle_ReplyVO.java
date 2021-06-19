@@ -7,6 +7,7 @@ import egovframework.com.cmm.ComDefaultVO;
 public class Circle_ReplyVO extends ComDefaultVO{
 	public int id;
 	public int circle_id;
+	public String st_id; 
 	public String regdate;
 	public String name;
 	public String content;
@@ -17,6 +18,14 @@ public class Circle_ReplyVO extends ComDefaultVO{
 	
 	public int getCircle_id() {
 		return circle_id;
+	}
+	
+	public String getSt_id() {
+		return st_id;
+	}
+
+	public void setSt_id(String st_id) {
+		this.st_id = st_id;
 	}
 
 	public void setCircle_id(int circle_id) {

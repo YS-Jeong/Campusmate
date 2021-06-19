@@ -6,6 +6,7 @@
 
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
 <body>
+
 <p>내가 작성한 게시글</p>
 
 		<div class="circle-list">
@@ -26,14 +27,14 @@
 				<ul class="tb-bd">
 					<li>
 						<c:set var="session" value="${sessionScope.login}" scope="application"/>
-							<c:if test = "${session.name == circleVO.writer}">
+							<c:if test = "${session.st_id == circleVO.st_id}">
 								<div class="no"></div>
 								<div class="uni"><c:out value="${circleVO.university}"/></div>
 								<div class="subject"><a href="<c:url value='/group/circle_view.do'/>?seq=${circleVO.seq}"><c:out value="${circleVO.subject}"/></a></div>
 								<div class="name"><c:out value="${circleVO.writer}"/></div>
 								<div class="date"><c:out value="${circleVO.date}"/></div>
 							</c:if>
-							<c:if test = "${session.name != circleVO.writer}">
+							<c:if test = "${session.st_id != circleVO.st_id}">
 							</c:if>
 					</li>
 				</ul>
@@ -58,14 +59,14 @@
 				<ul class="tb-bd">
 					<li>
 						<c:set var="session" value="${sessionScope.login}" scope="application"/>
-							<c:if test = "${session.name == studyVO.writer}">
+							<c:if test = "${session.st_id == studyVO.st_id}">
 								<div class="no"></div>
 								<div class="uni"><c:out value="${studyVO.university}"/></div>
 								<div class="subject"><a href="<c:url value='/group/study_view.do'/>?seq=${studyVO.seq}"><c:out value="${studyVO.subject}"/></a></div>
 								<div class="name"><c:out value="${studyVO.writer}"/></div>
 								<div class="date"><c:out value="${studyVO.date}"/></div>
 							</c:if>
-							<c:if test = "${session.name != studyVO.writer}">
+							<c:if test = "${session.st_id != studyVO.st_id}">
 							</c:if>
 					</li>
 				</ul>

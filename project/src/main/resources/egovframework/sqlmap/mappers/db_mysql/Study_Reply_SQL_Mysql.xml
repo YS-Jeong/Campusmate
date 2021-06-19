@@ -25,9 +25,9 @@
 	<insert id="study_replyDAO.insertReply" parameterType="study_replyVO">
 		<![CDATA[
 			INSERT INTO CM_STUDY_REPLY
-			(STUDY_ID, REGDATE, NAME, CONTENT)
+			(STUDY_ID, ST_ID, REGDATE, NAME, CONTENT)
 			VALUES
-			(#{study_id}, NOW(), #{name}, #{content})
+			(#{study_id}, #{st_id}, NOW(), #{name}, #{content})
 		]]>
 	</insert>
 	<!-- //댓글 등록-->

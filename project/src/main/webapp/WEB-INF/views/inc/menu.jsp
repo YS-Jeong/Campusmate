@@ -22,6 +22,7 @@
                                 <a href="javascript:;">캠퍼스 데이트</a>
                                 <ul>
                                     <li><a href="<c:url value='/match/match_intro.do'/>">소개</a></li>
+                                   
                                     <li><a href="<c:url value='/match/match_join.do'/>">매칭 등록</a></li>
                                     <li><a href="<c:url value='/match/match_modify.do'/>">매칭 수정</a></li>
                                     <li><a href="<c:url value='/match/matching.do'/>">결과 확인</a></li>
@@ -45,17 +46,17 @@
                                     <li><a href="<c:url value='/group/kmu_study_list.do'/>">계명대</a></li>
                                     <li><a href="<c:url value='/group/union_study_list.do'/>"> 연합</a></li>
                                 </ul>
-                            </li>
-	                            <c:set var="session" value="${sessionScope.login}" scope="application"/>
-	                            	<c:if test="${not empty session}">
-	                            		<li><a><c:out value="${session.name}님 "/></a></li>
-		        	   					<li><a href="<c:url value='/member/mypage.do'/>">마이페이지</a></li>
-		         						<li><a href="<c:url value='/member/actionLogout.do'/>">로그아웃</a></li>
-		         					</c:if>
-		         					<c:if test="${empty session}">
-		           						<li><a href="<c:url value='/member/login.do'/>">로그인</a></li>
-		            			</c:if>                  	                      	     
-                        </ul>
+                            </li>      
+                            <c:set var="session" value="${sessionScope.login}" scope="application"/>
+	        					<c:if test="${not empty session}">
+	            					<li><a><c:out value="${session.name}님 "/></a></li>
+		        					<li><a href="<c:url value='/member/mypage.do'/>">마이페이지</a></li>
+		         					<li><a href="<c:url value='/member/actionLogout.do'/>">로그아웃</a></li>
+		        				</c:if>
+		        				<c:if test="${empty session}">
+		        					<li><a href="<c:url value='/member/login.do'/>">로그인</a></li>
+		      					 </c:if>         	                      	     
+                        </ul>                 
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>

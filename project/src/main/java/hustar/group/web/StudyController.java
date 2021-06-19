@@ -253,6 +253,7 @@ public class StudyController {
             
          }
          
+         StudyVO.setSt_id(loginVO.getSt_id());
          StudyVO.setWriter(loginVO.getName());//지금 로그인한 사람의 ID는 session에서 가져온다.
          
         String filename = FileUtil.saveFile(uploadFile,STUDY_UPLOAD_PATH);
@@ -398,6 +399,8 @@ public class StudyController {
             redirectAttributes.addFlashAttribute("msg", "로그인이 필요합니다."); //로그인이 필요하다는 msg 출력 후 
             return "redirect:/member/login.do"; //로그인 화면으로 return 
   		}
+  		
+  		study_replyVO.setSt_id(loginVO.getSt_id());
   		study_replyVO.setStudy_id(studyVO.getSeq());
   		study_replyVO.setName(loginVO.getName());
   		

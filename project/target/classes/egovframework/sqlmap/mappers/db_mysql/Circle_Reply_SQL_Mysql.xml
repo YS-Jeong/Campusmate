@@ -25,9 +25,9 @@
 	<insert id="circle_replyDAO.insertReply" parameterType="circle_replyVO">
 		<![CDATA[
 			INSERT INTO CM_CIRCLE_REPLY
-			(CIRCLE_ID, REGDATE, NAME, CONTENT)
+			(CIRCLE_ID, ST_ID, REGDATE, NAME, CONTENT)
 			VALUES
-			(#{circle_id}, NOW(), #{name}, #{content})
+			(#{circle_id}, #{st_id}, NOW(), #{name}, #{content})
 		]]>
 	</insert>
 	<!-- //댓글 등록-->
