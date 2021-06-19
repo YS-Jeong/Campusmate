@@ -1,4 +1,6 @@
 package hustar.match.web;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
+
 import egovframework.com.cmm.service.CommonService;
 import hustar.match.service.MatchVO;
 import hustar.member.service.MemberVO;
@@ -23,7 +26,23 @@ public class MatchController {
 	
 	
 	@RequestMapping(value= {"/match/matching.do"})
-	public String matching() {
+	public String matching(Model model, MatchVO searchVO, HttpSession session) throws Exception {
+		
+		//매칭 결과화면으로 이동
+		MemberVO loginVO =  (MemberVO)session.getAttribute("login");
+		
+		searchVO.setSt_id(loginVO.getSt_id());
+		
+		
+		MatchVO matchVO = (MatchVO) commonService.selectView(searchVO, null, null,"matchDAO.selectMatchView");
+		model.addAttribute("matchVO",matchVO);
+		
+		searchVO.setPurpose(matchVO.getPurpose());
+		
+		List<MatchVO> matchVOList = (List<MatchVO>)commonService.selectList(searchVO, null, null,"matchDAO.selectMatchList"); //조건과 일치하는 사람들을 리스트로 받아옴
+		model.addAttribute("matchVOList",matchVOList);
+	
+		
 		return "/match/matching";
 	}
 	
@@ -97,5 +116,6 @@ public class MatchController {
 				
 		return "redirect:/match/matching.do";
 	}
+	
 	
 }
