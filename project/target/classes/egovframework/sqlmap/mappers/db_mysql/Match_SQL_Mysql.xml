@@ -46,6 +46,7 @@
 			BODY_SHAPE = #{body_shape}, 
 			DIVISION = #{division}, 
 			PURPOSE = #{purpose}  			
+
 		WHERE
 			ST_ID = #{st_id}
 			

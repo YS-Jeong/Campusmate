@@ -187,9 +187,9 @@ location.href='<c:url value ="/member/login.do"/>'
                         <br></br>
                         <div class="row_arr">
                         <div class="row1">
-                      
+                
                            <label>
-                              <input type="radio" name="purpose" value="소개팅">
+                              <input type="radio" name="purpose" value="소개팅" >
                               <img src="https://cdn.pixabay.com/photo/2015/03/26/11/02/heart-692312_1280.jpg">
                                <h2>소개팅</h2>
                           </label>
@@ -303,6 +303,7 @@ function readURL(input) {
       document.getElementById('preview').src = "";
    }
 }
+
 </script>
 
 
