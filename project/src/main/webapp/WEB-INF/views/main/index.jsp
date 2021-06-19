@@ -212,6 +212,12 @@
 
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
+    <script>
+    var msg = '<c:out value="${msg}"/>';
+    if(msg != ''){
+       alert(msg);
+    }
+    </script>
 </body>
 <%@ include file="/WEB-INF/views/inc/footer.jsp" %> 
 </html>

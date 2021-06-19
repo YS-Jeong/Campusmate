@@ -3,6 +3,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -33,9 +34,27 @@ public class MatchController {
 	}
 	
 	@RequestMapping(value= {"/match/match_join.do"})
-	public String match_join() throws Exception {
+	public String match_join(MatchVO searchVO, RedirectAttributes redirectAttributes, HttpSession session) throws Exception {
 		
-		return "/match/match_join";
+		
+		MemberVO loginVO =  (MemberVO)session.getAttribute("login");
+		
+		searchVO.setSt_id(loginVO.getSt_id());
+		
+		int cnt = commonService.selectListTotCnt(searchVO, null, null, "matchDAO.selectMatchCnt");
+		
+		
+		
+	    	if (cnt != 1) {
+	    		System.out.println("cnt1 = " + cnt);
+		    	return "/match/match_join";
+		    } 
+		    else{
+		    	System.out.println("cnt2 = " + cnt);
+		    	redirectAttributes.addFlashAttribute("msg", "이미 매칭 정보가 입력되어있습니다. 매칭 수정을 선택해주세요!");	
+		    	//return "/main/index"; 
+		    	return "redirect:/index.do"; 
+		    }
 	}
 	
 	@RequestMapping(value= {"/match/match_join_write.do"})
@@ -65,7 +84,11 @@ public class MatchController {
 	public String match_Insert(
 			@ModelAttribute("matchVO") MatchVO matchVO, 
 			RedirectAttributes redirectAttributes, HttpSession session) throws Exception {
-		         
+		 
+		  MemberVO loginVO = (MemberVO)session.getAttribute("login");
+		  
+		  matchVO.setSt_id(loginVO.getSt_id());
+		  
 	      int cnt = commonService.selectListTotCnt(matchVO, null, null, "matchDAO.selectMatchCnt");
 	      System.out.println("cnt = " + cnt);
 	      
@@ -78,7 +101,7 @@ public class MatchController {
 	      }
 	      redirectAttributes.addFlashAttribute("msg", "매칭등록이 완료되었습니다.");
 	      
-	      return "redirect:/match/matching.do"; 
+	      return "redirect:/index.do"; 
 	}
 
 	
