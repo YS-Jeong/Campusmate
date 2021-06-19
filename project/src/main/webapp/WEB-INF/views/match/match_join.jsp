@@ -39,14 +39,13 @@ alert("로그인이 필요한 서비스입니다.");
 location.href='<c:url value ="/member/login.do"/>'
 </script>
 </c:if>
+
 <!-- contents 시작 -->
 <div class="join-wrap">
 
    <div class= "join-box">
 
-      <h1>매칭등록</h1>
-      <c:set var="sesseion" value="${sessionScope.login}" scope="application"/>
-     
+      <h1>매칭등록</h1>  
       <form method="post" name="frm" action="<c:url value='/match/match_insert.do'/>">
 	      <div class ="join-form">
 	         <ul>
@@ -65,9 +64,9 @@ location.href='<c:url value ="/member/login.do"/>'
 	               <input type="text" name="height" placeholder="키">
 	            </li>
 	            <li>
-	               <label for="">채형</label>
-	               <select name="body_shape">
-	                  <option value="#none">체형을 선택해주세요.</option>
+	               <label for="">체형</label>
+	               <select id="select_1" name="body_shape" >
+	                  <option value="#none" selected disabled>체형을 선택해주세요.</option>
 	                  <option value="마른">마른</option>
 	                  <option value="보통">보통</option>
 	                  <option value="통통">통통</option>
@@ -77,7 +76,7 @@ location.href='<c:url value ="/member/login.do"/>'
 	            <li>   
 	               <label for=""> 지역</label>
 	               <select name="division">
-	                  <option value="#none">구를 선택해주세요.</option>
+	                  <option value="none" selected disabled>구를 선택해주세요.</option>
 	                  <option value="동구">동구</option>
 	                  <option value="수성구">수성구</option>
 	                  <option value="북구">북구</option>
@@ -165,51 +164,26 @@ if(msg != ''){
 }
 
 
-//controller로부터 checkSt_Id() 호출. 
-function checkSt_Id() {
-
-   // 입력 폼으로부터 학번 값을 받아 옴. 
-   var st_id = document.frm.st_id.value; 
-   //alert(st_id);
-   
-   $.ajax({
-      type: 'POST',
-      url: '<c:url value="/member/checkId.do"/>',
-      dataType: 'JSON',
-      data: {"st_id": st_id},
-      success:function(data){
-         
-         //전달받은 duplicate의 값에 따라 다른 알림 창 띄움. 
-         if(data.duplicate == true){
-            alert('이미 가입된 학번이에요!');
-         } else {
-            alert('사용 가능한 학번이에요!');
-         } 
-      },
-      error:function(jqXHR, testStatus, errorThrown){
-         console.log(textStatus);
-      }
-   })
-}
-
 // 입력창 값이 비었을 때 토스트 창 띄우는 기능================================
 function submitForm() {
-   if (document.frm.st_id.value==""){
-      alert('학번을 입력해주세요.');
-      document.frm.st_id.focus();
-   } else if (document.frm.kakao_id.value==""){
+	
+  	if (document.frm.kakao_id.value==""){
       alert('카카오톡 ID를 입력해주세요.');
-      document.frm.height.focus();
+      document.frm.kakao_id.focus();
    } else if (document.frm.height.value==""){
       alert('키를 입력해주세요.');
-      document.frm.body_shape.focus();
-   } else if (document.frm.body_shape.value==""){
-      alert('체형을 선택해주세요.');
-      document.frm.body_shape.focus();
-   } else if (document.frm.division.value==""){
-      alert('지역을 선택해주세요.');
-      document.frm.division.focus();
-   }else{
+      document.frm.height.focus();
+   }
+   else if ($("select[name=body_shape]").val()===null){
+	   alert('체형을 선택해주세요'); 
+   }
+   else if ($("select[name=division]").val()===null){
+	   alert('지역을 선택해주세요'); 
+   }
+   else if(document.frm.purpose.value==""){
+	   alert("어떤 메이트를 만나고싶은지 선택해주세요.");
+	}
+   else{
       var r = confirm("매칭등록을 완료하셨나요?");
       if (r == true) {
           document.frm.submit(); //yes 눌렀을때 매칭 결과 화면으로 이동

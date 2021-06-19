@@ -33,8 +33,8 @@ public class MatchController {
 	}
 	
 	@RequestMapping(value= {"/match/match_join.do"})
-	public String match_join(MatchVO searchVO) throws Exception {
-
+	public String match_join() throws Exception {
+		
 		return "/match/match_join";
 	}
 	
@@ -93,9 +93,9 @@ public class MatchController {
 		
 		// 회원정보를 DB에 삽입해주는 기능. 
 		commonService.update(matchVO, null, null, "matchDAO.updateMatch"); 
-		redirectAttributes.addFlashAttribute("msg", "매칭정보가 수정되었어요.");
+		redirectAttributes.addFlashAttribute("msg", "매칭정보수정이 완료되었습니다.");
 				
-		return "redirect:/index.do";
+		return "redirect:/match/matching.do";
 	}
 	
 }

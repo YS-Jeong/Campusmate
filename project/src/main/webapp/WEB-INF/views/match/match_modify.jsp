@@ -32,14 +32,6 @@
 
 
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
-<c:set var="sesseion" value="${sessionScope.login}" scope="application"/> 
-<<c:if test="${session==null}">
-<script>
-alert("로그인이 필요합니다.");
-location.href='<c:url value ="/member/login.do"/>'
-</script>
-</c:if>
-
 
 <!-- contents 시작 -->
 <div class="join-wrap">
@@ -259,37 +251,32 @@ if(msg != ''){
    alert(msg);
 }
 
-
-//controller로부터 checkSt_Id() 호출. 
-function checkSt_Id() {
-
-   // 입력 폼으로부터 학번 값을 받아 옴. 
-   var st_id = document.frm.st_id.value; 
-   //alert(st_id);
-   
-   $.ajax({
-      type: 'POST',
-      url: '<c:url value="/member/checkId.do"/>',
-      dataType: 'JSON',
-      data: {"st_id": st_id},
-      success:function(data){
-         
-         //전달받은 duplicate의 값에 따라 다른 알림 창 띄움. 
-         if(data.duplicate == true){
-            alert('이미 가입된 학번이에요!');
-         } else {
-            alert('사용 가능한 학번이에요!');
-         } 
-      },
-      error:function(jqXHR, testStatus, errorThrown){
-         console.log(textStatus);
-      }
-   })
-}
-
-// 입력창 값이 비었을 때 토스트 창 띄우는 기능================================
+// 입력이 비었을 때 토스트 창 띄우는 기능================================
 function submitForm() {
-	document.frm.submit(); //yes 눌렀을때 매칭 결과 화면으로 이동
+	if (document.frm.kakao_id.value==""){
+	      alert('카카오톡 ID를 입력해주세요.');
+	      document.frm.kakao_id.focus();
+	   } else if (document.frm.height.value==""){
+	      alert('키를 입력해주세요.');
+	      document.frm.height.focus();
+	   }
+	   else if ($("select[name=body_shape]").val()===null){
+		   alert('체형을 선택해주세요'); 
+	   }
+	   else if ($("select[name=division]").val()===null){
+		   alert('지역을 선택해주세요'); 
+	   }
+	   else if(document.frm.purpose.value==""){
+		   alert("어떤 메이트를 만나고싶은지 선택해주세요.");
+		}
+	   else{
+	      var r = confirm("매칭등록을 완료하셨나요?");
+	      if (r == true) {
+	          document.frm.submit(); //yes 눌렀을때 매칭 결과 화면으로 이동
+	      } else {
+	          return false; //취소 버튼 눌렀을때
+	      }     
+	   }
 }
 //파일 업로드 시 미리보기 
 function readURL(input) {
