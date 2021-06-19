@@ -32,10 +32,6 @@
 
 
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
-<script>
-alert("로그인이 필요한 서비스입니다.");
-location.href='<c:url value ="/member/login.do"/>'
-</script>
 
 <!-- contents 시작 -->
 <div class="join-wrap">

@@ -18,6 +18,15 @@
    	font-weight: 600;
 	
 }
+.join-box .join-form ul li a {
+    display: inline-block;
+    background: #fff;
+    color: #343a40;
+    margin: 1px 0px;
+    padding: 2px 0px;
+    border-radius: 5px;
+    width: 5px;
+    transition: all 0.3s;
 
 </style>
 
@@ -89,10 +98,11 @@
 					</li>
 				</ul>
 			</c:forEach>		
+			</div>
+			<br>
 			<li class="join-btn">
 	    	<a href="<c:url value='/member/mypage.do'/>">뒤로가기</a>			
 			</li>
-			</div>
 		</div>
 	</div>
 </div>		
