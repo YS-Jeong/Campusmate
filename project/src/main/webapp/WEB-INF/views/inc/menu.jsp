@@ -27,7 +27,6 @@
 	                              	<li><a href="<c:url value='/match/matching.do'/>">결과 확인</a></li>
                                 </ul>
                             </li>
-                            </li>
                             <li class="submenu">
                                 <a href="javascript:;">동아리</a>
                                 <ul>

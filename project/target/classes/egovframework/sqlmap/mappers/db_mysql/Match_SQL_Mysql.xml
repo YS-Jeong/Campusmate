@@ -53,4 +53,14 @@
 		]]>
 	</update>
 	<!-- //회원정보수정 -->
+	<select id="matchDAO.selectMatchList" parameterType="matchVO" resultType="matchVO">
+	<![CDATA[
+		SELECT *
+		FROM CM_MATCH
+		WHERE ST_ID NOT IN (#{st_id})
+		AND PURPOSE= #{purpose}
+		ORDER BY RAND()
+		LIMIT 1
+	]]>
+	</select> 
 </mapper>
