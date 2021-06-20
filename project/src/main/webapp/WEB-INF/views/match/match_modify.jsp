@@ -309,7 +309,7 @@ function readURL(input) {
 				type :'POST',
 				url : '<c:url value="/match/match_deleteFile.do"/>',
 				dataType :'JSON',
-				data:{"st_id" : ${galleryVO.st_id}},
+				data:{"st_id" : ${matchVO.st_id}},
 				success:function(data){
 					//파일 삭제를 ajax로 처리 
 					if(data.success=="true"){

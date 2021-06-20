@@ -161,7 +161,7 @@ public class MatchController {
 	@RequestMapping("/match/match_deleteFile.do")
 	   public ModelAndView match_deleteFile(MatchVO searchVO,Model model) throws Exception{
 		   //ajax로 처리하므로 ModelAndView로 
-			MatchVO fileVO = (MatchVO) commonService.selectView(searchVO, null, null,"matchDAO.selectMatchView");
+		   MatchVO fileVO = (MatchVO) commonService.selectView(searchVO, null, null,"matchDAO.selectMatchView");
 		   String filePath=PHOTO_UPLOAD_PATH +"/" +fileVO.getFilename(); //파일의 경로를 string으로 받아와서
 		   FileUtil.deleteFile(filePath);
 		   
