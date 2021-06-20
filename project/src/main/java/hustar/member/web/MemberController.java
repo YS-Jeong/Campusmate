@@ -29,6 +29,7 @@ import hustar.group.service.CircleVO;
 import hustar.group.service.Circle_ReplyVO;
 import hustar.group.service.StudyVO;
 import hustar.group.service.Study_ReplyVO;
+import hustar.match.service.MatchVO;
 import hustar.member.service.MemberVO;
 
 @Controller
@@ -256,5 +257,19 @@ public class MemberController {
 			model.addAttribute("searchVO", searchVO);
 			
 			return "/member/mycontents";  
+		}
+		
+		//마이 페이지===========================================================================================
+		@RequestMapping("/member/mypage.do")
+		public String mypage(MatchVO searchVO, HttpSession session, Model model) throws Exception{
+			
+			MemberVO loginVO =  (MemberVO)session.getAttribute("login");
+			
+			searchVO.setSt_id(loginVO.getSt_id());
+			
+			MatchVO matchVO = (MatchVO) commonService.selectView(searchVO, null, null,"matchDAO.selectMatchView");
+			model.addAttribute("matchVO", matchVO);
+			
+			return "/member/mypage";  
 		}
 }

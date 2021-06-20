@@ -44,9 +44,7 @@
             <ul>
                <li>
                  <label for="">프로필</label>
-                 <input type="file" name ="oriFilename" onchange="readURL(this);">
-                 <br/><br/>
-                 <img id="preview"/> <!-- 파일 업로드시 미리보기 -->
+                 <input type="file" name ="oriFilename" onchange="readURL(this)"; value="${matchVO.oriFilename}">             
                </li>
                <li>
                   <label for="">카카오톡 ID</label>

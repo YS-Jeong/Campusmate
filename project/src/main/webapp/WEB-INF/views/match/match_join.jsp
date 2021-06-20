@@ -32,10 +32,6 @@
 
 
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
-<script>
-alert("로그인이 필요한 서비스입니다.");
-location.href='<c:url value ="/member/login.do"/>'
-</script>
 
 <!-- contents 시작 -->
 <div class="join-wrap">
@@ -48,7 +44,7 @@ location.href='<c:url value ="/member/login.do"/>'
 	         <ul>
 	            <li>
 	              <label for="">프로필</label>
-	              <input type="file" name ="oriFilename" onchange="readURL(this);">
+	              <input type="file" name ="uploadFile">
 	              <br/><br/>
 	              <img id="preview"/> <!-- 파일 업로드시 미리보기 -->
 	            </li>
