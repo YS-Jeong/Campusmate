@@ -84,7 +84,6 @@ width: auto/9;
 [type=radio]:checked + img {
   outline: 5px solid #f00;s
 }
-
 /* 고객센터 상단 부분 =============================================================================================================================================================================*/
 .snb-wrap{text-align: center; margin: 20px 0;}
 .snb-wrap > div{max-width:1200px; margin: 0 auto; background: #fff;}

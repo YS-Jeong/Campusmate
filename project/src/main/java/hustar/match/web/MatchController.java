@@ -168,10 +168,11 @@ public class MatchController {
 		   //파일을 지웠으니 DB를 업데이트를 함
 		   MatchVO matchVO = new MatchVO();
 		   matchVO.setSt_id(searchVO.getSt_id());
+		   
 		   matchVO.setFilename("");
 		   matchVO.setOriFilename("");
 		   
-		   commonService.update(matchVO, null, null,"matchDAO.updateMatch");
+		   commonService.update(matchVO, null, null,"matchDAO.updateMatch2");
 		   
 		   model.addAttribute("success","true");
 		   

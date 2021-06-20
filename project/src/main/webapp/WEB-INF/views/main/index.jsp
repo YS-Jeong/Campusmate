@@ -147,9 +147,11 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="center-heading">
-                        <h2>What They Think <em>About Us</em></h2>
-                        <p>Suspendisse vitae laoreet mauris. Fusce a nisi dapibus, euismod purus non, convallis odio.
-                            Donec vitae magna ornare, pellentesque ex vitae, aliquet urna.</p>
+                        <h2>CONTACT <em>INFORMATION</em></h2>
+                        <p>
+						 We are web page developers creating a community for Daegu and Gyeongbuk college students.<br>
+						 We would like to develop more improved web pages. So thanks a lot for your feedback.
+						 </p>
                     </div>
                 </div>
                 <div class="col-lg-10 col-md-12 col-sm-12 mobile-bottom-fix-big"
@@ -170,7 +172,7 @@
                                 <h4>정예성</h4>
                                 <p>“Nullam hendrerit, elit a semper pharetra, ipsum nibh tristique tortor, in tempus
                                     urna elit in mauris.”</p>
-                                <span>Besta CTO</span>
+                                <span>Developer<span>
                             </div>
                         </div>
                         <div class="item service-item">
@@ -186,9 +188,8 @@
                                     <li><i class="fa fa-star"></i></li>
                                 </ul>
                                 <h4>김도연</h4>
-                                <p>“Morbi non mi luctus felis molestie scelerisque. In ac libero viverra, placerat est
-                                    interdum, rhoncus leo.”</p>
-                                <span>Web Analyst</span>
+                                <p>"I will do my best to present the most splendid <br> moment of your college days."</p>
+                                <span>Developer</span>
                             </div>
                         </div>
                     </div>

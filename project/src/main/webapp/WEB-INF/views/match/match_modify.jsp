@@ -46,7 +46,7 @@ img{width:200px; height:200px;}
             <ul>
                <li>
                  <label for="">프로필</label>
-                 <input type="file" name ="oriFilename" onchange="readURL(this)"; value="${matchVO.oriFilename}">             
+                 <input type="file" name ="oriFilename" onchange="readURL(this);"value="${matchVO.oriFilename}">             
                  <div class="thum">
 					<img src="<c:url value='/match/match_image.do'/>?st_id=${matchVO.st_id}">
 				</div>

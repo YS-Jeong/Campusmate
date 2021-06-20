@@ -54,6 +54,18 @@
 			
 		]]>
 	</update>
+	<update id = "matchDAO.updateMatch2" parameterType="matchVO">
+		<![CDATA[
+		UPDATE 
+			CM_MATCH 
+		SET
+			FILENAME = #{filename},
+			ORIFILENAME= #{oriFilename}
+		WHERE
+			ST_ID = #{st_id}
+			
+		]]>
+	</update>
 	<!-- //회원정보수정 -->
 	<select id="matchDAO.selectMatchList" parameterType="matchVO" resultType="matchVO">
 	<![CDATA[
