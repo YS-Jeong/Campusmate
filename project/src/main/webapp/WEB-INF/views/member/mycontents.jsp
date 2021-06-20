@@ -35,6 +35,7 @@
 
 	<div class= "join-box">
 			<p>내가 작성한 글</p>
+			<br>
 		<div class=join-form>
 		<div class="circle-list">
 			<p>동아리 게시판</p>

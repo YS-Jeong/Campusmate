@@ -46,7 +46,7 @@ img{width:200px; height:200px;}
             <ul>
                <li>
                  <label for="">프로필</label>
-                 <input type="file" name ="oriFilename" onchange="readURL(this)"; value="${matchVO.oriFilename}">             
+                 <input type="file" name ="oriFilename" onchange="readURL(this);"value="${matchVO.oriFilename}">             
                  <div class="thum">
 					<img src="<c:url value='/match/match_image.do'/>?st_id=${matchVO.st_id}">
 				</div>
@@ -309,7 +309,7 @@ function readURL(input) {
 				type :'POST',
 				url : '<c:url value="/match/match_deleteFile.do"/>',
 				dataType :'JSON',
-				data:{"st_id" : ${galleryVO.st_id}},
+				data:{"st_id" : ${matchVO.st_id}},
 				success:function(data){
 					//파일 삭제를 ajax로 처리 
 					if(data.success=="true"){
