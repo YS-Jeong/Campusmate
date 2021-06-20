@@ -5,6 +5,12 @@
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
+<style>
+	img{width:200px; height:200px;}
+	
+	.join-form > ul > li > label{color:#ffc107; font-size: 19px; font-weight: bold;}
+	.join-form > ul > li > h{font-size:15px; font-weight:bold;}
+</style>
 
 <body>
 
@@ -21,8 +27,8 @@
 		<c:set var="session" value="${sessionScope.login}" scope="application"/>
 			<ul>
 				<li>
-					<label for="" style="color:#ffc107; font-size: 19px; font-weight: bold;">학번</label>
-					<h style="font-size:15px; font-weight: bold;">${session.st_id}</h>
+					<label for="">학번</label>
+					<h>${session.st_id}</h>
 				</li>
 				<li>
 					<label for="">프로필 사진</label>

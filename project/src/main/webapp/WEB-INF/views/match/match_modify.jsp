@@ -26,6 +26,8 @@
   outline: 5px solid #f00;s
 }
 
+img{width:200px; height:200px;}
+
 </style>
 
 <body>

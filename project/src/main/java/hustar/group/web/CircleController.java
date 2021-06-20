@@ -20,6 +20,7 @@ import egovframework.com.cmm.util.EgovProperties;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 import hustar.group.service.CircleVO;
 import hustar.group.service.Circle_ReplyVO;
+import hustar.match.service.MatchVO;
 import hustar.member.service.MemberVO;
 import hustar.util.FileUtil;
 
@@ -178,10 +179,10 @@ public class CircleController {
 	}
 	
 	@RequestMapping(value={"/group/circle_view.do"})
-	public String circle_view(CircleVO searchVO, Model model, HttpSession session, RedirectAttributes redirectAttributes) throws Exception {
+	public String circle_view(CircleVO searchVO, MatchVO matchVO, Model model, HttpSession session, RedirectAttributes redirectAttributes) throws Exception {
 		
 		CircleVO circleVO = (CircleVO)commonService.selectView(searchVO, null, null, "circleDAO.selectCircleView");
-		
+			
 		commonService.update(circleVO, null, null, "circleDAO.updateCircleHit");
 		model.addAttribute("circleVO", circleVO);
 		
