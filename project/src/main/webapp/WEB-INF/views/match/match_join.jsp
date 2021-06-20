@@ -26,6 +26,8 @@
   outline: 5px solid #f00;s
 }
 
+.profile{width:200px; height:200px;
+}
 </style>
 
 <body>
@@ -56,7 +58,7 @@
 					</li>				
 				</c:if>
 	              <br/><br/>
-	              <img id="preview"/> <!-- 파일 업로드시 미리보기 -->
+	              <img class="profile" id="preview"/> <!-- 파일 업로드시 미리보기 -->
 	            </li>
 	            <li>
 	               <label for="">카카오톡 ID</label>
