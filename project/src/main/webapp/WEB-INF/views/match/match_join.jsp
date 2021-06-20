@@ -39,12 +39,23 @@
    <div class= "join-box">
 
       <h1>매칭등록</h1>  
-      <form method="post" name="frm" action="<c:url value='/match/match_insert.do'/>">
+      <form method="post" name="frm" action="<c:url value='/match/match_insert.do'/>" enctype="multipart/form-data">
 	      <div class ="join-form">
 	         <ul>
 	            <li>
 	              <label for="">프로필</label>
-	              <input type="file" name ="oriFilename" onchange="readURL(this);">
+	              <c:if test="${empty matchVO.filename}">
+				<li>
+					<label for="">첨부파일1</label>
+					<input type="file" name="uploadFile" onchange="readURL(this);">
+				</li>
+				</c:if>
+				<c:if test="${not empty matchVO.filename}">
+					<li>
+						<label for="">${matchVO.oriFilename} <a href="#" onclick ="javascript:confirmDeleteFile();"> [삭제] </a></label>
+					</li>
+				
+				</c:if>
 	              <br/><br/>
 	              <img id="preview"/> <!-- 파일 업로드시 미리보기 -->
 	            </li>

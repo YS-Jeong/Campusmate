@@ -2,21 +2,27 @@ package hustar.match.web;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import egovframework.com.cmm.service.CommonService;
+import egovframework.com.cmm.util.EgovProperties;
 import hustar.match.service.MatchVO;
 import hustar.member.service.MemberVO;
+import hustar.util.FileUtil;
 
 @Controller 
 public class MatchController {
+	
+	private static final String PHOTO_UPLOAD_PATH=EgovProperties.getProperty("Globals.fileStorePath") + "photo"; 
 	
 	@Resource(name="commonService")
 	CommonService commonService; 
@@ -95,29 +101,29 @@ public class MatchController {
 
 	}
 	
+	//매칭 정보 입력
 	@RequestMapping("/match/match_insert.do")
-	public String match_Insert(
-			@ModelAttribute("matchVO") MatchVO matchVO, 
-			RedirectAttributes redirectAttributes, HttpSession session) throws Exception {
+	public String match_insert(
+			MatchVO matchVO, 
+			RedirectAttributes redirectAttributes, HttpSession session,MultipartFile uploadFile) throws Exception {
 		 
-		  MemberVO loginVO = (MemberVO)session.getAttribute("login");
+		  MemberVO loginVO = (MemberVO)session.getAttribute("login"); //
 
 		  matchVO.setSt_id(loginVO.getSt_id());
 		  matchVO.setName(loginVO.getName());
+		  
+		  String filename =FileUtil.saveFile(uploadFile, PHOTO_UPLOAD_PATH);//사진을  경로에 저장합니다. 
+		  
+		  if(filename!=null) {
+			  
+			  matchVO.setFilename(filename); //파일 이름을 저장 
+			  String oriFilename =filename.split("_")[1];
+			  matchVO.setOriFilename(oriFilename);
+		  }
+		  
+		  commonService.insert(matchVO, null, null, "matchDAO.insertMatch"); //매칭정보 등록 
 		  	  
-	      int cnt = commonService.selectListTotCnt(matchVO, null, null, "matchDAO.selectMatchCnt");
-	      System.out.println("cnt = " + cnt);
-	      
-	      if (cnt > 0) {
-	         redirectAttributes.addFlashAttribute("msg", "이미 가입된 학번이에요!");
-	         
-	      } else {
-	         // 회원정보를 DB에 삽입해주는 기능. 
-	         commonService.insert(matchVO, null, null, "matchDAO.insertMatch"); 
-	      }
-	      redirectAttributes.addFlashAttribute("msg", "매칭등록이 완료되었습니다.");
-	      
-	      return "redirect:/index.do"; 
+	      return "redirect:/index.do";  //메인 화면으로 이동
 	}
 
 	
@@ -137,5 +143,38 @@ public class MatchController {
 		return "/match/match_modify";
 	}
 	
+	@RequestMapping("/match/match_image.do")
+	   public void gallery_iamge(
+			   MatchVO searchVO,
+			   HttpServletResponse response) throws Exception{
+	   //view가 필요없기 때문에 반환형 void로 
+		
+		  MatchVO matchVO= (MatchVO) commonService.selectView(searchVO, null, null,"matchDAO.selectMatchView");
+		  
+		  FileUtil.displayImage(response,PHOTO_UPLOAD_PATH,matchVO.getFilename());
+		   
+	   }
+	   
+	@RequestMapping("/match/match_deleteFile.do")
+	   public ModelAndView match_deleteFile(MatchVO searchVO,Model model) throws Exception{
+		   //ajax로 처리하므로 ModelAndView로 
+			MatchVO fileVO = (MatchVO) commonService.selectView(searchVO, null, null,"matchDAO.selectMatchView");
+		   String filePath=PHOTO_UPLOAD_PATH +"/" +fileVO.getFilename(); //파일의 경로를 string으로 받아와서
+		   FileUtil.deleteFile(filePath);
+		   
+		   //파일을 지웠으니 DB를 업데이트를 함
+		   MatchVO matchVO = new MatchVO();
+		   matchVO.setSt_id(searchVO.getSt_id());
+		   matchVO.setFilename("");
+		   matchVO.setOriFilename("");
+		   
+		   commonService.update(matchVO, null, null,"matchDAO.updateMatch");
+		   
+		   model.addAttribute("success","true");
+		   
+		   return new ModelAndView(jsonView);
+		   
+	   }
+		
 	
 }
