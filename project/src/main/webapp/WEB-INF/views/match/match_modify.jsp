@@ -45,6 +45,15 @@
                <li>
                  <label for="">프로필</label>
                  <input type="file" name ="oriFilename" onchange="readURL(this)"; value="${matchVO.oriFilename}">             
+                 <div class="thum">
+					<img src="<c:url value='/match/match_image.do'/>?st_id=${matchVO.st_id}">
+				</div>
+				<c:if test="${not empty matchVO.filename}">
+					<li>
+						<label for="">${matchVO.oriFilename} <a href="#" onclick ="javascript:confirmDeleteFile();"> [삭제] </a></label>
+					</li>
+				</c:if>
+
                </li>
                <li>
                   <label for="">카카오톡 ID</label>
@@ -290,7 +299,33 @@ function readURL(input) {
 }
 
 </script>
+<!-- 프로필 사진 삭제 -->
+<script>
+	function confirmDeleteFile(){
+		if(confirm('삭제하시겠습니까?')==true){
+			$.ajax({
+				type :'POST',
+				url : '<c:url value="/match/match_deleteFile.do"/>',
+				dataType :'JSON',
+				data:{"st_id" : ${galleryVO.st_id}},
+				success:function(data){
+					//파일 삭제를 ajax로 처리 
+					if(data.success=="true"){
+						//정상적으로 삭제가 되었다면
+						location.reload(); //갱신 
+					}else{
+						//파일삭제가 실패했다면
+						alert('파일 삭제가 실패하였습니다.');
+					}
+				},
+				error : function(jqXHR,textStatus,errorThrown){
+					console.log(textStatus);
+				}
+			})
+		}
+	}
 
+</script>
 
 </body>
 <%@ include file="/WEB-INF/views/inc/footer.jsp" %>

@@ -5,6 +5,12 @@
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
+<style>
+.comment-reg button{margin: 20px 0;}
+.comment-reg div button{border:0; outline:0; float:right; background: #fe8e60; padding: 10px 20px; color: #fff; display: inline-block;}
+body > div > div > div.table-list > ul.tb-bd > li > div.button > a.modify{color:#007bff;}
+body > div > div > div.table-list > ul.tb-bd > li > div.button {color:red;}
+</style>
 <body>
 
 <!--콘텐츠 시작-->
@@ -17,7 +23,7 @@
 		<%@ include file="/WEB-INF/views/inc/submenu.jsp" %>
 
 			<div class="view-hd">
-				<span><c:out value='${circleVO.date}' /></span>
+				<span><c:out value='${circleVO.date}' /></span>s
 				<h2><c:out value='${circleVO.subject}' /></h2>
 				<p>작성자 : <b><c:out value='${circleVO.writer}' /></b></p>
 			</div>
@@ -51,7 +57,6 @@
 		<div class="table-list">
 			<ul class="tb-hd">
 					<li>
-						<div class="id">ID</div>
 						<div class="name">작성자</div>
 						<div class="content">내용</div>
 						<div class="date">등록일</div>
@@ -61,14 +66,13 @@
 			<c:forEach var="circle_replyVO" items="${circle_replyVOList}" varStatus="status">
 				<ul class="tb-bd">
 					<li>
-						<div class="id"><c:out value="${circle_replyVO.id}"/></div>
 						<div class="name"><c:out value="${circle_replyVO.name}"/></div>
 						<div class="content"><c:out value="${circle_replyVO.content}"/></div>
 						<div class="date"><c:out value="${circle_replyVO.regdate}"/></div>
 						<div class="button">
 							<c:if test = "${session.name == circle_replyVO.name}">
-								<button>수정</button>
-								<button onclick="javascript:replyDelete();">삭제</button>
+								<a class="modify">수정</a>
+								<a onclick="javascript:replyDelete();">삭제</a>
 							</c:if>
 							<c:if test = "${session.name != circle_replyVO.name}">
 							</c:if>
@@ -77,15 +81,16 @@
 				</ul>
 			</c:forEach>
 		</div>
+		<br><br>
 		<form method="post" action="<c:url value = "/group/circle_reply_insert.do"/>?seq=${circleVO.seq}">
 		<div class="comment-reg">
 			<p>댓글 작성</p>
 			<p>
 				<textarea name = "content" style="width: 1200px" rows="5" colos="50" placeholder="불건전한 내용, 광고성, 타인 비하 등 운영 원칙에 위배되는 댓글은 삭제될 수 있습니다."></textarea>
 			</p>
-			<p>
+			<div class="button">
 				<button>댓글작성</button>
-			</p>
+			</div>
 		</div>
 		</form>
 	</div>

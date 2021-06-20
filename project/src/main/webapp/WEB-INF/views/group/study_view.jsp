@@ -6,6 +6,14 @@
 
 
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
+<style>
+.comment-reg button{margin: 20px 0;}
+.comment-reg div button{border:0; outline:0; float:right; background: #fe8e60; padding: 10px 20px; color: #fff; display: inline-block;}
+body > div > div > div.table-list > ul.tb-bd > li > div.button > a.modify{color:#007bff;}
+body > div > div > div.table-list > ul.tb-bd > li > div.button {color:red;}
+</style>
+
+
 <body>
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 
@@ -49,7 +57,6 @@
 		<div class="table-list">
 			<ul class="tb-hd">
 					<li>
-						<div class="id">ID</div>
 						<div class="name">작성자</div>
 						<div class="content">내용</div>
 						<div class="date">등록일</div>
@@ -59,16 +66,15 @@
 			<c:forEach var="study_replyVO" items="${study_replyVOList}" varStatus="status">
 				<ul class="tb-bd">
 					<li>
-						<div class="id"><c:out value="${study_replyVO.id}"/></div>
 						<div class="name"><c:out value="${study_replyVO.name}"/></div>
 						<div class="content"><c:out value="${study_replyVO.content}"/></div>
 						<div class="date"><c:out value="${study_replyVO.regdate}"/></div>
 						<div class="button">
-							<c:if test = "${session.name == circle_replyVO.name}">
-								<button>수정</button>
-								<button>삭제</button>
+							<c:if test = "${session.name == study_replyVO.name}">
+								<a class="modify">수정</a>
+								<a onclick ="javascript:replyDelete();">삭제</a>
 							</c:if>
-							<c:if test = "${session.name != circle_replyVO.name}">
+							<c:if test = "${session.name != study_replyVO.name}">
 							</c:if>
 						</div>
 					</li>
@@ -76,16 +82,20 @@
 			</c:forEach>
 		</div>
 		<form method="post" action="<c:url value = "/group/study_reply_insert.do"/>?seq=${studyVO.seq}">
+		
+		<br><br>
 		<div class="comment-reg">
 			<p>댓글 작성</p>
 			<p>
 				<textarea name = "content" style="width: 1200px" rows="5" colos="50" placeholder="불건전한 내용, 광고성, 타인 비하 등 운영 원칙에 위배되는 댓글은 삭제될 수 있습니다."></textarea>
 			</p>
 			<p>
+			<div class="button">
 				<button>댓글작성</button>
-			</p>
+			</div>
 		</div>
 		</form>
+		
 	</div>
 
 </div>
@@ -101,6 +111,16 @@ function confirmDelete(){
 	}
 	
 }
+</script>
+<script>
+function replyDelete(){
+	
+	if(confirm('댓글을 삭제하시겠습니까?') == true){
+		location.href = '<c:url value="/group/study_reply_delete.do"/>?seq=${studyVO.seq}';
+	}
+	
+}
+
 </script>
 
 
