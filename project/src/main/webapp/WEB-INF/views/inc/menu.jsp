@@ -26,7 +26,7 @@
 	                                	<li><a href="<c:url value='/match/match_intro.do'/>">소개</a></li>
 			                        	<li><a href="<c:url value='/match/match_join.do'/>">매칭 등록</a></li>
 				                        <li><a href="<c:url value='/match/match_modify.do'/>">매칭 수정</a></li>
-				                        <li><a href="<c:url value='/match/matching.do'/>">결과 확인</a></li>	                              		                              
+				                        <li><a href="<c:url value='/match/matching_intro.do'/>">결과 확인</a></li>	                              		                              
 	                                </ul>
 	                            </li>
 	                        </c:if>

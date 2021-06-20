@@ -5,6 +5,8 @@
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
+
+<html>
 <body>
 
     <!-- ***** Preloader Start ***** -->
