@@ -412,14 +412,17 @@ bottom:-7px;
 .bbs-write li.checkbox-wrap label{display: inline-block;}
 
 /* 로그인페이지 구성 =================================================================================================================================================================================*/
-.login-box{padding: 40px;margin: 150px auto;}
+.login-box{padding: 40px;margin: 200px auto;}
 .login-box h1{text-align:center; margin-bottom:20px;}
-.login-box .login{max-width: 400px; margin: 0 auto; border:1px solid #e1e1e1; border-radius:25px; padding:30px; background:#fff; box-shadow:0px 2px 4px 0px #f87a00;}
-.login-box .login li{margin: 5px; padding:2px}
+.login-box .login{max-width: 400px; margin: 0 auto; border:1px solid #e1e1e1; border-radius:25px; padding:20px; background:#fff; box-shadow:0px 2px 4px 0px #000;}
+.login-box .login li{margin: 5px;}
 .login-box .login li input{width: 100%; height:40px; padding: 5px; border:1px solid #ccc; border-radius: 25px;}
 .login-box .login li button{width:100%; height:40px; background: #fe8e60; color:#fff; border: 0; border-radius: 25px; transition:all 0.3s;}   /*transition애니메이션효과*/
 .login-box .login li button:hover{background: #ecc6af; border-radius: 0px;}
 .login-box .login-btn{text-align:center; margin-top:20px;}
+.login-box .login-btn a{color:#000; font-size: 14px;}
+
+.login-logo{font-size:28px; line-height: 80px; color: #191a20; font-weight: 700; letter-spacing: 2px; text-align:center;}
 
 /* 회원가입 페이지 구성 =================================================================================================================================================================================*/
 .join-box{
