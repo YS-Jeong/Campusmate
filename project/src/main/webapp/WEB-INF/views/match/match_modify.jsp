@@ -40,16 +40,19 @@ img{width:200px; height:200px;}
 
    <div class= "join-box">
 
-      <h1>매칭수정</h1>
-      <form method="post" name="frm" action="<c:url value='/match/match_update.do'/>">
+     
+      <form method="post" name="frm" action="<c:url value='/match/match_update.do'/>" enctype="multipart/form-data">
+        <h1>매칭수정</h1>
+        <div class="joinform">
          <div class ="join-form">
             <ul>
                <li>
                  <label for="">프로필</label>
-                 <input type="file" name ="oriFilename" onchange="readURL(this);"value="${matchVO.oriFilename}">             
+                 <input type="file" name ="uploadFile" onchange="readURL(this);"value="${matchVO.oriFilename}">             
                  <div class="thum">
 					<img src="<c:url value='/match/match_image.do'/>?st_id=${matchVO.st_id}">
 				</div>
+				<!-- 첨부파일이 있다면 -->
 				<c:if test="${not empty matchVO.filename}">
 					<li>
 						<label for="">${matchVO.oriFilename} <a href="#" onclick ="javascript:confirmDeleteFile();"> [삭제] </a></label>
@@ -249,7 +252,8 @@ img{width:200px; height:200px;}
                 </li>
             </ul>
             </div>
-      </form>   
+            </div>
+      </form> 
    </div>
 </div>
 
@@ -287,18 +291,17 @@ function submitForm() {
 	      }     
 	   }
 }
-//파일 업로드 시 미리보기 
 function readURL(input) {
-   if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-         document.getElementById('preview').src = e.target.result;
-      };
-      reader.readAsDataURL(input.files[0]);
-   } else {
-      document.getElementById('preview').src = "";
-   }
-}
+	   if (input.files && input.files[0]) {
+	      var reader = new FileReader();
+	      reader.onload = function(e) {
+	         document.getElementById('preview').src = e.target.result;
+	      };
+	      reader.readAsDataURL(input.files[0]);
+	   } else {
+	      document.getElementById('preview').src = "";
+	   }
+	}
 
 </script>
 <!-- 프로필 사진 삭제 -->

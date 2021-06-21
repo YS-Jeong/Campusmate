@@ -4,8 +4,19 @@
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>  
 
+<style>
+.gnb_area {
+    width: 100%;
+    height: 15px;
+    background: linear-gradient(-135deg, #fb380b, #ffc107) fixed;
+
+    }
+</style>
    <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
+    <div class="gnb_area">
+                        
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -23,7 +34,6 @@
 	                        	<li class="submenu">
 	                                <a href="javascript:;">캠퍼스메이트</a>
 	                                <ul>
-	                                	<li><a href="<c:url value='/match/match_intro.do'/>">소개</a></li>
 			                        	<li><a href="<c:url value='/match/match_join.do'/>">매칭 등록</a></li>
 				                        <li><a href="<c:url value='/match/match_modify.do'/>">매칭 수정</a></li>
 				                        <li><a href="<c:url value='/match/matching_intro.do'/>">결과 확인</a></li>	                              		                              
@@ -33,9 +43,9 @@
 	                        <c:if test="${empty session}">
 	                       		<li class="submenu">
 		                        	<a href="javascript:;">캠퍼스메이트</a>
-		                            <ul>
+		                            <!--<ul>
 										<li><a href="<c:url value='/match/match_intro.do'/>">소개</a></li>  
-									</ul>
+									</ul>-->
 								</li>
 	                        </c:if>
                             <li class="submenu">

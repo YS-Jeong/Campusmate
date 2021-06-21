@@ -7,6 +7,12 @@
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
 
 <html>
+<style>
+
+#promotion > div > div > div.right-text.offset-lg-1.col-lg-6.col-md-12.col-sm-12.mobile-bottom-fix > ul > li:nth-child(1) > img{margin:13px; height:100px; width:100px;}
+#promotion > div > div > div.right-text.offset-lg-1.col-lg-6.col-md-12.col-sm-12.mobile-bottom-fix > ul > li:nth-child(2) > img{margin:13px; height:100px; width:100px;}
+#promotion > div > div > div.right-text.offset-lg-1.col-lg-6.col-md-12.col-sm-12.mobile-bottom-fix > ul > li:nth-child(3) > img{margin:13px; height:100px; width:100px;}
+</style>
 <body>
 
     <!-- ***** Preloader Start ***** -->
@@ -101,35 +107,29 @@
             <div class="row">
                 <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <img src="assets/images/left-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                    <img src="assets/images/사람들.png" class="rounded img-fluid d-block mx-auto" alt="App">
                 </div>
                 <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
                     <ul>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                            <img src="assets/images/about-icon-01.png" alt="">
+                            <img src="assets/images/knu.jpg" alt="">
                             <div class="text">
-                                <h4>Vestibulum pulvinar rhoncus</h4>
-                                <p>Please do not redistribute this template ZIP file for a download purpose. You may <a
-                                rel="nofollow" href="https://templatemo.com/contact" target="_parent">contact</a> us for
-                            additional licensing of our template or to get a PSD file.</p>
+                                <h4 style="font-weight:bold">경북대학교</h4>
+                                <p>:: Located in 80 DaehakroBukgu,  Daegu, Republic of Korea Established in <span style="color: orange; font-weight: bold;">1946</span></p>
                             </div>
                         </li>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.5s">
-                            <img src="assets/images/about-icon-02.png" alt="">
+                            <img src="assets/images/yu.png" alt="">
                             <div class="text">
-                                <h4>Sed blandit quam in velit</h4>
-                                <p>You can <a rel="nofollow"
-                                        href="https://templatemo.com/tm-540-lava-landing-page">download Lava
-                                        Template</a> from our website. Duis viverra, ipsum et scelerisque placerat, orci
-                                    magna consequat ligula.</p>
+                                <h4 style="font-weight:bold">영남대학교</h4>
+                                <p>:: Located in 280 Daehak-Ro, Gyeongsan, Gyeongbuk 38541 Established in <span style="color: orange; font-weight: bold;">1947</span></p>
                             </div>
                         </li>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.6s">
-                            <img src="assets/images/about-icon-03.png" alt="">
+                            <img src="assets/images/kmu.JPG" alt="">
                             <div class="text">
-                                <h4>Aenean faucibus venenatis</h4>
-                                <p>Phasellus in imperdiet felis, eget vestibulum nulla. Aliquam nec dui nec augue
-                                    maximus porta. Curabitur tristique lacus.</p>
+                                <h4 style="font-weight:bold">계명대학교</h4>
+                                <p>:: Located in 1095 Dalgubeol-daero, Dalseo-gu, Daegu 42601 Established in <span style="color: orange; font-weight: bold;">1954</span> </p>
                             </div>
                         </li>
                     </ul>
@@ -149,8 +149,8 @@
                     <div class="center-heading">
                         <h2>CONTACT <em>INFORMATION</em></h2>
                         <p>
-						 We are web page developers creating a community for Daegu and Gyeongbuk college students.<br>
-						 We would like to develop more improved web pages. So thanks a lot for your feedback.
+						저희는 대구 경북 대학생들을 위한 커뮤니티를 만드는 웹페이지 개발자들입니다.<br>
+						더 많은 서비스를 여러분께 지원 할 수 있도록 여러분들의 따뜻한 피드백 기다리고 있겠습니다.
 						 </p>
                     </div>
                 </div>
@@ -170,8 +170,7 @@
                                     <li><i class="fa fa-star"></i></li>
                                 </ul>
                                 <h4>정예성</h4>
-                                <p>“Nullam hendrerit, elit a semper pharetra, ipsum nibh tristique tortor, in tempus
-                                    urna elit in mauris.”</p>
+                                <p>“당신의 청춘을 푸르게 물들이기 위해 노력하는 개발자 정예성입니다.”</p>
                                 <span>Developer<span>
                             </div>
                         </div>
@@ -188,7 +187,7 @@
                                     <li><i class="fa fa-star"></i></li>
                                 </ul>
                                 <h4>김도연</h4>
-                                <p>"I will do my best to present the most splendid <br> moment of your college days."</p>
+                                <p>"저는 당신의 대학 시절의 가장 찬란한 순간을 선물하기 위해 <br> 최선을 다하는 개발자 김도연입니다."</p>
                                 <span>Developer</span>
                             </div>
                         </div>

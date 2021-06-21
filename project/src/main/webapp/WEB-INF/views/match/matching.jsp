@@ -8,22 +8,34 @@
 
 
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
-
+<style>
+img{width:200px; height:200px;}
+.join-wrap{width:100%; margin:0 auto;}
+.join-form{width:50%; float:left; padding:45px}
+.join-box {
+	margin:0 auto;
+	max-width:1000px;
+}
+</style>
+<html>
 <body>
+
 <div class="join-wrap">
 
    <div class= "join-box">
 
       <h1>결과확인</h1>
+      <div style="bolder: 1px solid red;">
          <div class ="join-form">
             <ul>
        		 <li>
 				</li>
                <li>
                  <label for="">프로필</label>
-                 <input type="file" name ="oriFilename" onchange="readURL(this);">
+                 <div class="thum">
+					<img src="<c:url value='/match/match_image.do'/>?st_id=${matchVO.st_id}">
+				</div>
                  <br/><br/>
-                 <img id="preview"/> <!-- 파일 업로드시 미리보기 -->
                </li>
                <li>
                   <label for="">카카오톡 ID</label>
@@ -153,6 +165,7 @@
 				</li> 
 				</ul>
 			</div>
+			
 			<c:forEach var="matchVOList" items="${matchVOList}" varStatus="status">
 			 <div class ="join-form">
             <ul>
@@ -291,6 +304,7 @@
 				</ul>
 			</div>
 			</c:forEach>
+			</div>
 	</div>
 </div>
                  
@@ -302,7 +316,8 @@ $("#division").not(":selected").attr("disalbed","disabled");
 </script>
 
 </body>
-<%@ include file="/WEB-INF/views/inc/footer.jsp" %>
+</html>
+
 
 
 

@@ -133,11 +133,20 @@ public class MatchController {
 	@RequestMapping("/match/match_update.do")
 	public String match_update(
 			@ModelAttribute("matchVO") MatchVO matchVO, 
-			RedirectAttributes redirectAttributes, HttpSession session) throws Exception {
+			RedirectAttributes redirectAttributes, HttpSession session,MultipartFile uploadFile) throws Exception {
 		
 		MemberVO loginVO =  (MemberVO)session.getAttribute("login");
 		
 		matchVO.setSt_id(loginVO.getSt_id());
+		
+		String filename =FileUtil.saveFile(uploadFile, PHOTO_UPLOAD_PATH);//사진을  경로에 저장합니다. 
+		
+		if(filename!=null) {
+			  
+			  matchVO.setFilename(filename); //파일 이름을 저장 
+			  String oriFilename =filename.split("_")[1];
+			  matchVO.setOriFilename(oriFilename);
+		  }
 		
 		// 회원정보를 DB에 삽입해주는 기능. 
 		commonService.update(matchVO, null, null, "matchDAO.updateMatch"); 

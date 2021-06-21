@@ -26,7 +26,7 @@
     <style>
 	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 	p{
-		font-size:15px;
+		font-size:14px;
 		font-family:'Noto Sans KR',sans-serif;
 	}
 	</style>	

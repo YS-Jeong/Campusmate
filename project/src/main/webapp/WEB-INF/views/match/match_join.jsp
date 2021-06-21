@@ -45,10 +45,10 @@
 	      <div class ="join-form">
 	         <ul>
 	            <li>
-	              <label for="">프로필</label>
+	              <label for="">프로필사진</label>
 	              <c:if test="${empty matchVO.filename}">
 					<li>
-						<label for="">첨부파일1</label>
+						<label for="">첨부파일 (1)</label>
 						<input type="file" name="uploadFile" onchange="readURL(this);">
 					</li>
 				</c:if>
@@ -57,8 +57,8 @@
 						<label for="">${matchVO.oriFilename} <a href="#" onclick ="javascript:confirmDeleteFile();"> [삭제] </a></label>
 					</li>				
 				</c:if>
+				 <img class="profile" id="preview"/> <!-- 파일 업로드시 미리보기 -->
 	              <br/><br/>
-	              <img class="profile" id="preview"/> <!-- 파일 업로드시 미리보기 -->
 	            </li>
 	            <li>
 	               <label for="">카카오톡 ID</label>
