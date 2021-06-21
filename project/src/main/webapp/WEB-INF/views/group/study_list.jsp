@@ -41,7 +41,7 @@
 					<div class="no">번호</div>
 					<div class="uni">대학교</div>
 					<div class="subject">제목</div>
-					<div class="name">글쓴이</div>
+					<div class="name">작성자</div>
 					<div class="date">등록일</div>
 					<div class="hit">조회수</div>
 				</li>

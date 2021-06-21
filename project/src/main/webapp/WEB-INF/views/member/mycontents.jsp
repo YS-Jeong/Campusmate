@@ -25,7 +25,6 @@
     margin: 1px 0px;
     padding: 2px 0px;
     border-radius: 5px;
-    width: 5px;
     transition: all 0.3s;
     width:auto;
 
