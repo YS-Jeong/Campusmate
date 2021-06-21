@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"         uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form"      uri="http://www.springframework.org/tags/form" %>
@@ -65,7 +66,5 @@ function actionLoginAsync(){
 }
 </script>
 <%@ include file="/WEB-INF/views/inc/footer.jsp" %>
-
 </body>
-
 </html>

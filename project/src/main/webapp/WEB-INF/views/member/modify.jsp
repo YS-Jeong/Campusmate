@@ -9,89 +9,92 @@
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 
 <!-- contents 시작 -->
-<div class="join-wrap">
-
-	<div class= "join-box">
-
-		<h1>회원정보수정</h1>
-
-		<c:set var="session" value="${sessionScope.login}" scope="application"/>
+<table class="join-table" border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td style="padding-top:11px" align="center">
+		<c:set var="session" value="${sessionScope.login}" scope="application"/>			
 		<form method="post" name="frm" action="<c:url value='/member/updateInsert.do'/>">
-		<div class ="join-form">
-			<ul>
-				<li>
-					<label for="">학번</label>
-					<input type="text" name="st_id" placeholder="학번" value="${session.st_id}" readonly>
-				</li>
-				<li>
-					<label for="">비밀번호</label>
-					<input type="password" name="password" placeholder="비밀번호" value="">
-				</li>
-				<li>
-					<label for="">비밀번호 확인</label>
-					<input type="password" placeholder="비밀번호확인">
-				</li>
-				<li>
-					<label for="">이름</label>
-					<input type="text" name="name" placeholder="이름" value="${session.name}">
-				</li>
-				<li>
-					<label for="">전화번호</label>
-					<input type="text" name="phone" placeholder="전화번호" value="${session.phone}">
-				</li>
-				<li>
-					<label for="">생년월일</label>
-					<input type="text" name="birth" placeholder="생년월일(6자리)" value="${session.birth}">
-				</li>
-				<li class="gender">
-					<label for="">성별</label>
-					<c:if test="${session.gender eq '남자'}">
-					<span>
-						<label for="">남</label>
-						<input type="radio" name="gender" value="남자" checked/>
-					</span>
-					<span>
-						<label for="checked">여</label>
-						<input type="radio" name="gender" value="여자"/>
-					</span>
-					</c:if>
-					<c:if test="${session.gender eq '여자'}">
-					<span>
-						<label for="">남</label>
-						<input type="radio" name="gender" value="남자"/>
-					</span>
-					<span>
-						<label for="checked">여</label>
-						<input type="radio" name="gender" value="여자" checked/>
-					</span>
-					</c:if>
-				</li>
-				<li>
-					<label for="">학교</label>
-					<select name="school">
-						<c:if test="${session.school eq '경북대'}">
+		<table border="0" cellpadding="0" cellspacing="0" width="992">
+			<tr>
+				<td class="pdTB830">
+					<div class="txtMainContentTB">회원정보 수정</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>학번</td>
+				<td class="txtB3 pd15"><input type="text" title="학번" name="st_id" maxlength="15" style="width:200px;" value="${session.st_id}" readonly></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>비밀번호</td>
+				<td class="txtB3 pd15"><input type="password" name="password" tabindex="2 style="width:200px;"></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>비밀번호확인</td>
+				<td class="txtB3 pd15"><input type="password" name="password_2" tabindex="2" style="width:200px;"></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>이름</td>
+				<td class="txtB3 pd15"><input type="text" name="name" maxlength="15" tabindex="2" style="width:200px;" value="${session.name}"></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>전화번호</td>
+				<td class="txtB3 pd15"><input type="text" name="phone" maxlength="15" tabindex="2" style="width:200px;" value="${session.phone}"></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>생년월일</td>
+				<td class="txtB3 pd15"><input type="text" name="birth" maxlength="15" tabindex="2" style="width:200px;" value="${session.birth}"></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>성별</td>
+				<c:if test="${session.gender eq '남자'}">
+					<td class="txtB3 pd15">
+					<input name="gender" type="radio" value="남자" checked/>남자
+					<input name="gender" type="radio" value="여자"/> 여자</td>					
+				</c:if>
+				<c:if test="${session.gender eq '여자'}">
+					<td class="txtB3 pd15">
+					<input name="gender" type="radio" value="남자"/>남자
+					<input name="gender" type="radio" value="여자" checked/>여자</td>
+				</c:if>
+			</tr>				
+			<tr>
+				<td class="txtB2 pd15" width=150>학교</td>
+				<c:if test="${session.school eq '경북대'}">				
+					<td class="txtB3 pd15">
+						<select name="school" class="select">
 							<option value="">학교를 선택해주세요.</option>
-							<option value="경북대" selected>경북대학교</option>
-							<option value="영남대">영남대학교</option>
-							<option value="계명대">계명대학교</option>
-						</c:if>
-						<c:if test="${session.school eq '영남대'}">
+							<option value="경북대" selected>경북대</option>
+							<option value="영남대">영남대</option>
+							<option value="계명대">계명대</option>
+						</select>
+					</td>
+				</c:if>
+				<c:if test="${session.school eq '영남대'}">				
+					<td class="txtB3 pd15">
+						<select name="school" class="select">
 							<option value="">학교를 선택해주세요.</option>
-							<option value="경북대">경북대학교</option>
-							<option value="영남대" selected>영남대학교</option>
-							<option value="계명대">계명대학교</option>
-						</c:if>
-						<c:if test="${session.school eq '계명대'}">
+							<option value="경북대">경북대</option>
+							<option value="영남대" selected>영남대</option>
+							<option value="계명대">계명대</option>
+						</select>
+					</td>
+				</c:if>
+				<c:if test="${session.school eq '계명대'}">				
+					<td class="txtB3 pd15">
+						<select name="school" class="select">
 							<option value="">학교를 선택해주세요.</option>
-							<option value="경북대">경북대학교</option>
-							<option value="영남대">영남대학교</option>
-							<option value="계명대" selected>계명대학교</option>
-						</c:if>
-					</select>
-					
-					<label for="">학과</label>
-					<select name="depart">
-						<c:if test="${session.depart eq '기계공학과'}">
+							<option value="경북대">경북대</option>
+							<option value="영남대">영남대</option>
+							<option value="계명대" selected>계명대</option>
+						</select>
+					</td>
+				</c:if>												
+			</tr>		
+			<tr>
+				<td class="txtB2 pd15" width=150>학과</td>
+				<c:if test="${session.depart eq '기계공학과'}">		
+					<td class="txtB3 pd15">
+						<select name="depart" class="select">
 							<option value="">학과를 선택해주세요.</option>
 							<option value="기계공학과" selected>기계공학과</option>
 							<option value="정보통신공학과">정보통신공학과</option>
@@ -99,8 +102,12 @@
 							<option value="전자공학과">전자공학과</option>
 							<option value="경영학과">경영학과</option>
 							<option value="경제학과">경제학과</option>
-						</c:if>
-						<c:if test="${session.depart eq '정보통신공학과'}">
+						</select>
+					</td>
+				</c:if>
+				<c:if test="${session.depart eq '정보통신공학과'}">		
+					<td class="txtB3 pd15">
+						<select name="depart" class="select">
 							<option value="">학과를 선택해주세요.</option>
 							<option value="기계공학과">기계공학과</option>
 							<option value="정보통신공학과" selected>정보통신공학과</option>
@@ -108,8 +115,12 @@
 							<option value="전자공학과">전자공학과</option>
 							<option value="경영학과">경영학과</option>
 							<option value="경제학과">경제학과</option>
-						</c:if>
-						<c:if test="${session.depart eq '컴퓨터공학과'}">
+						</select>
+					</td>
+				</c:if>
+				<c:if test="${session.depart eq '컴퓨터공학과'}">		
+					<td class="txtB3 pd15">
+						<select name="depart" class="select">
 							<option value="">학과를 선택해주세요.</option>
 							<option value="기계공학과">기계공학과</option>
 							<option value="정보통신공학과">정보통신공학과</option>
@@ -117,8 +128,12 @@
 							<option value="전자공학과">전자공학과</option>
 							<option value="경영학과">경영학과</option>
 							<option value="경제학과">경제학과</option>
-						</c:if>
-						<c:if test="${session.depart eq '전자공학과'}">
+						</select>
+					</td>
+				</c:if>
+				<c:if test="${session.depart eq '전자공학과'}">		
+					<td class="txtB3 pd15">
+						<select name="depart" class="select">
 							<option value="">학과를 선택해주세요.</option>
 							<option value="기계공학과">기계공학과</option>
 							<option value="정보통신공학과">정보통신공학과</option>
@@ -126,8 +141,12 @@
 							<option value="전자공학과" selected>전자공학과</option>
 							<option value="경영학과">경영학과</option>
 							<option value="경제학과">경제학과</option>
-						</c:if>
-						<c:if test="${session.depart eq '경영학과'}">
+						</select>
+					</td>
+				</c:if>
+				<c:if test="${session.depart eq '경영학과'}">		
+					<td class="txtB3 pd15">
+						<select name="depart" class="select">
 							<option value="">학과를 선택해주세요.</option>
 							<option value="기계공학과">기계공학과</option>
 							<option value="정보통신공학과">정보통신공학과</option>
@@ -135,8 +154,12 @@
 							<option value="전자공학과">전자공학과</option>
 							<option value="경영학과" selected>경영학과</option>
 							<option value="경제학과">경제학과</option>
-						</c:if>
-						<c:if test="${session.depart eq '경제학과'}">
+						</select>
+					</td>
+				</c:if>
+				<c:if test="${session.depart eq '경제학과'}">		
+					<td class="txtB3 pd15">
+						<select name="depart" class="select">
 							<option value="">학과를 선택해주세요.</option>
 							<option value="기계공학과">기계공학과</option>
 							<option value="정보통신공학과">정보통신공학과</option>
@@ -144,26 +167,20 @@
 							<option value="전자공학과">전자공학과</option>
 							<option value="경영학과">경영학과</option>
 							<option value="경제학과" selected>경제학과</option>
-						</c:if>																													
-					</select>
-				</li>
-
-				<li class="join-btn">
-	    		
-				<!-- 가입완료 버튼 눌렀을 때 submitForm()함수 실행  -->
-	    		<a href="#none" onclick="submitForm();">수정완료</a>
-
-	    		</li>
-
-			</ul>
-
-			</div>
-
-		</form>
-
-	</div>
-
-</div>
+						</select>
+					</td>
+				</c:if>																				
+			</tr>
+			<tr>
+				<td class="pdTB15" colspan="2" align="center">
+					<a href="#" onClick="submitForm();" class="btn_s">수정완료</a>
+					<a href="<c:url value='/member/mypage.do'/>"class="btn_s">취소</a>
+					</td>
+		</table>
+		</form>			
+		</td>
+	</tr>
+</table>
 <!-- contents 끝 -->
 
 <script>

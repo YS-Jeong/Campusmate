@@ -5,67 +5,65 @@
 <%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
 
 <%@ include file="/WEB-INF/views/inc/header.jsp" %>
-
 <body>
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 
 <!-- contents 시작 -->
-<div class="join-wrap">
-
-	<div class= "join-box">
-
-		<h1>회원가입</h1>
-
+<table class="join-table" border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td style="padding-top:11px" align="center">
 		<form method="post" name="frm" action="<c:url value='/member/joinInsert.do'/>">
-		<div class ="join-form">
-			<ul>
-				<li>
-					<label for="">학번</label>
-					<input type="text" name="st_id" placeholder="학번">
-					<a href="javascript:checkSt_Id();">중복확인</a>
-				</li>
-				<li>
-					<label for="">비밀번호</label>
-					<input type="password" name="password" placeholder="비밀번호">
-				</li>
-				<li>
-					<label for="">비밀번호 확인</label>
-					<input type="password" placeholder="비밀번호확인">
-				</li>
-				<li>
-					<label for="">이름</label>
-					<input type="text" name="name" placeholder="이름">
-				</li>
-				<li>
-					<label for="">전화번호</label>
-					<input type="text" name="phone" placeholder="전화번호">
-				</li>
-				<li>
-					<label for="">생년월일</label>
-					<input type="text" name="birth" placeholder="생년월일(6자리)">
-				</li>
-				<li class="gender">
-					<label for="">성별</label>
-					<span>
-						<label for="">남</label>
-						<input type="radio" name="gender" value="남자"/>
-					</span>
-					<span>
-						<label for="">여</label>
-						<input type="radio" name="gender" value="여자"/>
-					</span>
-				</li>
-				<li>
-					<label for="">학교</label>
-					<select name="school">
+		<table border="0" cellpadding="0" cellspacing="0" width="992">
+			<tr>
+				<td class="pdTB830">
+					<div class="txtMainContentTB">회원가입</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>학번</td>
+				<td class="txtB3 pd15"><input type="text" title="학번" name="st_id" maxlength="15" style="width:200px;"></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>비밀번호</td>
+				<td class="txtB3 pd15"><input type="password" name="password" tabindex="2 style="width:200px;"></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>비밀번호확인</td>
+				<td class="txtB3 pd15"><input type="password" name="password_2" tabindex="2" style="width:200px;"></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>이름</td>
+				<td class="txtB3 pd15"><input type="text" name="name" maxlength="15" tabindex="2" style="width:200px;" value=""></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>전화번호</td>
+				<td class="txtB3 pd15"><input type="text" name="phone" maxlength="15" tabindex="2" style="width:200px;"></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>생년월일</td>
+				<td class="txtB3 pd15"><input type="text" name="birth" maxlength="15" tabindex="2" style="width:200px;"></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>성별</td>
+				<td class="txtB3 pd15">
+				<input name="gender" type="radio" value="남자"/>남자
+				<input name="gender" type="radio" value="여자"/> 여자</td>
+			</tr>				
+			<tr>
+				<td class="txtB2 pd15" width=150>학교</td>
+				<td class="txtB3 pd15">
+					<select name="school" class="select">
 						<option value="">학교를 선택해주세요.</option>
-						<option value="경북대">경북대학교</option>
-						<option value="영남대">영남대학교</option>
-						<option value="계명대">계명대학교</option>
+						<option value="경북대">경북대</option>
+						<option value="영남대">영남대</option>
+						<option value="계명대">계명대</option>
 					</select>
-					
-					<label for="">학과</label>
-					<select name="depart">
+				</td>
+			</tr>		
+			<tr>
+				<td class="txtB2 pd15" width=150>학과</td>
+				<td class="txtB3 pd15">
+					<select name="depart" class="select">
 						<option value="">학과를 선택해주세요.</option>
 						<option value="기계공학과">기계공학과</option>
 						<option value="정보통신공학과">정보통신공학과</option>
@@ -74,26 +72,16 @@
 						<option value="경영학과">경영학과</option>
 						<option value="경제학과">경제학과</option>
 					</select>
-				</li>
-
-				<li class="join-btn">
-
-	    		<a href="#none">이전으로</a>
-	    		
-				<!-- 가입완료 버튼 눌렀을 때 submitForm()함수 실행  -->
-	    		<a href="#none" onclick="submitForm();">가입완료</a>
-
-	    		</li>
-
-			</ul>
-
-			</div>
-
-		</form>
-
-	</div>
-
-</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="pdTB15" colspan="2" align="center">
+					<a href="#" onClick="submitForm();" class="btn_s">가입</a></td>
+		</table>
+		</form>			
+		</td>
+	</tr>
+</table>
 <!-- contents 끝 -->
 <script>
 var msg = '<c:out value="${msg}"/>';
@@ -131,7 +119,7 @@ function checkSt_Id() {
 // 입력창 값이 비었을 때 토스트 창 띄우는 기능================================
 function submitForm() {
 	if (document.frm.st_id.value==""){
-		alert('ID를 입력해주세요.');
+		alert('학번을 입력해주세요.');
 		document.frm.st_id.focus();
 	} else if (document.frm.password.value==""){
 		alert('비밀번호를 입력해주세요.');

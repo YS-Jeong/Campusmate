@@ -19,6 +19,7 @@ body > div > div > div.table-list > ul.tb-bd > li > div.button {color:red;}
 
 
 <div class="notice-wrap">
+<<<<<<< HEAD
 	<div class="notice-box">
 		<div class="circle-view">
 			<div class="view-hd">
@@ -30,7 +31,6 @@ body > div > div > div.table-list > ul.tb-bd > li > div.button {color:red;}
 					<h2 class="hit">조회수<c:out value='${studyVO.hit}'/></h2>
 				</div>
 			</div>
-
 			<div class="view-cont">
 				<pre><c:out value='${studyVO.contents}' /></pre>
 			</div>
@@ -81,28 +81,25 @@ body > div > div > div.table-list > ul.tb-bd > li > div.button {color:red;}
 		</form>
 		
 	</div>
-
 </div>
-
 <%@ include file="/WEB-INF/views/inc/footer.jsp" %>
-
 
 <script>
 function confirmDelete(){
-	
-	if(confirm('삭제하시겠습니까?') == true){
-		location.href = '<c:url value="/group/study_delete.do"/>?seq=${studyVO.seq}';
-	}
-	
+   
+   if(confirm('삭제하시겠습니까?') == true){
+      location.href = '<c:url value="/group/study_delete.do"/>?seq=${studyVO.seq}';
+   }
+   
 }
 </script>
 <script>
 function replyDelete(){
-	
-	if(confirm('댓글을 삭제하시겠습니까?') == true){
-		location.href = '<c:url value="/group/study_reply_delete.do"/>?seq=${studyVO.seq}';
-	}
-	
+   
+   if(confirm('댓글을 삭제하시겠습니까?') == true){
+      location.href = '<c:url value="/group/study_reply_delete.do"/>?seq=${studyVO.seq}';
+   }
+   
 }
 
 </script>

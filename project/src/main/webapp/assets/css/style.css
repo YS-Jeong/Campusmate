@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* 초기 setting (이런 선언 안 해놓으면 각자의 원래 값으로 속성을 가지고 있다.)======================================================================================================*/
 /* 초기화 */
 @import url('https://fonts.googleapis.com/earlyaccess/notosanskr.css');
@@ -463,6 +464,72 @@ bottom:-7px;
 .join-box .join-btn{text-align:center;}
 .join-box .join-btn a{display:inline-block; background: #fe8e60; color: #fff; margin:5px; padding:10px 0px;border-radius: 5px; width:100px; transition:all 0.3s;}
 .join-box .join-btn a:hover{background: #ecc6af; border-radius: 0px;}
+
+/*회원가입 form(new)====================================================================================================*/
+.join-table{margin-top:100px;}
+
+.txtMainContentTB {
+    background: url(http://www.campl.co.kr/images20/icon_title.jpg) no-repeat 0px 4px;
+    padding-left: 13px;
+    color: #5c5d5f;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'NanumSquare', 'Nanum Gothic' !important;
+    margin-bottom:10px;
+}
+
+.pdTB30{
+	padding:30px 0 30px 0;
+}
+
+.txtB2 {
+	color:#000; 
+	text-decoration:none;
+	font-size:17px;
+	font-weight:bold;
+	padding:5px 0 5px 0;
+	background:#f6f6f6;
+	border-top:1px solid #c0c0c0;
+}
+
+.txtB3 {
+	color:#000; 
+	text-decoration:none;
+	font-size:17px;
+	font-weight:bold;
+	padding:5px 0 5px 0;
+	border-top:1px solid #c0c0c0;
+	border-bottom:1px solid #c0c0c0;
+}
+
+.pd15{
+	padding:15px;
+}
+
+.pdTB15{
+	padding:15px 0 15px 0;
+}
+
+ a.btn_s {
+  padding:10px;
+  background-color:#9a9a9a;
+  cursor: pointer;
+  color: #fff;
+  height:46px;
+  width:150px;
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+  border:none;
+  border-radius: 5px;
+  font-size:17px;
+  font-weight:bold;
+}
+
+ a.btn_s:hover{
+  background-color: #e9e9e9;
+  color: #000;
+} 
 
 /*미션안에 원그리기----------------------------------------------------------------------------------------------*/
 .circle-box{ background-color:rgba(0,0,0,0.3);}

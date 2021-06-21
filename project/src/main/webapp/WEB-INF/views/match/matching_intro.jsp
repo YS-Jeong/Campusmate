@@ -8,7 +8,7 @@
 
 <style>
 .center-lo{
-	width:50%;
+   width:50%;
      margin: 0 auto;
      text-align: center;
      position: absolute;
@@ -86,12 +86,12 @@ left:50%;
 
  <div class="center-lo"> 
         <div class="loging">
-	        <div id="load1" class="load"></div>
-	        <div id="load2" class="load"></div>
-	        <div id="load3" class="load"></div>
-	        <div id="load4" class="load"></div>
-	        <div id="load5" class="load"></div>
-      	</div>
+           <div id="load1" class="load"></div>
+           <div id="load2" class="load"></div>
+           <div id="load3" class="load"></div>
+           <div id="load4" class="load"></div>
+           <div id="load5" class="load"></div>
+         </div>
 </div> 
 
 
