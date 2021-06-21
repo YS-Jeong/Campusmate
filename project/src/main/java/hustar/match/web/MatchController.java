@@ -46,9 +46,14 @@ public class MatchController {
 		
 		searchVO.setPurpose(matchVO.getPurpose());
 		
+		
 		List<MatchVO> matchVOList = (List<MatchVO>)commonService.selectList(searchVO, null, null,"matchDAO.selectMatchList"); //조건과 일치하는 사람들을 리스트로 받아옴
+		
+		int index = (int)(Math.random()*matchVOList.size());
+		MatchVO matchVO2 = matchVOList.get(index);
 		model.addAttribute("matchVOList",matchVOList);
-	
+		model.addAttribute("matchVO2",matchVO2);
+		
 		
 		return "/match/matching";
 	}

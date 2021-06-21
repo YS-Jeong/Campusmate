@@ -10,12 +10,10 @@
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 <style>
 img{width:200px; height:200px;}
-.join-wrap{width:100%; margin:0 auto;}
-.join-form{width:50%; float:left; padding:45px}
-.join-box {
-	margin:0 auto;
-	max-width:1000px;
-}
+body > div > div > div:nth-child(2) > ul > li > h1 > a:nth-child(1){color:#f88e8e;}
+body > div > div > div:nth-child(2) > ul > li > h1 > a:nth-child(2){color:#f88e8e;}
+body > div > div > div:nth-child(2) > ul > li > h1 > a:nth-child(3){color:#007bffb0;}
+body > div > div > div:nth-child(2) > ul > li h1{font-size:16px; margin-bottom:30px;}
 </style>
 <html>
 <body>
@@ -25,8 +23,15 @@ img{width:200px; height:200px;}
    <div class= "join-box">
 
       <h1>결과확인</h1>
-      <div style="bolder: 1px solid red;">
-         <div class ="join-form">
+      <div>
+	      <ul>
+		      <li>
+		      	 <h1><a>${matchVO.name}</a>님과 <a>${matchVO2.name}</a>님은 <a>${matchVO.purpose}</a>으로 매칭되었습니다.</h1>
+		      </li>
+	      </ul>
+      </div>
+      <div>
+         <div class ="join-form1">
             <ul>
        		 <li>
 				</li>
@@ -160,46 +165,47 @@ img{width:200px; height:200px;}
                      <option disabled="disabled" value="달서구">달서구</option>
                      <option disabled="disabled" value="달성군" selected>달성군</option>
                      </c:if>
-                     
                   </select>
 				</li> 
 				</ul>
 			</div>
 			
-			<c:forEach var="matchVOList" items="${matchVOList}" varStatus="status">
-			 <div class ="join-form">
+		
+			 <div class ="join-form2">
             <ul>
                <li>
                  <label for="">프로필</label>
-                 <input type="file" name ="oriFilename" onchange="readURL(this);">
-                 <br/><br/>
-                 <img id="preview"/> <!-- 파일 업로드시 미리보기 -->
-               </li>
+                 <li>
+                	<div class="thum">
+					<img src="<c:url value='/match/match_image.do'/>?st_id=${matchVO2.st_id}">
+					</div>
+				</li>	
+               <br></br>
                <li>
                   <label for="">카카오톡 ID</label>
-                  <input type="text" name="kakao_id" placeholder="카카오톡 ID" value="${matchVOList.kakao_id}">
+                  <input type="text" name="kakao_id" placeholder="카카오톡 ID" value="${matchVO2.kakao_id}">
                   
                </li>
                <li>
                   <label for="">키</label>
-                  <input type="text" name="height" placeholder="키" value="${matchVOList.height}">
+                  <input type="text" name="height" placeholder="키" value="${matchVO2.height}">
                </li>
                <li>
                   <label for="">채형</label>
                   <select name="body_shape2" id="body_shape">
-                     <c:if test="${matchVOList.body_shape eq '마른'}">
+                     <c:if test="${matchVO2.body_shape eq '마른'}">
                      <option disabled="disabled">체형을 선택해주세요.</option>
                      <option disabled="disabled" value="마른" selected>마른</option>
                      <option disabled="disabled" value="보통">보통</option>
                      <option disabled="disabled" value="통통">통통</option>
                     </c:if>
-                    <c:if test="${matchVOList.body_shape eq '보통'}">
+                    <c:if test="${matchVO2.body_shape eq '보통'}">
                      <option disabled="disabled" value="#none">>체형을 선택해주세요.</option>
                      <option disabled="disabled" value="마른">마른</option>
                      <option disabled="disabled" selected>보통</option>
                      <option disabled="disabled" value="통통">통통</option>
                     </c:if>
-                    <c:if test="${matchVOList.body_shape eq '통통'}">
+                    <c:if test="${matchVO2.body_shape eq '통통'}">
                      <option disabled="disabled" value="#none">체형을 선택해주세요.</option>
                      <option disabled="disabled" value="마른">마른</option>
                      <option disabled="disabled" value="보통">보통</option>
@@ -210,7 +216,7 @@ img{width:200px; height:200px;}
                <li>   
                   <label for=""> 지역</label>
                   <select name="division" >
-                  <c:if test="${matchVOList.division eq '동구'}">
+                  <c:if test="${matchVO2.division eq '동구'}">
                      <option disabled="disabled" value="#none">구를 선택해주세요.</option>
                      <option disabled="disabled" value="동구" selected>동구</option>
                      <option disabled="disabled" value="수성구">수성구</option>
@@ -221,7 +227,7 @@ img{width:200px; height:200px;}
                      <option disabled="disabled" value="달서구">달서구</option>
                      <option disabled="disabled" value="달성군">달성군</option>
                     </c:if>
-                     <c:if test="${matchVOList.division eq '수성구'}">
+                     <c:if test="${matchVO2.division eq '수성구'}">
                      <option disabled="disabled" value="#none">구를 선택해주세요.</option>
                      <option disabled="disabled" value="동구">동구</option>
                      <option disabled="disabled" value="수성구" selected>수성구</option>
@@ -232,7 +238,7 @@ img{width:200px; height:200px;}
                      <option disabled="disabled" value="달서구">달서구</option>
                      <option disabled="disabled" value="달성군">달성군</option>
                      </c:if>
-                      <c:if test="${matchVOList.division eq '북구'}">
+                      <c:if test="${matchVO2.division eq '북구'}">
                      <option disabled="disabled" value="#none">구를 선택해주세요.</option>
                      <option disabled="disabled" value="동구">동구</option>
                      <option disabled="disabled" value="수성구">수성구</option>
@@ -243,7 +249,7 @@ img{width:200px; height:200px;}
                      <option disabled="disabled" value="달서구">달서구</option>
                      <option disabled="disabled" value="달성군">달성군</option>
                      </c:if>
-                     <c:if test="${matchVOList.division eq '서구'}">
+                     <c:if test="${matchVO2.division eq '서구'}">
                      <option disabled="disabled" value="#none">구를 선택해주세요.</option>
                      <option disabled="disabled" value="동구">동구</option>
                      <option disabled="disabled" value="수성구">수성구</option>
@@ -254,7 +260,7 @@ img{width:200px; height:200px;}
                      <option disabled="disabled" value="달서구">달서구</option>
                      <option disabled="disabled" value="달성군">달성군</option>
                      </c:if>
-                     <c:if test="${matchVOList.division eq '중구'}">
+                     <c:if test="${matchVO2.division eq '중구'}">
                      <option disabled="disabled" value="#none">구를 선택해주세요.</option>
                      <option disabled="disabled" value="동구">동구</option>
                      <option disabled="disabled" value="수성구">수성구</option>
@@ -265,7 +271,7 @@ img{width:200px; height:200px;}
                      <option disabled="disabled" value="달서구">달서구</option>
                      <option disabled="disabled" value="달성군">달성군</option>
                      </c:if>
-                     <c:if test="${matchVOList.division eq '남구'}">
+                     <c:if test="${matchVO2.division eq '남구'}">
                      <option disabled="disabled" value="#none">구를 선택해주세요.</option>
                      <option disabled="disabled" value="동구">동구</option>
                      <option disabled="disabled" value="수성구">수성구</option>
@@ -276,7 +282,7 @@ img{width:200px; height:200px;}
                      <option disabled="disabled" value="달서구">달서구</option>
                      <option disabled="disabled" value="달성군">달성군</option>
                      </c:if>
-                     <c:if test="${matchVOList.division eq '달서구'}">
+                     <c:if test="${matchVO2.division eq '달서구'}">
                      <option disabled="disabled" value="#none">구를 선택해주세요.</option>
                      <option disabled="disabled" value="동구">동구</option>
                      <option disabled="disabled" value="수성구">수성구</option>
@@ -287,7 +293,7 @@ img{width:200px; height:200px;}
                      <option disabled="disabled" value="달서구" selected>달서구</option>
                      <option disabled="disabled" value="달성군">달성군</option>
                      </c:if>
-                      <c:if test="${matchVOList.division eq '달성군'}">
+                      <c:if test="${matchVO2.division eq '달성군'}">
                      <option disabled="disabled" value="#none">구를 선택해주세요.</option>
                      <option disabled="disabled" value="동구">동구</option>
                      <option disabled="disabled" value="수성구">수성구</option>
@@ -303,9 +309,8 @@ img{width:200px; height:200px;}
 				</li> 
 				</ul>
 			</div>
-			</c:forEach>
-			</div>
 	</div>
+</div>
 </div>
                  
 <script>
@@ -316,7 +321,9 @@ $("#division").not(":selected").attr("disalbed","disabled");
 </script>
 
 </body>
+<%@ include file="/WEB-INF/views/inc/footer.jsp" %>
 </html>
+
 
 
 
