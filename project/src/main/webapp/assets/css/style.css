@@ -400,15 +400,16 @@ bottom:-7px;
 .table-btn > div{text-align: right;}
 .table-btn > div a{background: #fe8e60; padding: 10px 20px; color: #fff; display: inline-block;}
 
-/* notice_write.html 부분 =============================================================================================================================================================================*/
+/* 글쓰기 부분 =============================================================================================================================================================================*/
 .bbs-write{}
 .bbs-write > div{max-width:1200px; margin: 0 auto;}
 .bbs-write li{margin-bottom: 15px;}
-.bbs-write li label{color: #666; margin-bottom: 5px; display: block;}
+.bbs-write li label{color: #666; margin-bottom: 5px; display: block; font-weight:bold; font-size:15px;}
 .bbs-write li input[type="text"]{border: 1px solid #ccc; height: 30px; width: 100%; padding: 5px;}
 .bbs-write li textarea{border: 1px solid #ccc; height: 300px; width: 100%; padding: 5px;}
 .bbs-write li.checkbox-wrap{background: #fff; padding: 10px;}
 .bbs-write li.checkbox-wrap label{display: inline-block;}
+.table-btn > div > a{border-radius:10px;}
 
 /* 로그인페이지 구성 =================================================================================================================================================================================*/
 .login-box{padding: 40px;margin: 200px auto;}
@@ -540,13 +541,3 @@ bottom:-7px;
 
 .cir:after{content:''; position: absolute; width: 45px; height: 1px; background: #fff; top:50%; right:-45px;}
 .cir:last-child:after{display: none;}
-
-/* circle_write.jsp 부분 =============================================================================================================================================================================*/
-.bbs-write{}
-.bbs-write > div{max-width:1200px; margin: 0 auto;}
-.bbs-write li{margin-bottom: 15px;}
-.bbs-write li label{color: #666; margin-bottom: 5px; display: block;}
-.bbs-write li input[type="text"]{border: 1px solid #ccc; height: 30px; width: 100%; padding: 5px;}
-.bbs-write li textarea{border: 1px solid #ccc; height: 300px; width: 100%; padding: 5px;}
-.bbs-write li.checkbox-wrap{background: #fff; padding: 10px;}
-.bbs-write li.checkbox-wrap label{display: inline-block;}

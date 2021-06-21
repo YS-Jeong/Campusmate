@@ -31,56 +31,53 @@
 </style>
 
 <body>
-
-
-<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
-
 <!-- contents 시작 -->
-<div class="join-wrap">
-
-   <div class= "join-box">
-
-      <h1>매칭등록</h1>  
-      <form method="post" name="frm" action="<c:url value='/match/match_insert.do'/>" enctype="multipart/form-data">
-	      <div class ="join-form">
-	         <ul>
-	            <li>
-	              <label for="">프로필사진</label>
-	              <c:if test="${empty matchVO.filename}">
-					<li>
-						<label for="">첨부파일 (1)</label>
-						<input type="file" name="uploadFile" onchange="readURL(this);">
-					</li>
-				</c:if>
-				<c:if test="${not empty matchVO.filename}">
-					<li>
-						<label for="">${matchVO.oriFilename} <a href="#" onclick ="javascript:confirmDeleteFile();"> [삭제] </a></label>
-					</li>				
-				</c:if>
-				 <img class="profile" id="preview"/> <!-- 파일 업로드시 미리보기 -->
-	              <br/><br/>
-	            </li>
-	            <li>
-	               <label for="">카카오톡 ID</label>
-	               <input type="text" name="kakao_id" placeholder="카카오톡 ID" >
-	            </li>
-	            <li>
-	               <label for="">키</label>
-	               <input type="text" name="height" placeholder="키">
-	            </li>
-	            <li>
-	               <label for="">체형</label>
-	               <select id="select_1" name="body_shape" >
-	                  <option value="#none" selected disabled>체형을 선택해주세요.</option>
+<table class="join-table" border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td style="padding-top:11px" align="center">
+		<form method="post" name="frm" action="<c:url value='/match/match_insert.do'/>" enctype="multipart/form-data">
+		<table border="0" cellpadding="0" cellspacing="0" width="992">
+			<tr>
+				<td class="pdTB830">
+					<div class="txtMainContentTB">매칭등록</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>프로필 사진</td>
+					<c:if test="${empty matchVO.filename}">
+						<td class="txtB3 pd15">
+						<img class="profile" id="preview"/></br> <!-- 파일 업로드시 미리보기 -->
+						<input type="file" name="uploadFile" onchange="readURL(this);" style="font-size:12px;"></td>
+						
+					</c:if>
+					<c:if test="${not empty matchVO.filename}">
+						<td class="txtB3 pd15">${matchVO.oriFilename} <a href="#" onclick ="javascript:confirmDeleteFile();"> [삭제] </a></td>
+					</c:if>		
+				</td>	
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>카카오톡 ID</td>
+				<td class="txtB3 pd15"><input type="text" name="kakao_id" tabindex="2" style="width:200px;"></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>키</td>
+				<td class="txtB3 pd15"><input type="text" name="height" tabindex="2" style="width:200px;"></td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>체형</td>
+				<td class="txtB3 pd15">
+					<select name="body_shape" class="select">
+	                  <option value="" selected disabled>체형을 선택해주세요.</option>
 	                  <option value="마른">마른</option>
 	                  <option value="보통">보통</option>
 	                  <option value="통통">통통</option>
-	               </select>
-				
-	            </li>
-	            <li>   
-	               <label for=""> 지역</label>
-	               <select name="division">
+					</select>				
+				</td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>지역</td>
+				<td class="txtB3 pd15">
+					<select name="division" class="select">
 	                  <option value="none" selected disabled>구를 선택해주세요.</option>
 	                  <option value="동구">동구</option>
 	                  <option value="수성구">수성구</option>
@@ -90,46 +87,46 @@
 	                  <option value="남구">남구</option>
 	                  <option value="달서구">달서구</option>
 	                  <option value="달성군">달성군</option>
-	               </select>
-	              </li> 
-	               <li>
-	                  <label for="">어떤 메이트를 만나고 싶나요?</label>
-	                     <br></br>
-	                     <div class="row_arr">
+					</select>					
+				</td>
+			</tr>
+			<tr>
+				<td class="txtB2 pd15" width=150>어떤 메이트를 만나고 싶나요?</td>
+				<td class="txtB3 pd15">
+					<div class="row_arr">
 	                     <div class="row1">
-	                   
-	                     	<label>
+	                   	 	<label>
 	                        	<input type="radio" name="purpose" value="소개팅">
 	                        	<img src="https://cdn.pixabay.com/photo/2015/03/26/11/02/heart-692312_1280.jpg">
 	                            <h2>소개팅</h2>
 	                       </label>
-		                       <label>
-		                       		<input type="radio" name="purpose" value="간단맥주">
-		                            <img src="https://cdn.pixabay.com/photo/2015/07/10/17/53/beer-839865_1280.jpg">
-		                            <h2>간단맥주</h2>
-		                       </label>
+		                   <label>
+		                   		<input type="radio" name="purpose" value="간단맥주">
+		                        <img src="https://cdn.pixabay.com/photo/2015/07/10/17/53/beer-839865_1280.jpg">
+		                        <h2>간단맥주</h2>
+		                   </label>
 	                       <label>
-	                       <input type="radio" name="purpose" value="혼밥싫어">
-	                       <img src="https://cdn.pixabay.com/photo/2015/03/26/09/42/breakfast-690128_1280.jpg">
-	                        <h2>혼밥싫어</h2>
-	                     </label>
-	                     </div>
-	                     <div class="row2">
-	                        <label>
-	                          <input type="radio" name="purpose" value="같이열공">
-	                          <img src="https://cdn.pixabay.com/photo/2016/06/01/06/26/open-book-1428428_1280.jpg">
-	                           <h2>같이열공</h2>
+	                       		<input type="radio" name="purpose" value="혼밥싫어">
+	                      		 <img src="https://cdn.pixabay.com/photo/2015/03/26/09/42/breakfast-690128_1280.jpg">
+	                       		 <h2>혼밥싫어</h2>
+	                   	   </label>
+	                    </div>
+	                    <div class="row2">
+	                    	<label>
+	                        	<input type="radio" name="purpose" value="같이열공">
+	                            <img src="https://cdn.pixabay.com/photo/2016/06/01/06/26/open-book-1428428_1280.jpg">
+	                             <h2>같이열공</h2>
 	                       </label>
-	                          <label>
-	                          <input type="radio" name="purpose" value="영화봐요">
-	                          <img src="https://cdn.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg">
+	                       		<label>
+	                            <input type="radio" name="purpose" value="영화봐요">
+	                            <img src="https://cdn.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg">
 	                            <h2>영화봐요</h2>
 	                       </label>
 	                       <label>
-	                       <input type="radio" name="purpose" value="고민상담">
-	                       <img src="https://cdn.pixabay.com/photo/2017/04/08/10/33/smartphone-2212963_1280.jpg">
-	                        <h2>고민상담</h2>
-	                     </label>
+	                      		 <input type="radio" name="purpose" value="고민상담">
+	                      		 <img src="https://cdn.pixabay.com/photo/2017/04/08/10/33/smartphone-2212963_1280.jpg">
+	                      		  <h2>고민상담</h2>
+	                       </label>
 	                     </div>
 	                     <div class="row3">
 	                        <label>
@@ -148,20 +145,22 @@
 	                        <h2>취업상담</h2>
 	                     </label>
 	                     </div>
-	                     </div>
-	                  
-	               </li>
-	            <li class="join-btn">
-	            <!-- 가입완료 버튼 눌렀을 때 submitForm()함수 실행  -->
-	             <a href="#none" onclick="submitForm();">제출완료</a>
-	
-	             </li>
-	         </ul>
-	         </div>
-      </form>   
-   </div>
-</div>
+	            	</div>					
+				</td>
+			</tr>
+			<tr>
+				<td class="pdTB15" colspan="2" align="center">
+					<a href="#" onClick="submitForm();" class="btn_s">제출완료</a></td>
+		</table>
+		</form>			
+		</td>
+	</tr>
+</table>
 <!-- contents 끝 -->
+
+<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
+
+
 <script>
 var msg = '<c:out value="${msg}"/>';
 if(msg != ''){

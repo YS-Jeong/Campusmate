@@ -62,10 +62,6 @@
 							<input type="file">
 						</li>
 						 -->
-						<li class="checkbox-wrap">
-							<label for="">공지선택</label>
-							<input type="checkbox" id="chk-notice"><label for="chk-notice">선택시 공지사항</label>
-						</li>
 					</ul>
 				</div>
 			</div>
