@@ -341,6 +341,7 @@ public class CircleController {
 		
 		circle_replyVO.setSt_id(loginVO.getSt_id());
 		circle_replyVO.setCircle_id(circleVO.getSeq());
+		
 		System.out.println("id="+circle_replyVO.getId());
 		
 		commonService.delete(circle_replyVO, null, null, "circle_replyDAO.deleteSingleReply");

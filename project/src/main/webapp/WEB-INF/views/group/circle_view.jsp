@@ -19,13 +19,15 @@ body > div > div > div.table-list > ul.tb-bd > li > div.button {color:red;}
 
 <div class="notice-wrap">
 	<div class="notice-box">
-		<div class="bbs-view">
-		<%@ include file="/WEB-INF/views/inc/submenu.jsp" %>
-
+		<div class="circle-view">
 			<div class="view-hd">
-				<span><c:out value='${circleVO.date}' /></span>s
-				<h2><c:out value='${circleVO.subject}' /></h2>
-				<p>작성자 : <b><c:out value='${circleVO.writer}' /></b></p>
+				<h2 class="name">동아리게시판</h2>
+				<h2 class="subject"><c:out value='${circleVO.subject}' /></h2>
+				<h2 class="writer"><c:out value='${circleVO.writer}' /></h2>
+				<div class="info">
+					<h2 class="date"><c:out value='${circleVO.date}' /></h2>
+					<h2 class="hit">조회수:<c:out value="${circleVO.hit}"/></h2>
+				</div>
 			</div>
 
 			<div class="view-cont">
@@ -40,7 +42,7 @@ body > div > div > div.table-list > ul.tb-bd > li > div.button {color:red;}
 			</c:if>
 		</div>
 		<div class="table-btn">
-			<div>
+			<div style="border-bottom: 2px solid #f2f2f2; padding:10px;">
 				<c:set var="session" value="${sessionScope.login}" scope="application"/>
 					<c:if test = "${session.name == circleVO.writer}">
 						<a href="<c:url value='/group/circle_list.do'/>" class="lis">목록</a>
@@ -54,28 +56,14 @@ body > div > div > div.table-list > ul.tb-bd > li > div.button {color:red;}
 		</div>
 		
 		
-		<div class="table-list">
-			<ul class="tb-hd">
-					<li>
-						<div class="name">작성자</div>
-						<div class="content">내용</div>
-						<div class="date">등록일</div>
-						<div class="button">관리</div>
-					</li>
-			</ul>
+		<div class="reply-list">
 			<c:forEach var="circle_replyVO" items="${circle_replyVOList}" varStatus="status">
-				<ul class="tb-bd">
+				<ul class="tb-reply-bd">
 					<li>
-						<div class="name"><c:out value="${circle_replyVO.name}"/></div>
-						<div class="content"><c:out value="${circle_replyVO.content}"/></div>
-						<div class="date"><c:out value="${circle_replyVO.regdate}"/></div>
-						<div class="button">
-							<c:if test = "${session.name == circle_replyVO.name}">
-								<a class="modify">수정</a>
-								<a onclick="javascript:replyDelete();">삭제</a>
-							</c:if>
-							<c:if test = "${session.name != circle_replyVO.name}">
-							</c:if>
+						<div class="comment-box">
+							<div class="name"><c:out value="${circle_replyVO.name}"/></div>
+							<div class="content"><c:out value="${circle_replyVO.content}"/></div>
+							<div class="date"><c:out value="${circle_replyVO.regdate}"/></div>
 						</div>
 					</li>
 				</ul>
@@ -84,9 +72,9 @@ body > div > div > div.table-list > ul.tb-bd > li > div.button {color:red;}
 		<br><br>
 		<form method="post" action="<c:url value = "/group/circle_reply_insert.do"/>?seq=${circleVO.seq}">
 		<div class="comment-reg">
-			<p>댓글 작성</p>
 			<p>
-				<textarea name = "content" style="width: 1200px" rows="5" colos="50" placeholder="불건전한 내용, 광고성, 타인 비하 등 운영 원칙에 위배되는 댓글은 삭제될 수 있습니다."></textarea>
+				<div class = "comment-inbox-name">작성자: <c:out value="${session.name}"/></div>
+				<textarea class="comment" name = "content" rows= "5" colos="50" placeholder="불건전한 내용, 광고성, 타인 비하 등 운영 원칙에 위배되는 댓글은 삭제될 수 있습니다."></textarea>
 			</p>
 			<div class="button">
 				<button>댓글작성</button>

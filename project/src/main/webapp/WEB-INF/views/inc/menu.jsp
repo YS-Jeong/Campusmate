@@ -13,7 +13,7 @@
                         <!-- ***** Logo Start ***** -->
                         <a href="<c:url value='/index.do'/>" class="logo">
                           CAMPUSMATE
-                        </a>
+                        </a>.
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">

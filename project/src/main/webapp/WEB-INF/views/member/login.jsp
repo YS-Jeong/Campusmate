@@ -11,10 +11,10 @@
 
 <div class="login-box">
 		
-		<h1>로그인</h1>
 		<form method="post" name="frm" action="<c:url value='/member/actionLogin.do'/>">
 			<div class="login">
 				<ul>
+					<li class="login-logo">CAMPUSMATE</li>
 					<li>
 						<input type="text" name="st_id" placeholder="학번">
 					</li>
