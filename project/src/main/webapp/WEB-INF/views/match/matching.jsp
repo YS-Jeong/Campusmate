@@ -9,6 +9,29 @@
 
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 <style>
+.join{
+
+    display: flex;
+   
+}
+/* .join-box{
+	width:1000px;}
+.join-box .join-form1{
+ 	width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    border: 5px solid #ffc10733;
+    border-radius: 25px;
+    padding: 30px;
+}
+.join-box .join-form2 {
+    width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    border: 5px solid #ffc10733;
+    border-radius: 25px;
+    padding: 30px;
+} */
 img{width:200px; height:200px;}
 body > div > div > div:nth-child(2) > ul > li > h1 > a:nth-child(1){color:#f88e8e;}
 body > div > div > div:nth-child(2) > ul > li > h1 > a:nth-child(2){color:#f88e8e;}
@@ -30,7 +53,7 @@ body > div > div > div:nth-child(2) > ul > li h1{font-size:16px; margin-bottom:3
 		      </li>
 	      </ul>
       </div>
-      <div>
+      <div class="join">
          <div class ="join-form1">
             <ul>
        		 <li>
@@ -43,9 +66,12 @@ body > div > div > div:nth-child(2) > ul > li h1{font-size:16px; margin-bottom:3
                  <br/><br/>
                </li>
                <li>
+               <div>
                   <label for="">카카오톡 ID</label>
+                  <div>
                   <input type="text" name="kakao_id" placeholder="카카오톡 ID" value="${matchVO.kakao_id}">
-                  
+                  </div>
+                </div>  
                </li>
                <li>
                   <label for="">키</label>
@@ -169,7 +195,6 @@ body > div > div > div:nth-child(2) > ul > li h1{font-size:16px; margin-bottom:3
 				</li> 
 				</ul>
 			</div>
-			
 		
 			 <div class ="join-form2">
             <ul>

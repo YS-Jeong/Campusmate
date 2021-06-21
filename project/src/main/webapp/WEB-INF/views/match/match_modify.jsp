@@ -53,12 +53,13 @@ img{width:200px; height:200px;}
 					<img src="<c:url value='/match/match_image.do'/>?st_id=${matchVO.st_id}">
 				</div>
 				<!-- 첨부파일이 있다면 -->
+
 				<c:if test="${not empty matchVO.filename}">
 					<li>
 						<label for="">${matchVO.oriFilename} <a href="#" onclick ="javascript:confirmDeleteFile();"> [삭제] </a></label>
 					</li>
 				</c:if>
-
+				<br>
                </li>
                <li>
                   <label for="">카카오톡 ID</label>
