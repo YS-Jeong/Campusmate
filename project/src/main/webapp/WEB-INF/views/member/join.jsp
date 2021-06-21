@@ -16,7 +16,6 @@
 
 		<h1>회원가입</h1>
 
-		
 		<form method="post" name="frm" action="<c:url value='/member/joinInsert.do'/>">
 		<div class ="join-form">
 			<ul>
