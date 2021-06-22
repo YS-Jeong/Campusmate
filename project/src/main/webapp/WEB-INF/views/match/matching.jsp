@@ -33,6 +33,8 @@
     padding: 30px;
 } */
 img{width:200px; height:200px;}
+img.x{width:100px; height:100px; margin-top: 250px; padding-right: 10px; padding-left: 5px;}
+body{background-image:url('https://image.freepik.com/free-vector/abstract-simple-dot-pattern-design-decoration-background_121035-35.jpg')}
 body > div > div > div:nth-child(2) > ul > li > h1 > a:nth-child(1){color:#f88e8e;}
 body > div > div > div:nth-child(2) > ul > li > h1 > a:nth-child(2){color:#f88e8e;}
 body > div > div > div:nth-child(2) > ul > li > h1 > a:nth-child(3){color:#007bffb0;}
@@ -195,7 +197,9 @@ body > div > div > div:nth-child(2) > ul > li h1{font-size:16px; margin-bottom:3
 				</li> 
 				</ul>
 			</div>
-		
+			<div class="sign">
+				<img class="x" src="../assets/images/sign.png" alt="">
+			</div>
 			 <div class ="join-form2">
             <ul>
                <li>
@@ -336,6 +340,10 @@ body > div > div > div:nth-child(2) > ul > li h1{font-size:16px; margin-bottom:3
 			</div>
 	</div>
 </div>
+	<div style="text-align:center; margin-top:20px;">
+		<a href="#" onClick="alert('준비중인 서비스입니다.')" class="btn_s">채팅하기</a>
+		<a href="<c:url value='/match/matching_intro.do'/>"class="btn_s">매칭계속하기</a>	
+	</div>
 </div>
                  
 <script>

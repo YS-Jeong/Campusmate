@@ -110,5 +110,32 @@ function replyDelete(){
 }
 
 </script>
+<script>
+	function confirmDeleteFile(){
+		if(confirm('삭제하시겠습니까?')==true){
+			$.ajax({
+				type :'POST',
+				url : '<c:url value="/match/match_deleteFile.do"/>',
+				dataType :'JSON',
+				data:{"st_id" : ${matchVO.st_id}},
+				success:function(data){
+					//파일 삭제를 ajax로 처리 
+					if(data.success=="true"){
+						//정상적으로 삭제가 되었다면
+						location.reload(); //갱신 
+					}else{
+						//파일삭제가 실패했다면
+						alert('파일 삭제가 실패하였습니다.');
+					}
+				},
+				error : function(jqXHR,textStatus,errorThrown){
+					console.log(textStatus);
+				}
+			})
+		}
+	}
+
+</script>
+
 </body>
 </html>
