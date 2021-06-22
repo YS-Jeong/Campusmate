@@ -182,7 +182,7 @@ public class CircleController {
 	public String circle_view(CircleVO searchVO, MatchVO matchVO, Model model, HttpSession session, RedirectAttributes redirectAttributes) throws Exception {
 		
 		CircleVO circleVO = (CircleVO)commonService.selectView(searchVO, null, null, "circleDAO.selectCircleView");
-			
+		
 		commonService.update(circleVO, null, null, "circleDAO.updateCircleHit");
 		model.addAttribute("circleVO", circleVO);
 		

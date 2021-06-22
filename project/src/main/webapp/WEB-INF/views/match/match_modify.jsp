@@ -734,7 +734,7 @@ img{width:200px; height:200px;}
 			<tr>
 				<td class="pdTB15" colspan="2" align="center">
 					<a href="#" onClick="submitForm();" class="btn_s">수정완료</a>
-					<a href="<c:url value='/member/mypage.do'/>"class="btn_s">취소</a>
+					<a href="<c:url value='/index.do'/>"class="btn_s">취소</a>
 					</td>
 			</tr>			
 		</table>
@@ -745,9 +745,12 @@ img{width:200px; height:200px;}
 <!-- contents 끝 -->
 
 <%@ include file="/WEB-INF/views/inc/menu.jsp" %>
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/YS-Jeong/Campusmate.git
 <script>
 var msg = '<c:out value="${msg}"/>';
 if(msg != ''){
